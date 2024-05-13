@@ -7,7 +7,6 @@ class CreateLogs < ActiveRecord::Migration[7.1]
       t.string :grooming
       t.string :stool
       t.string :vaccination
-      t.datetime :created_at
       t.references :dog, null: false, foreign_key: true
       t.string :mood
       t.string :energy
