@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_13_161456) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_13_163631) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_161456) do
     t.index ["user_id"], name: "index_vet_dogs_on_user_id"
   end
 
+  create_table "walks", force: :cascade do |t|
+    t.time "start_time"
+    t.time "end_time"
+    t.float "pace"
+    t.decimal "start_lat"
+    t.decimal "start_lng"
+    t.decimal "end_lat"
+    t.decimal "end_lng"
+    t.float "distance"
+    t.bigint "dog_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_walks_on_dog_id"
+  end
+
   add_foreign_key "chats", "users"
   add_foreign_key "dogs", "users"
   add_foreign_key "messages", "chats"
@@ -89,4 +104,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_161456) do
   add_foreign_key "prescriptions", "users"
   add_foreign_key "vet_dogs", "dogs"
   add_foreign_key "vet_dogs", "users"
+  add_foreign_key "walks", "dogs"
 end
