@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_13_161109) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_13_161456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_161109) do
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 
+  create_table "prescriptions", force: :cascade do |t|
+    t.bigint "dog_id", null: false
+    t.bigint "user_id", null: false
+    t.string "medication_name"
+    t.boolean "completed"
+    t.date "start_date"
+    t.date "end_date"
+    t.text "description"
+    t.integer "dosage"
+    t.string "time_of_day"
+    t.integer "number_of_times_per_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_prescriptions_on_dog_id"
+    t.index ["user_id"], name: "index_prescriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,6 +85,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_161109) do
   add_foreign_key "chats", "users"
   add_foreign_key "dogs", "users"
   add_foreign_key "messages", "chats"
+  add_foreign_key "prescriptions", "dogs"
+  add_foreign_key "prescriptions", "users"
   add_foreign_key "vet_dogs", "dogs"
   add_foreign_key "vet_dogs", "users"
 end
