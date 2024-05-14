@@ -1,1 +1,6 @@
 <h1>walks page</h1>
+ <div class="map-card" style="width: 500px; height: 1200px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>

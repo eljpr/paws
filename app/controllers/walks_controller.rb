@@ -1,12 +1,12 @@
 class WalksController < ApplicationController
   def index
-    @walks = Walk.all
-    # @markers = @walks.geocoded.map do |walk|
-    #   {
-    #     lat: walk.latitude,
-    #     lng: walk.longitude
-    #   }
-    # end
+    @walks = Walk.geocoded
+    @markers = @walks.map do |walk|
+      {
+        lat: walk.latitude,
+        lng: walk.longitude
+      }
+    end
     if params[:query].present?
       sql_subquery = <<~SQL
         bikes.location @@ :query
