@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many %i[dogs vet_dogs prescriptions chats]
+  has_many :dogs, :vet_dogs, :prescriptions, :chats
   # has_many :walks, through: :dogs
   # has_many :logs, through: :dogs
 
