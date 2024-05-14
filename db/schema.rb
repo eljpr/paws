@@ -82,6 +82,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_165627) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "mobile_number"
     t.boolean "is_vet"
     t.time "opening_time"
     t.boolean "closing_time"
@@ -103,10 +107,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_13_165627) do
     t.time "start_time"
     t.time "end_time"
     t.float "pace"
-    t.decimal "start_lat"
-    t.decimal "start_lng"
-    t.decimal "end_lat"
-    t.decimal "end_lng"
+    t.decimal "start_lat", precision: 10, scale: 6
+    t.decimal "start_lng", precision: 10, scale: 6
+    t.decimal "end_lat", precision: 10, scale: 6
+    t.decimal "end_lng", precision: 10, scale: 6
     t.float "distance"
     t.bigint "dog_id", null: false
     t.datetime "created_at", null: false
