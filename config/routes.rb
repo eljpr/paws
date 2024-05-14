@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :dogs do
     resources :walks, except: %i[update delete]
     resources :prescriptions
-    resources :vet_dog, only: [:create]
+    resources :vet_dogs, only: [:create]
     resources :logs
   end
   resources :chats, only: %i[index show create] do
