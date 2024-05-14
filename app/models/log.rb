@@ -1,13 +1,9 @@
 class Log < ApplicationRecord
   belongs_to :dog
-  validates :medication, inclusion: { in: %w[`none antibiotic antiparasitic antifungal steroids pain relief`],
-                                      message: `%<value> is not a valid form of medication` }
-  validates :food, inclusion: { in: %w[`kibble canned raw home-made`],
-                                message: `%<value> is not a valid form of food` }
-  validates :grooming, inclusion: { in: %w[`bath brush nail-trim ear-care fur-cut brush-teeth`],
-                                    message: `%<value> is not a valid form of grooming` }
-  validates :special_treat, inclusion: { in: %w[`crunchy soft jerky dental-chews animal-based rawhide home-made`],
-                                         message: `%<value> is not a valid form of treat` }
+  validates :medication, inclusion: { in: %w[`none antibiotic antiparasitic antifungal steroids pain relief`] }
+  validates :food, inclusion: { in: %w[`kibble canned raw home-made`] }
+  validates :grooming, inclusion: { in: %w[`bath brush nail-trim ear-care fur-cut brush-teeth`]}
+  validates :special_treat, inclusion: { in: %w[`crunchy soft jerky dental-chews animal-based rawhide home-made`] }
   validates :stool, inclusion: { in: %w[`normal constipation diarrhea`],
                                  message: `%<value> is not a valid stool input` }
   validates :vaccination, inclusion: { in: %w[`none distemper parvovirus adenovirus leptospira)`],
