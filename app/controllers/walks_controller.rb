@@ -1,17 +1,20 @@
 class WalksController < ApplicationController
   def index
-    @walks = Walk.all
-    # @markers = @walks.geocoded.map do |walk|
-    #   {
-    #     lat: walk.latitude,
-    #     lng: walk.longitude
-    #   }
-    # end
+    @walks = Walk.geocoded
+    @markers = @walks.map do |walk|
+      {
+        start_lng: walk.start_lng,
+        start_lat: walk.start_lat,
+        end_lng: walk.end_lng,
+        end_lat: walk.end_lat
+      }
+    end
     if params[:query].present?
       sql_subquery = <<~SQL
-        bikes.location @@ :query
+        walks.location @@ :query
     SQL
     @walks = @walks.where(sql_subquery, query: params[:query])
+    @mapbox_api_key = ENV['MAPBOX_API_KEY']
     end
   end
   def new
