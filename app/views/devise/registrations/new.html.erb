@@ -15,6 +15,11 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :is_vet,
+                as: :boolean,
+                label: "I am a vet",
+                checked_value: true,
+                unchecked_value: false %>
   </div>
 
   <div class="form-actions">

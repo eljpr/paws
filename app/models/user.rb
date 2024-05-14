@@ -12,5 +12,5 @@ class User < ApplicationRecord
   # has_many :logs, through: :dogs
 
   validates :is_vet, presence: true
-  validates :opening_time, :closing_time, presence: true if :is_vet
+  # validates :opening_time, :closing_time, presence: true if :is_vet
 end
