@@ -23,18 +23,3 @@ class DogsController < ApplicationController
     params.require(:dogs).permit(:name, :medication, :condition, :breed, :date_of_birth, :weight)
   end
 end
-
-
-
-create_table "dogs", force: :cascade do |t|
-  t.string "name"
-  t.string "medication"
-  t.string "condition"
-  t.string "breed"
-  t.bigint "user_id", null: false
-  t.date "date_of_birth"
-  t.integer "weight"
-  t.datetime "created_at", null: false
-  t.datetime "updated_at", null: false
-  t.index ["user_id"], name: "index_dogs_on_user_id"
-end
