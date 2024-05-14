@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many %i[dogs vet_dogs prescriptions chats]
+
+  validates :is_vet, presence: true
+  validates :opening_time, :closing_time, presence: true, time: true, allow_blank: true if is_vet
 end
