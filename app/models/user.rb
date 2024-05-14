@@ -4,10 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many %i[dogs vet_dogs prescriptions chats]
+  has_many :dogs
+  has_many :vet_dogs
+  has_many :prescriptions
+  has_many :chats
   # has_many :walks, through: :dogs
   # has_many :logs, through: :dogs
 
   validates :is_vet, presence: true
-  validates :opening_time, :closing_time, presence: true, time: true, allow_blank: true if is_vet
+  validates :opening_time, :closing_time, presence: true if :is_vet
 end
