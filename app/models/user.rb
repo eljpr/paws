@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :dogs
   has_many :vet_dogs
+  has_many :patients, through: :vet_dogs, source: :dog
   has_many :prescriptions
   has_many :chats
   # has_many :walks, through: :dogs
