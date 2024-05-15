@@ -1,7 +1,7 @@
 <div class="container">
 <% if current_user.is_vet %>
-  <%= render "vet_card" %>
+  <%= render "vets_cards" %>
 <% else %>
-  <%= render "owner_card" %>
+  <%= render "owners_cards" %>
 <% end %>
 </div>
