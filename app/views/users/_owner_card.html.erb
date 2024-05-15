@@ -9,7 +9,7 @@
             <div>
               <h5 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h5>
               <p class="card-text">Cabinet Address: <%= vet.address %></p>
-              <p class="card-text">Cabinet Address: <%= vet.mobile_number %></p>
+              <p class="card-text">Contact number: <%= vet.mobile_number %></p>
               <p class="card-text">Opening Time: <%= vet.opening_time %> </p>
               <p class="card-text">Closing Time: <%= vet.closing_time %> </p>
             </div>
@@ -17,10 +17,10 @@
 
           <div class="d-flex justify-content-between" >
             <div>
-            <%# link to vet profile %>
+            <%= link_to 'Details', user_path(vet) %>
             </div>
             <div>
-            <%# link to home page %>
+            <%= link_to 'Back', root_path %>
             </div>
           </div>
         </div>
