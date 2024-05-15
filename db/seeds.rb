@@ -17,18 +17,18 @@ User.destroy_all
 
 puts "Creating users..."
 # Owners
-gilmar = User.create!(first_name: "Gilmar", last_name: "Margoti",  email: "gilmar@gmail.com", password: "123456", is_vet: false)
-max = User.create!(first_name: "Max", last_name: "Cody", email: "codym08@gmail.com", password: "123456", is_vet: false)
-ella = User.create!(first_name: "Ella", last_name: "Pierre", email: "ella@owner.com", password: "123456", is_vet: false)
-robbie = User.create!(first_name: "Robbie", last_name: "Radev", email: "robbie@owner.com", password: "123456", is_vet: false)
-elise = User.create!(first_name: "Elise", last_name: "Acher", email: "elise@owner.com", password: "123456", is_vet: false)
-sofia = User.create!(first_name: "Sofia", last_name: "Singam", email: "sofia@owner.com", password: "123456", is_vet: false)
+gilmar = User.create!(first_name: "Gilmar", last_name: "Margoti",  email: "gilmar@gmail.com", password: "123456", is_vet: false, address: "Rua da Alegria, 123", mobile_number: "123456789")
+max = User.create!(first_name: "Max", last_name: "Cody", email: "codym08@gmail.com", password: "123456", is_vet: false, address: "Great Portland Street, 392", mobile_number: "293010394")
+ella = User.create!(first_name: "Ella", last_name: "Pierre", email: "ella@owner.com", password: "123456", is_vet: false, address: "Baker Street, 221B", mobile_number: "49449109103")
+robbie = User.create!(first_name: "Robbie", last_name: "Radev", email: "robbie@owner.com", password: "123456", is_vet: false, address: "Bond Street, 221B", mobile_number: "233928405")
+elise = User.create!(first_name: "Elise", last_name: "Acher", email: "elise@owner.com", password: "123456", is_vet: false, address: "Oxford Street, 221B", mobile_number: "693849302")
+sofia = User.create!(first_name: "Sofia", last_name: "Singam", email: "sofia@owner.com", password: "123456", is_vet: false, address: "Regent Street, 221B", mobile_number: "950292842")
 # Vets
-ife = User.create!(first_name: "Ife", last_name: "Odugbesan", email: "ife@vet.com", password: "123456", is_vet: true)
-mo = User.create!(first_name: "Mo", last_name: "Rashid", email: "mo@vet.com", password: "123456", is_vet: true)
-raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa@vet.com", password: "123456", is_vet: true)
-meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@vet.com", password: "123456", is_vet: true)
-ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@vet.com", password: "123456", is_vet: true)
+ife = User.create!(first_name: "Ife", last_name: "Odugbesan", email: "ife@vet.com", password: "123456", is_vet: true, address: "Wimpole Street", mobile_number: "902840502")
+mo = User.create!(first_name: "Mo", last_name: "Rashid", email: "mo@vet.com", password: "123456", is_vet: true, address: "Harley Street", mobile_number: "749204910")
+raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa@vet.com", password: "123456", is_vet: true, address: "Marylebone High Street", mobile_number: "293840502")
+meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "940294901")
+ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@vet.com", password: "123456", is_vet: true, address: "Carnaby Street", mobile_number: "839402940")
 puts "Users created successfully..."
 
 puts "Creating dogs"
