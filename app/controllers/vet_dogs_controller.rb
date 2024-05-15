@@ -1,8 +1,8 @@
 class VetDogsController < ApplicationController
   def create
+    @vet_dog = VetDog.new(vet_dog_params)
     @user = current_user
     @dog = Dog.find(params[:dog_id])
-    @vet_dog = VetDog.new(vet_dog_params)
     if @vet_dog.save
       redirect_to user_path(@user)
     else
