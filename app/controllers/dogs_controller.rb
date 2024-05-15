@@ -1,10 +1,13 @@
 class DogsController < ApplicationController
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
   def index
     @dogs = current_user.dogs
   end
+
   def new
     @dogs = Dog.new
   end
+
   def create
     @user = current_user
     @dog = Dog.new(dog_params)
@@ -17,9 +20,28 @@ class DogsController < ApplicationController
       render :new, status: :unprosseable_entity
     end
   end
+
+  def show; end
+
+  def edit; end
+
+  def update
+    @dog.update(dog_params)
+    redirect_to dog_path(@dog)
+  end
+
+  def destroy
+    @dog.destroy
+    redirect_to dogs_path
+  end
+
   private
 
   def dog_params
     params.require(:dogs).permit(:name, :medication, :condition, :breed, :date_of_birth, :weight)
+  end
+
+  def set_dog
+    @dog = Dog.find(params[:id])
   end
 end
