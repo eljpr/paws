@@ -1,6 +1,6 @@
 class WalksController < ApplicationController
   def index
-    @walks = Walk.geocoded
+    @walks = Walk.all
     @markers = @walks.map do |walk|
       {
         start_lng: walk.start_lng,
