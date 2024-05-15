@@ -11,6 +11,8 @@ class User < ApplicationRecord
   # has_many :walks, through: :dogs
   # has_many :logs, through: :dogs
 
-  # validates :is_vet, #presence: true
-  # validates :opening_time, :closing_time, presence: true if :is_vet
+
+  # validates :is_vet, presence: true
+  # validates :opening_time, :closing_time, presence: true if ?? (after create validation or javascript validation?)
+
 end
