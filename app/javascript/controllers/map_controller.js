@@ -97,7 +97,7 @@ export default class extends Controller {
   }
   // start tracking the walk
   startTracking() {
-    this.path = [];
+    this.path = [{"lat": 51.44901,"lng": -0.29155}];
     console.log(this)
     this.watchID  = navigator.geolocation.watchPosition(position => {
       const {lat, lng} = position.coords;
@@ -147,11 +147,14 @@ export default class extends Controller {
   }
   // Save the tracked path to the server
   savePath() {
+    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    console.log(token)
     fetch('/walks', {
       method: 'POST',
       headers: {
+        'Accept':'application/json',
         'Content-Type': 'application/json',
-        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        'X-CSRF-Token': token
       },
       body: JSON.stringify({ path: this.path })
     })
