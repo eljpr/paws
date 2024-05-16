@@ -25,16 +25,24 @@ class WalksController < ApplicationController
   end
 def create
   puts params.inspect
-  @walk = Walk.new(walk_params)
+  @walk = Walk.new
+  @walk.dog = Dog.first
   @walk.user = current_user
-  if @walk.save
-    redirect_to walk_path(@walk)
-  else
-    render :new, status: :unprosseable_entity
+  @walk.path = params["path"].map do |point_params|
+    [point_params["lat"], point_params["lng"]] if point_params.is_a?(ActionController::Parameters)
   end
+ respond_to do |format|
+  if @walk.save!
+    format.html { redirect_to @walk, notice: "Walk was succesfully created."  }
+    format.json { render json: { status: :ok, message: "Success!" }}
+  else
+    format.html {render :new, status: :unprocessable_entity}
+    format.json { render json: {status: :unprocessable_entity} }
+  end
+ end
 end
 
 def walk_params
-  params.require(:walk).permit(:start_time, :end_time, :start_lat, :start_lng, :end_lat, :end_lng, :distance, :pace, :distance)
+  params.require(:walk).permit(:start_time, :end_time, :start_lat, :start_lng, :end_lat, :end_lng, :distance, :pace, :distance, path: [])
 end
 end

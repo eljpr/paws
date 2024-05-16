@@ -1,7 +1,9 @@
 class Walk < ApplicationRecord
   belongs_to :dog
-  after_validation :geocode, if: :will_save_change_to_walks?
-  # geocoded_by :start_coordinates
+  belongs_to :user
+
+  #after_validation :geocoder ,if: :will_save_change_to_path?
+
   # after_validation :geocode, if: ->(obj){ obj.start_lat.present? and obj.start_lng.present? }
   # #scope :geocoded, do { where.not(start_lat: nil, start_lng: nil, end_lat: nil, end_lng: nil) }
 
