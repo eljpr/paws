@@ -1,23 +1,30 @@
 <h1>Select your vet</h1>
 <div class="row">
 <% @vets.each do |vet| %>
-    <div class="col col-md-4 mt-3 mb-3">
+    <div class="col-sm-6 mt-3">
       <div class="card">
         <div class="card-body">
           <div class="d-flex justify-content-between mb-3">
-            <div>
+          <div>
+            <div class="d-flex justify-content-between mb-3>
               <h5 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h5>
-              <%= cl_image_tag vet.photo.key, height: 300, width: 400, crop: :fill %>
-              <p class="card-text">Cabinet Address: <%= vet.address %></p>
-              <p class="card-text">Contact number: <%= vet.mobile_number %></p>
-              <p class="card-text">Opening Time: <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
-              <p class="card-text">Closing Time: <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
+              <div>
+              <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "avatar", alt: "#{vet.first_name}" %>
+              </div>
             </div>
+            <div id="vet-info">
+              <p class="card-text"><strong>Cabinet Address:</strong> <%= vet.address %></p>
+              <p class="card-text"><strong>Contact number:</strong> <%= vet.mobile_number %></p>
+              <p class="card-text"><strong>Opening Time:</strong> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
+              <p class="card-text"><strong>Closing Time:</strong> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
+            </div>
+            </div>
+
           </div>
 
           <div class="d-flex justify-content-between" >
             <div>
-            <%= link_to 'Details', user_path(vet) %>
+            <%= link_to 'Details', user_path(vet), class:'link-button' %>
             </div>
             <div>
             <%= link_to 'Back', root_path %>

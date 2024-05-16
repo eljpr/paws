@@ -4,13 +4,13 @@
         <div class="card-body">
           <div class="d-flex justify-content-between mb-3">
             <div>
-              <h5 class="card-title"><%= @owner.first_name %> <%= @owner.last_name %> </h5>
-              <%= cl_image_tag @owner.photo.key, height: 300, width: 400, crop: :fill %>
-              <p class="card-text">Address: <%= @owner.address %></p>
-              <p class="card-text">Mobile number: <%= @owner.mobile_number %> </p>
+              <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %> </h5>
+              <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+              <p class="card-text">Address: <%= @user.address %></p>
+              <p class="card-text">Mobile number: <%= @user.mobile_number %> </p>
 
               <p class="card-text">
-              <% pets = @owner.dogs %>
+              <% pets = @user.dogs %>
               <% if pets == 1 %>
                 <%= cl_image_tag pets.photo.key, height: 300, width: 400, crop: :fill %>
                 <%= 'Pet: ' %>

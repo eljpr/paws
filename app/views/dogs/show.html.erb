@@ -9,7 +9,7 @@
   <p>Vet:
   <% if @dog.vet_dogs %>
     <% @dog.vet_dogs.each do |vet_dog| %>
-      <%= vet_dog.user.first_name %>
+      <%= link_to vet_dog.user.first_name, user_path(vet_dog.user) %>
       <% end %>
       <% else %>
       <%= @dog.name "doesn't have a vet"%>
