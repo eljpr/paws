@@ -7,7 +7,29 @@
               <h5 class="card-title"><%= @owner.first_name %> <%= @owner.last_name %> </h5>
               <p class="card-text">Address: <%= @owner.address %></p>
               <p class="card-text">Mobile number: <%= @owner.mobile_number %> </p>
-              <p class="card-text">Pet: <%=  %> </p>
+
+              <p class="card-text">
+              <% pets = @owner.dogs %>
+              <% if pets == 1 %>
+                <%= 'Pet: ' %>
+                <%= pets.name %>
+                <%= pets.date_of_birth %>
+                <%= pets.breed %>
+                <%= pets.weight %>
+                <%= pets.condition %>
+                <%= pets.medication %>
+              <% else %>
+                <%= 'Pets: ' %>
+              <%pets.each do |pet|%>
+                <%= pet.name %>
+                <%= pet.date_of_birth %>
+                <%= pet.breed %>
+                <%= pet.weight %>
+                <%= pet.condition %>
+                <%= pet.medication %>
+              <% end %>
+              <% end %>
+              </p>
             </div>
           </div>
 

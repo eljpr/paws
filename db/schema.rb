@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_111905) do
     t.string "mobile_number"
     t.boolean "is_vet"
     t.time "opening_time"
-    t.boolean "closing_time"
+    t.time "closing_time"
     t.date "log_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
