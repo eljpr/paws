@@ -9,5 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @owner = User.find(params[:id])
+    @vet_dog = VetDog.new
+
   end
 end

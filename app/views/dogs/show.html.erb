@@ -6,7 +6,15 @@
   <p>Pre-existing condition:<%= @dog.condition %></p>
   <p>Medication: <%= @dog.medication %></p>
   <p>Weight: <%= @dog.weight %></p>
-
+  <p>Vet:
+  <% if @dog.vet_dogs %>
+    <% @dog.vet_dogs.each do |vet_dog| %>
+      <%= vet_dog.user.first_name %>
+      <% end %>
+      <% else %>
+      <%= @dog.name "doesn't have a vet"%>
+  <% end %>
+  </p>
 
 </div>
 
