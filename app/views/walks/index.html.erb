@@ -5,7 +5,7 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
     data-controller="map"
 
-     data-map-markers-value='[{"lng": -122.4194, "lat": 37.7749}, {"lng": -73.935242, "lat": 40.73061}]'></div>
+     data-map-markers-value=<%= [{"lng": -122.4194, "lat": 37.7749},{"lng": -73.935242, "lat": 40.73061}].to_json %>></div>
 
 
 
