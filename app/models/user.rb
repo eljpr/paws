@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :prescriptions
   has_many :chats
   has_many :walks
+  has_one_attached :photo
   # has_many :walks, through: :dogs
   # has_many :logs, through: :dogs
 

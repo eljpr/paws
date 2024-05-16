@@ -3,11 +3,11 @@
 <% @vets.each do |vet| %>
     <div class="col col-md-4 mt-3 mb-3">
       <div class="card">
-        <img src="" class="card-img-top" alt="...">
         <div class="card-body">
           <div class="d-flex justify-content-between mb-3">
             <div>
               <h5 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h5>
+              <%= cl_image_tag vet.photo.key, height: 300, width: 400, crop: :fill %>
               <p class="card-text">Cabinet Address: <%= vet.address %></p>
               <p class="card-text">Contact number: <%= vet.mobile_number %></p>
               <p class="card-text">Opening Time: <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>

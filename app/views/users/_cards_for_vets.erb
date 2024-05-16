@@ -3,11 +3,11 @@
 <% @patients.each do |dog| %>
     <div class="col mt-3 mb-3">
       <div class="card">
-        <img src="" class="card-img-top" alt="...">
         <div class="card-body">
           <div class="d-flex justify-content-between mb-3">
             <div>
               <h5 class="card-title"><%= dog.name  %> </h5>
+              <%= cl_image_tag dog.photo.key, height: 300, width: 400, crop: :fill %>
               <p class="card-text">Owner: <%= link_to dog.user.first_name, user_path(dog.user) %> </p>
               <p class="card-text">Address: <%= dog.user.address %></p>
               <p class="card-text">Mobile number: <%= dog.user.mobile_number %> </p>
