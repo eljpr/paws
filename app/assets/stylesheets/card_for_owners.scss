@@ -1,0 +1,29 @@
+@import "config/colors";
+
+h1{
+  color: white;
+}
+
+.container{
+  background-color: $lgreen-pawsg;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card-title{
+  color: $lorange-pawsg;
+}
+
+.link-button{
+  background-color: $dgreen-pawsg;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.link-button:hover{
+  background-color: $lgreen-pawsg;
+}

@@ -1,13 +1,17 @@
+<%= stylesheet_link_tag("card_for_owners")%>
+
 <h1>Select your vet</h1>
 <div class="row">
 <% @vets.each do |vet| %>
-    <div class="col-sm-6 mt-3">
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
       <div class="card">
         <div class="card-body">
           <div class="d-flex justify-content-between mb-3">
           <div>
-            <div class="d-flex justify-content-between mb-3>
-              <h5 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h5>
+            <div class="d-flex justify-content-between mb-3">
+            <div>
+              <h3 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h2>
+            </div>
               <div>
               <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "avatar", alt: "#{vet.first_name}" %>
               </div>
