@@ -1,1 +1,10 @@
-<h1>All my dogs</h1>
+<h1>My puppies</h1>
+<% @dogs.each do |dog| %>
+<div class="card">
+  <h4>Name: <%= link_to dog.name, dog_path(dog)%></h4>
+  <img src="" alt="">
+</div>
+
+<% end %>
+
+<%= link_to 'Add a new puppy', new_dog_path %>

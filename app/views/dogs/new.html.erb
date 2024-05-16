@@ -1,14 +1,12 @@
-<h1>Dog edit</h1>
-
 <div class="parent container d-flex flex-column align-items-center h-100">
-  <h1>Update your puppy's info</h1>
+  <h1>Add your new puppy</h1>
   <%= simple_form_for @dog do |dog| %>
     <%= dog.error_notification %>
 
     <div class="form-inputs">
       <%= dog.input :name %>
-      <%= dog.input :breed %>
       <%= dog.input :date_of_birth %>
+      <%= dog.input :breed %>
       <%= dog.input :weight %>
       <%= dog.input :condition %>
       <%= dog.input :medication %>
@@ -16,9 +14,11 @@
     </div>
 
     <div class="form-actions" id="nav-btn">
-      <%= dog.submit "Update", class: 'btn btn-primary'%>
-      <%= link_to 'Back', dogs_path %>
+      <p><%= dog.submit "Add puppy", class: 'btn btn-primary'%></p>
+      <p><%= link_to 'Back', dogs_path %></p>
+
     </div>
   <% end %>
+  <hr>
 
 </div>
