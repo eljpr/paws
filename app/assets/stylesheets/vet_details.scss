@@ -4,6 +4,9 @@ h1{
   color: white;
 }
 
+.card{
+  border-radius: 5px;
+}
 
 .container{
   background-color: $lgreen-pawsg;
@@ -18,6 +21,8 @@ h1{
 
 #vet-pic{
   border-radius: 5px;
+  height: 300px;
+  width: 300px ;
 }
 
 .card-title{
@@ -29,8 +34,8 @@ line-height: 0.5;
 }
 
 .detail-key{
-  color: $lorange-pawsg;
-  font-weight: 500;
+  color: $lbblue-pawsg;
+  font-weight: 600;
 }
 
 #book-button{

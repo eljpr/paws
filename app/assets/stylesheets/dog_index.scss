@@ -3,8 +3,17 @@
 h1{
   color: white;
 }
-.card{
+
+.dog-pic{
   border-radius: 5px;
+  height: 300px;
+  width: 300px ;
+}
+
+.dog-name{
+  text-decoration:none;
+  color: $lorange-pawsg;
+  font-weight: 800;
 }
 
 .container{
@@ -14,19 +23,25 @@ h1{
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.card-title{
-  color: $lorange-pawsg;
+.card{
+  border-radius: 5px;
 }
 
-.link-button{
+.add-dog{
   background-color: $dgreen-pawsg;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   transition: 0.3s ease-in-out;
+  text-decoration: none;
 }
 
-.link-button:hover{
+.add-dog:hover{
   background-color: $lgreen-pawsg;
+}
+
+.detail-key{
+  color: $bblue-pawsg;
+  font-weight: 500;
 }
