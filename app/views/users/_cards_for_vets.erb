@@ -1,6 +1,5 @@
 <h1>All your clients</h1>
 <div class="row">
-
 <% @patients.each do |dog| %>
     <div class="col mt-3 mb-3">
       <div class="card">
@@ -9,7 +8,7 @@
           <div class="d-flex justify-content-between mb-3">
             <div>
               <h5 class="card-title"><%= dog.name  %> </h5>
-              <p class="card-text">Owner: <%= dog.user.first_name %> </p>
+              <p class="card-text">Owner: <%= link_to dog.user.first_name, user_path(dog.user) %> </p>
               <p class="card-text">Address: <%= dog.user.address %></p>
               <p class="card-text">Mobile number: <%= dog.user.mobile_number %> </p>
             </div>
@@ -17,7 +16,7 @@
 
           <div class="d-flex justify-content-between" >
             <div>
-            <%= link_to 'Details', user_path(dog.user) %>
+            <%= link_to 'Details', dog_path(dog) %>
             </div>
             <div>
             <%= link_to 'Back', root_path %>

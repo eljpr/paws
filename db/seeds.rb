@@ -24,11 +24,11 @@ robbie = User.create!(first_name: "Robbie", last_name: "Radev", email: "robbie@o
 elise = User.create!(first_name: "Elise", last_name: "Acher", email: "elise@owner.com", password: "123456", is_vet: false, address: "Oxford Street, 221B", mobile_number: "693849302")
 sofia = User.create!(first_name: "Sofia", last_name: "Singam", email: "sofia@owner.com", password: "123456", is_vet: false, address: "Regent Street, 221B", mobile_number: "950292842")
 # Vets
-ife = User.create!(first_name: "Ife", last_name: "Odugbesan", email: "ife@vet.com", password: "123456", is_vet: true, address: "Wimpole Street", mobile_number: "902840502")
-mo = User.create!(first_name: "Mo", last_name: "Rashid", email: "mo@vet.com", password: "123456", is_vet: true, address: "Harley Street", mobile_number: "749204910")
-raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa@vet.com", password: "123456", is_vet: true, address: "Marylebone High Street", mobile_number: "293840502")
-meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "940294901")
-ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@vet.com", password: "123456", is_vet: true, address: "Carnaby Street", mobile_number: "839402940")
+ife = User.create!(first_name: "Ife", last_name: "Odugbesan", email: "ife@vet.com", password: "123456", is_vet: true, address: "Wimpole Street", mobile_number: "902840502", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+mo = User.create!(first_name: "Mo", last_name: "Rashid", email: "mo@vet.com", password: "123456", is_vet: true, address: "Harley Street", mobile_number: "749204910", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa@vet.com", password: "123456", is_vet: true, address: "Marylebone High Street", mobile_number: "293840502", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "940294901", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@vet.com", password: "123456", is_vet: true, address: "Carnaby Street", mobile_number: "839402940", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
 puts "Users created successfully..."
 
 puts "Creating dogs"
@@ -44,8 +44,8 @@ puts "Dog created successfully..."
 puts "Creating vet_dogs"
 VetDog.create!(user: meli, dog: thalys)
 VetDog.create!(user: meli, dog: peneloppe)
+VetDog.create!(user: meli, dog: malu)
 VetDog.create!(user: ben, dog: ruby)
-VetDog.create!(user: ife, dog: malu)
 VetDog.create!(user: ife, dog: miko)
 VetDog.create!(user: raeesa, dog: piggy)
 VetDog.create!(user: mo, dog: lulla)
