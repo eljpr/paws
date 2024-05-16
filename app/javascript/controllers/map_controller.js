@@ -118,10 +118,10 @@ export default class extends Controller {
   //update the path layer on the map
   updatePathLayer() {
     if (this.pathLayer) {
-      this.map.removeLayer('path');
-      this.map.removeSource('path');
+      this.map.removeLayer('route');
+      this.map.removeSource('route');
     }
-    this.map.addSource('path', {
+    this.map.addSource('route', {
       type: 'geojson',
       data: {
         type: 'Feature',
@@ -138,6 +138,7 @@ export default class extends Controller {
       layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': '#888', 'line-width': 6 }
     });
+    this.pathLayer = true;
 
 
   }
