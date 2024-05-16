@@ -15,6 +15,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :is_vet,
                 as: :boolean,
                 boolean_style: :inline,
