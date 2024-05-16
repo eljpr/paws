@@ -6,26 +6,25 @@
     <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
       <div class="card">
         <div class="card-body">
-          <div class="d-flex justify-content-between mb-3">
+
           <div>
             <div class="d-flex justify-content-between mb-3">
             <div>
-              <h3 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h2>
-            </div>
+              <h3 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h3>
+              </div>
               <div>
-              <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "avatar", alt: "#{vet.first_name}" %>
+                <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "avatar", alt: "#{vet.first_name}" %>
+              </div>
               </div>
             </div>
             <div id="vet-info">
-              <p class="card-text"><strong>Cabinet Address:</strong> <%= vet.address %></p>
-              <p class="card-text"><strong>Contact number:</strong> <%= vet.mobile_number %></p>
-              <p class="card-text"><strong>Opening Time:</strong> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
-              <p class="card-text"><strong>Closing Time:</strong> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
-            </div>
+              <p class="card-text"><span class="detail-key"><strong>Cabinet Address:</strong> </span><%= vet.address %></p>
+              <p class="card-text"><span class="detail-key"><strong>Contact number:</strong></span> <%= vet.mobile_number %></p>
+              <p class="card-text"><span class="detail-key"><strong>Opening Time:</strong></span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
+              <p class="card-text"><span class="detail-key"><strong>Closing Time:</strong></span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
             </div>
 
-          </div>
-
+<br>
           <div class="d-flex justify-content-between" >
             <div>
             <%= link_to 'Details', user_path(vet), class:'link-button' %>
@@ -33,8 +32,9 @@
             <div>
             <%= link_to 'Back', root_path %>
             </div>
-          </div>
         </div>
+
+          </div>
       </div>
     </div>
   <% end %>

@@ -5,7 +5,6 @@ h1{
 }
 .card{
   border-radius: 5px;
-
 }
 
 .container{
@@ -32,7 +31,7 @@ h1{
   background-color: $lgreen-pawsg;
 }
 
-.detail-key{
+.details-key{
   color: $bblue-pawsg;
   font-weight: 500;
 
@@ -40,4 +39,8 @@ h1{
 
 .card-text{
   margin-bottom: 0px;
+}
+.owner-name{
+  color: $lorange-pawsg;
+  text-decoration:none;
 }
