@@ -5,13 +5,13 @@ class DogsController < ApplicationController
   end
 
   def new
-    @dogs = Dog.new
+    @dog = Dog.new
   end
 
   def create
     @user = current_user
     @dog = Dog.new(dog_params)
-    @dog.walk = @walk
+    # @dog.walk = @walk
     @dog.user = @user
     @dog.save
     if @dog.save
@@ -38,7 +38,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dogs).permit(:name, :medication, :condition, :breed, :date_of_birth, :weight)
+    params.require(:dog).permit(:name, :medication, :condition, :breed, :date_of_birth, :weight)
   end
 
   def set_dog
