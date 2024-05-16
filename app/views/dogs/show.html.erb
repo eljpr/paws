@@ -1,26 +1,45 @@
-<h1> <%= @dog.name %>'s details</h1>
-<div class="card">
-<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
-  <p>Breed: <%= @dog.breed %></p>
-  <p>Date of birth: <%= @dog.date_of_birth %></p>
-  <p>Pre-existing condition:<%= @dog.condition %></p>
-  <p>Medication: <%= @dog.medication %></p>
-  <p>Weight: <%= @dog.weight %></p>
-  <p>Vet:
-  <% if @dog.vet_dogs %>
-    <% @dog.vet_dogs.each do |vet_dog| %>
-      <%= vet_dog.user.first_name %>
-      <% end %>
-      <% else %>
-      <%= @dog.name "doesn't have a vet"%>
+<%= stylesheet_link_tag("dog_show")%>
+
+<div class="container">
+  <h1> <%= @dog.name %>'s details</h1>
+
+    <div class="col mt-3 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="dog-info">
+            <div class="vet-pic-container">
+              <%= cl_image_tag @dog.photo.key, height: 500, width: 500, gravity: "auto", crop: "fill", alt: "#{@dog.name}", class:'avatar dog-pic'%>
+            </div>
+            <br>
+          <h5 class="card-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
+            <div class="dog-info-details">
+
+            <p class="card-text"><span class="details-key">Breed:</span> <%= @dog.breed %></p>
+            <p class="card-text"><span class="details-key">Date of birth:</span> <%= @dog.date_of_birth %></p>
+            <p class="card-text"><span class="details-key">Pre-existing condition:</span><%= @dog.condition %></p>
+            <p class="card-text"><span class="details-key">Medication: </span><%= @dog.medication %></p>
+            <p class="card-text"><span class="details-key">Weight:</span> <%= @dog.weight %></p>
+            <p class="card-text"><span class="details-key">Vet:</span>
+            <% if @dog.vet_dogs %>
+              <% @dog.vet_dogs.each do |vet_dog| %>
+                <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name" %>
+                <% end %>
+                <% else %>
+                <%= @dog.name "doesn't have a vet"%>
+            <% end %>
+            </p>
+            </div>
+          </div>
+    </div>
+  <% if current_user.id == @dog.user.id  %>
+    <%= render "owner_show" %>
+  <% else %>
+    <%= render "else_show" %>
   <% end %>
-  </p>
+  </div>
+
 
 </div>
-
-
-<% if current_user.id == @dog.user.id  %>
-  <%= render "owner_show" %>
-<% else %>
-  <%= render "else_show" %>
-<% end %>
+        </div>
+      </div>
+    </div>

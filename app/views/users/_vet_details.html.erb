@@ -1,40 +1,39 @@
-<h1>vet details</h1>
+<%= stylesheet_link_tag("vet_details")%>
+
+<h1> Dr.<%= @user.last_name %>'s details</h1>
     <div class="col mt-3 mb-3">
       <div class="card">
         <div class="card-body">
-          <div class="d-flex justify-content-between mb-3">
-            <div>
-              <%= cl_image_tag @owner.photo.key, height: 300, width: 400, crop: :fill %>
-              <h5 class="card-title"><%= @owner.first_name %> <%= @owner.last_name %> </h5>
-              <p class="card-text">Address: <%= @owner.address %></p>
-              <p class="card-text">Mobile number: <%= @owner.mobile_number %> </p>
-              <p class="card-text"> Opening time: <%= @owner.opening_time.strftime('%I:%M:%S %p') %> </p>
-              <p class="card-text"> Closing time: <%= @owner.closing_time.strftime('%I:%M:%S %p') %> </p>
-            </div>
-          </div>
 
-          <div class="d-flex justify-content-between" >
-            <div>
+            <div class='vet-info'>
+              <div id="vet-pic-container">
+                <%= cl_image_tag @user.photo.key, height: 500, width: 500, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", id: 'vet-pic', class:'avatar'%>
+              </div>
+              <br>
+              <h5 class="card-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>
+              <div class="vet-info-details">
+                <p class="card-text"><span class="detail-key">Address:</span> <%= @user.address %></p>
+                <p class="card-text"><span class="detail-key">Mobile number:</span> <%= @user.mobile_number %> </p>
+                <p class="card-text"> <span class="detail-key">Opening time:</span> <%= @user.opening_time.strftime('%I:%M:%S %p') %> </p>
+                <p class="card-text"> <span class="detail-key">Closing time:</span> <%= @user.closing_time.strftime('%I:%M:%S %p') %> </p>
+              </div>
+            </div>
+            <hr>
+
+            <div class="dog-form">
             <%#= link_to 'Select vet', user_vet_dogs_path(@dog) %>
-  <%= simple_form_for [@owner, @vet_dog] do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.association :dog, collection: current_user.dogs%>
-
-    </div>
-
-    <div class="form-actions" id="nav-btn">
-      <p><%= f.submit "Book vet", class: 'btn btn-primary'%></p>
-      <p><%= link_to 'Back', dogs_path %></p>
-
-    </div>
-  <% end %>
+            <%= simple_form_for [@user, @vet_dog] do |f| %>
+              <%= f.error_notification %>
+              <div class="form-inputs">
+                <%= f.association :dog, :label => "Please select dog:", collection: current_user.dogs%>
+              </div>
+              <div class="form-actions" id="nav-btn">
+                <p><%= f.submit "Book vet", id: 'book-button'%></p>
+              </div>
+            <% end %>
             </div>
-            <div>
-            <%= link_to 'Back to all vets', users_path %>
-            </div>
-          </div>
+
+            <%= link_to 'Back to all vets', users_path, class:'back-to-vets' %>
         </div>
       </div>
     </div>

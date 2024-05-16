@@ -1,11 +1,18 @@
-<h1>My puppies</h1>
-<% @dogs.each do |dog| %>
-<div class="card">
-<%= cl_image_tag dog.photo.key, height: 300, width: 400, crop: :fill %>
-  <h4>Name: <%= link_to dog.name, dog_path(dog)%></h4>
-  <img src="" alt="">
+<%= stylesheet_link_tag("dog_index")%>
+
+<div class="container">
+  <h1 class="card-title">My puppies</h1>
+  <% @dogs.each do |dog| %>
+    <div class="card mx-1 my-1">
+    <div class="card-body">
+    <div>
+      <%= cl_image_tag dog.photo.key, height: 500, width: 500, gravity: "auto", crop: "fill", alt: "#{dog.name}", class:'avatar dog-pic'%>
+    </div>
+    <br>
+      <h4><span class="detail-key">Name: </span><%= link_to dog.name, dog_path(dog), class:"dog-name"%></h4>
+    </div>
+  <% end %>
+  </div>
+  <br>
+  <%= link_to 'Add a new puppy', new_dog_path, class:"add-dog" %>
 </div>
-
-<% end %>
-
-<%= link_to 'Add a new puppy', new_dog_path %>

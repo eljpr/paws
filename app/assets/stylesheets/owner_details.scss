@@ -1,0 +1,52 @@
+@import "config/colors";
+
+h1{
+  color: white;
+}
+
+.card{
+  border-radius: 5px;
+}
+
+.container{
+  background-color: $lgreen-pawsg;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#vet-pic-container{
+  text-align: center;
+}
+
+#vet-pic{
+  border-radius: 5px;
+  height: 300px;
+  width: 300px ;
+}
+
+.card-title{
+  color: $lorange-pawsg;
+}
+
+.vet-info-details{
+line-height: 0.5;
+}
+
+.detail-key{
+  color: $lbblue-pawsg;
+  font-weight: 600;
+}
+
+.card-text{
+  margin-bottom: 0px;
+}
+.owner-pet-title{
+  color: $dbblue-pawsg;
+}
+
+.back-link{
+  text-decoration: none;
+  margin-left: 5px;
+  color:$dbgreen-pawsg;
+}

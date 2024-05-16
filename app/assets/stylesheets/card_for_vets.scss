@@ -1,0 +1,52 @@
+@import "config/colors";
+
+h1{
+  color: white;
+}
+.card{
+  border-radius: 5px;
+}
+
+.container{
+  background-color: $lgreen-pawsg;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card-title{
+  color: $lorange-pawsg;
+}
+
+.link-button{
+  background-color: $dgreen-pawsg;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.link-button:hover{
+  background-color: $lgreen-pawsg;
+}
+
+.details-key{
+  color: $bblue-pawsg;
+  font-weight: 500;
+
+}
+
+.card-text{
+  margin-bottom: 0px;
+}
+.owner-name{
+  color: $lorange-pawsg;
+  text-decoration:none;
+}
+
+.back-link{
+  text-decoration: none;
+  margin-left: 5px;
+  color:$dbgreen-pawsg;
+}

@@ -1,29 +1,40 @@
+<%= stylesheet_link_tag("card_for_owners")%>
+
 <h1>Select your vet</h1>
 <div class="row">
 <% @vets.each do |vet| %>
-    <div class="col col-md-4 mt-3 mb-3">
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
       <div class="card">
         <div class="card-body">
-          <div class="d-flex justify-content-between mb-3">
-            <div>
-              <h5 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h5>
-              <%= cl_image_tag vet.photo.key, height: 300, width: 400, crop: :fill %>
-              <p class="card-text">Cabinet Address: <%= vet.address %></p>
-              <p class="card-text">Contact number: <%= vet.mobile_number %></p>
-              <p class="card-text">Opening Time: <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
-              <p class="card-text">Closing Time: <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
-            </div>
-          </div>
 
+          <div>
+            <div class="d-flex justify-content-between mb-3">
+            <div>
+              <h3 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h3>
+              </div>
+              <div>
+                <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "avatar", alt: "#{vet.first_name}" %>
+              </div>
+              </div>
+            </div>
+            <div id="vet-info">
+              <p class="card-text"><span class="detail-key"><strong>Cabinet Address:</strong> </span><%= vet.address %></p>
+              <p class="card-text"><span class="detail-key"><strong>Contact number:</strong></span> <%= vet.mobile_number %></p>
+              <p class="card-text"><span class="detail-key"><strong>Opening Time:</strong></span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
+              <p class="card-text"><span class="detail-key"><strong>Closing Time:</strong></span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
+            </div>
+
+<br>
           <div class="d-flex justify-content-between" >
             <div>
-            <%= link_to 'Details', user_path(vet) %>
+            <%= link_to 'Details', user_path(vet), class:'link-button' %>
             </div>
             <div>
             <%= link_to 'Back', root_path %>
             </div>
-          </div>
         </div>
+
+          </div>
       </div>
     </div>
   <% end %>
