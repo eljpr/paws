@@ -11,7 +11,7 @@
 </div>
 
 
-<% if current_user == @owner  %>
+<% if current_user.id == @dog.user.id  %>
   <%= render "owner_show" %>
 <% else %>
   <%= render "else_show" %>
