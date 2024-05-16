@@ -21,7 +21,9 @@ class DogsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @dog.user = @owner
+  end
 
   def edit; end
 

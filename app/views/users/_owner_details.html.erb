@@ -1,6 +1,6 @@
     <div class="col mt-3 mb-3">
       <div class="card">
-        <img src="" class="card-img-top" alt="...">
+
         <div class="card-body">
           <div class="d-flex justify-content-between mb-3">
             <div>
@@ -11,6 +11,7 @@
               <p class="card-text">
               <% pets = @owner.dogs %>
               <% if pets == 1 %>
+                <%#= cl_image_tag pets.photo.key, height: 300, width: 400, crop: :fill %>
                 <%= 'Pet: ' %>
                 <%= pets.name %>
                 <%= pets.date_of_birth %>
@@ -21,6 +22,7 @@
               <% else %>
                 <%= 'Pets: ' %>
               <%pets.each do |pet|%>
+              <%#= cl_image_tag pets.photo.key, height: 300, width: 400, crop: :fill %>
                 <%= pet.name %>
                 <%= pet.date_of_birth %>
                 <%= pet.breed %>
