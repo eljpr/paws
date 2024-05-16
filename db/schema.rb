@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_16_132113) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_16_151019) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -116,7 +116,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_16_132113) do
     t.string "mobile_number"
     t.boolean "is_vet"
     t.time "opening_time"
-    t.time "closing_time"
+    t.boolean "closing_time"
     t.date "log_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -143,7 +143,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_16_132113) do
     t.bigint "dog_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "path"
+    t.bigint "user_id"
     t.index ["dog_id"], name: "index_walks_on_dog_id"
+    t.index ["user_id"], name: "index_walks_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -157,4 +160,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_16_132113) do
   add_foreign_key "vet_dogs", "dogs"
   add_foreign_key "vet_dogs", "users"
   add_foreign_key "walks", "dogs"
+  add_foreign_key "walks", "users"
 end
