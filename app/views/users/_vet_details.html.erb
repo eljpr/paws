@@ -1,10 +1,10 @@
 <h1>vet details</h1>
     <div class="col mt-3 mb-3">
       <div class="card">
-        <img src="" class="card-img-top" alt="...">
         <div class="card-body">
           <div class="d-flex justify-content-between mb-3">
             <div>
+              <%= cl_image_tag @owner.photo.key, height: 300, width: 400, crop: :fill %>
               <h5 class="card-title"><%= @owner.first_name %> <%= @owner.last_name %> </h5>
               <p class="card-text">Address: <%= @owner.address %></p>
               <p class="card-text">Mobile number: <%= @owner.mobile_number %> </p>
@@ -15,7 +15,21 @@
 
           <div class="d-flex justify-content-between" >
             <div>
-            <%# <%= link_to 'Select vet', dog_vet_dog_path(@dog) %>
+            <%#= link_to 'Select vet', user_vet_dogs_path(@dog) %>
+  <%= simple_form_for [@owner, @vet_dog] do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :dog, collection: current_user.dogs%>
+
+    </div>
+
+    <div class="form-actions" id="nav-btn">
+      <p><%= f.submit "Book vet", class: 'btn btn-primary'%></p>
+      <p><%= link_to 'Back', dogs_path %></p>
+
+    </div>
+  <% end %>
             </div>
             <div>
             <%= link_to 'Back to all vets', users_path %>
