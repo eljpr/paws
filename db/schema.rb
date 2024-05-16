@@ -116,7 +116,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_16_151019) do
     t.string "mobile_number"
     t.boolean "is_vet"
     t.time "opening_time"
-    t.boolean "closing_time"
+    t.time "closing_time"
     t.date "log_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -143,7 +143,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_16_151019) do
     t.bigint "dog_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "path"
     t.bigint "user_id"
     t.index ["dog_id"], name: "index_walks_on_dog_id"
     t.index ["user_id"], name: "index_walks_on_user_id"
