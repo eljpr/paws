@@ -35,12 +35,24 @@ export default class extends Controller {
   }
 // adds markers to map
   addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(this.map)
-    });
-  }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          console.log(` bazinga Latitude: ${latitude}, Longitude: ${longitude}`);
+
+          new mapboxgl.Marker()
+          .setLngLat([longitude, latitude])
+          .addTo(this.map)
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+        }
+      );
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  };
   // function to make the map focus on the markers
   fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds();
@@ -95,10 +107,25 @@ export default class extends Controller {
       this.stopTracking();
     }
   }
+
   // start tracking the walk
   startTracking() {
-    this.path = [{"lat": 51.44901,"lng": -0.29155}];
-    console.log(this)
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+          this.path = [{"lat": latitude,"lng": longitude}];
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+        }
+      );
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+    //this.path = navigator.geolocation.getCurrentPosition(geolocation);  //[{"lat": 51.44901,"lng": -0.29155}];
+    console.log(this.path)
     this.watchID  = navigator.geolocation.watchPosition(position => {
       const {lat, lng} = position.coords;
       const coordinates = [lat, lng];
