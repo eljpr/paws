@@ -3,6 +3,7 @@ class Walk < ApplicationRecord
   belongs_to :user
   serialize :path, JSON
 
+
   #after_validation :geocoder ,if: :will_save_change_to_path?
 
   # after_validation :geocode, if: ->(obj){ obj.start_lat.present? and obj.start_lng.present? }
