@@ -26,7 +26,7 @@ class WalksController < ApplicationController
 def create
   puts params.inspect
   @walk = Walk.new
-  @walk.dog = Dog.first
+  @walk.dog = current_user.dogs.first
   @walk.user = current_user
   @walk.path = params["path"].map do |point_params|
     [point_params["lat"], point_params["lng"]] if point_params.is_a?(ActionController::Parameters)
