@@ -11,10 +11,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+<<<<<<< HEAD
 @import "dogs/index";
 @import "users/index";
 
 // Custom CSS
 body{
   background-color: $lbgreen-pawsg;
+=======
+@import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+
+// Your custom CSS
+body{
+  background-color: $lgreen-pawsg;
+>>>>>>> 542334c4c61688be80bcb24bfa167ee511277768
 }

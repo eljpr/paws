@@ -1,6 +1,8 @@
 class Walk < ApplicationRecord
   belongs_to :dog
   belongs_to :user
+  serialize :path, JSON
+
 
   #after_validation :geocoder ,if: :will_save_change_to_path?
 

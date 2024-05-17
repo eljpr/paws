@@ -1,7 +1,15 @@
-<h1>Welcome to Paws!</h1>
-<h5>Your personal activities tracker</h5>
-<hr>
-<h6>Stay pawsitive</h6>
-<h6>Track very wag with ease</h6>
-<p><%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary" %></p>
-<p><%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %></p>
+<div class="container landing-container">
+  <h1>Welcome to Paws!</h1>
+  <h6>Your personal activities tracker</h6>
+  <hr>
+  <div class="card landing-card">
+  <h4>Track very wag with ease</h4>
+  <%= image_tag "Rectangle 40.png" %>
+  <h6>Stay pawsitive</h6>
+  </div>
+  <br>
+  <br>
+  <p><%= link_to "Get Started", new_user_registration_path, class: "get-started-button" %></p>
+  <br>
+  <p><%= link_to "Sign in", new_user_session_path, class: "sign-in-button" %></p>
+</div>
