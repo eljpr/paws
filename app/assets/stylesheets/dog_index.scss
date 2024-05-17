@@ -21,25 +21,34 @@ h1{
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 0 auto;
 }
 
 .card{
   border-radius: 5px;
 }
 
+.button{
+  margin: 0 auto;
+  text-align:center
+}
+
 .add-dog{
   background-color: $dgreen-pawsg;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 5px;
   transition: 0.3s ease-in-out;
   text-decoration: none;
+  width: 200px;
+  text-align: center;
 }
 
 .add-dog:hover{
   background-color: $lgreen-pawsg;
 }
+
 
 .detail-key{
   color: $bblue-pawsg;
