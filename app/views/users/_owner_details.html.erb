@@ -12,7 +12,10 @@
           <div class="owner-info-details">
             <p class="card-text"><span class="detail-key"><strong>Address: </strong></span><%= @user.address %></p>
             <p class="card-text"><span class="detail-key"><strong>Mobile number:</strong></span> <%= @user.mobile_number %> </p>
-  <hr>
+            <p class="card-text"><span class="detail-key"><strong>Email:</strong></span> <%= @user.email %> </p>
+<% if current_user.is_vet %>
+    <% else %>
+ <hr>
             <p class="card-text">
             <% pets = @user.dogs %>
             <% if pets == 1 %>
@@ -54,6 +57,7 @@
               <% end %>
             <% end %>
             </p>
+<% end %>
           </div>
       </div>
     </div>

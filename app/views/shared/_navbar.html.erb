@@ -29,6 +29,7 @@
               <% else %>
               <%= link_to "My dogs", dogs_path, class: "dropdown-item" %>
               <%= link_to "All vets", users_path, class: "dropdown-item" %>
+              <%= link_to "My walks", walks_path, class: "dropdown-item" %>
               <%# unless current_user.dogs.empty? %>
                 <%# current_user.dogs.each do |dog| %>
                 <%#= link_to "#{dog.name}'s vet: #{dog.vet_dogs.first.user.first_name}", user_path(dog.vet_dogs.first.user), class: "dropdown-item" %>

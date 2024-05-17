@@ -11,10 +11,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
 @import "dogs/index";
 @import "users/index";
 
-// Custom CSS
+// Your custom CSS
 body{
-  background-color: $lbgreen-pawsg;
+  background-color: $lgreen-pawsg;
 }
