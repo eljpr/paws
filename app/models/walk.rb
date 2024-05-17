@@ -1,6 +1,7 @@
 class Walk < ApplicationRecord
   belongs_to :dog
   belongs_to :user
+  has_many :path
 
   #after_validation :geocoder ,if: :will_save_change_to_path?
 
