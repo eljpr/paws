@@ -1,7 +1,10 @@
 <%= stylesheet_link_tag("dog_index")%>
 
 <div class="container">
-  <h1 class="card-title">My puppies</h1>
+  <div class="card-title">
+    <h1>My puppies</h1>
+  </div>
+
   <% @dogs.each do |dog| %>
     <div class="card mx-1 my-1">
     <div class="card-body">
@@ -11,8 +14,12 @@
     <br>
       <h4><span class="detail-key">Name: </span><%= link_to dog.name, dog_path(dog), class:"dog-name"%></h4>
     </div>
-  <% end %>
   </div>
+  <% end %>
   <br>
+  <div class="button">
   <%= link_to 'Add a new puppy', new_dog_path, class:"add-dog" %>
+  </div>
+
+
 </div>
