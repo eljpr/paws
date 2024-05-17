@@ -14,12 +14,12 @@
           <h5 class="card-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
             <div class="dog-info-details">
 
-            <p class="card-text"><span class="details-key">Breed:</span> <%= @dog.breed %></p>
-            <p class="card-text"><span class="details-key">Date of birth:</span> <%= @dog.date_of_birth %></p>
-            <p class="card-text"><span class="details-key">Pre-existing condition:</span><%= @dog.condition %></p>
-            <p class="card-text"><span class="details-key">Medication: </span><%= @dog.medication %></p>
-            <p class="card-text"><span class="details-key">Weight:</span> <%= @dog.weight %></p>
-            <p class="card-text"><span class="details-key">Vet:</span>
+            <p class="card-text"><span class="details-key dog-info-details">Breed:</span> <%= @dog.breed %></p>
+            <p class="card-text"><span class="details-key dog-info-details">Date of birth:</span> <%= @dog.date_of_birth %></p>
+            <p class="card-text"><span class="details-key dog-info-details">Pre-existing condition:</span><%= @dog.condition %></p>
+            <p class="card-text"><span class="details-key dog-info-details">Medication: </span><%= @dog.medication %></p>
+            <p class="card-text"><span class="details-key dog-info-details">Weight:</span> <%= @dog.weight %></p>
+            <p class="card-text"><span class="details-key dog-info-details">Vet:</span>
             <% if @dog.vet_dogs.empty? %>
               <span><%=link_to "Choose a vet for #{@dog.name}", users_path, class:'dog-name'%> </span>
               <% else %>
