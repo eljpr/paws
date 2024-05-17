@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/walks', to: 'walks#create'
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :walks, only: [:index, :create]
 
   resources :dogs do
     resources :walks, except: %i[update delete]
