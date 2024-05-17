@@ -1,0 +1,122 @@
+<!-- <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Getting started with the Mapbox Directions API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      // javascript
+      mapboxgl.accessToken = ' <UserAccesstoken> ';
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [51.48317, -0.10891], //starting position
+        zoom:12
+      });
+      // set bounds of the map
+      const bounds = [
+        [51.46189, -0.50666],
+        [51.66953, -0.11229]
+      ];
+      map.setMaxBounds(bounds);
+
+      //arbitary start point needs to be updated to be user location end can be changed
+      const start = [51.48317, -0.10891];
+
+      async function getRoute(end) {
+        const query = await fetch(`https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+    { method: 'GET' }
+
+        );
+        const json = await query.json();
+        const data = json.routes[0];
+        const route = data.geometry.coordinates;
+        const geojson =
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'LineString',
+          coordinates: route
+      }
+      // if the route already exists on the map, we'll reset it using setData
+  if (map.getSource('route')) {
+    map.getSource('route').setData(geojson);
+  }
+  // otherwise, we'll make a new request
+  else {
+    map.addLayer({
+      id: 'route',
+      type: 'line',
+      source: {
+        type: 'geojson',
+        data: geojson
+      },
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#3887be',
+        'line-width': 5,
+        'line-opacity': 0.75
+      }
+    });
+  }
+  // add turn instructions here at the end
+}
+
+map.on('load', () => {
+  // make an initial directions request that
+  // starts and ends at the same location
+  getRoute(start);
+
+  // Add starting point to the map
+  map.addLayer({
+    id: 'point',
+    type: 'circle',
+    source: {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: [
+          {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              type: 'Point',
+              coordinates: start
+            }
+          }
+        ]
+      }
+    },
+    paint: {
+      'circle-radius': 10,
+      'circle-color': '#3887be'
+    }
+  });
+      });
+    </script>
+  </body>
+</html>
+-->
