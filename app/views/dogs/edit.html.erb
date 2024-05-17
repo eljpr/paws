@@ -1,5 +1,4 @@
-<h1>Dog edit</h1>
-
+<%= stylesheet_link_tag("dog_edit")%>
 <div class="parent container d-flex flex-column align-items-center h-100">
   <h1>Update your puppy's info</h1>
   <%= simple_form_for @dog do |dog| %>
@@ -16,9 +15,9 @@
     </div>
 
     <div class="form-actions" id="nav-btn">
-      <%= dog.submit "Update", class: 'btn btn-primary'%>
-      <%= link_to 'Back', dogs_path %>
+      <p><%= dog.submit "Update", class: 'update-button'%></p>
+      <p><%= link_to 'Back', dogs_path, class:'back-link' %></p>
     </div>
   <% end %>
-
+<hr>
 </div>

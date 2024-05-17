@@ -19,20 +19,19 @@
               </div>
             </div>
             <hr>
-
-            <div class="dog-form">
-            <%#= link_to 'Select vet', user_vet_dogs_path(@dog) %>
-            <%= simple_form_for [@user, @vet_dog] do |f| %>
-              <%= f.error_notification %>
-              <div class="form-inputs">
-                <%= f.association :dog, :label => "Please select dog:", collection: current_user.dogs%>
-              </div>
-              <div class="form-actions" id="nav-btn">
-                <p><%= f.submit "Book vet", id: 'book-button'%></p>
+            <% if @vet_dog.id == nil %>
+              <div class="dog-form">
+              <%= simple_form_for [@user, @vet_dog] do |f| %>
+                <%= f.error_notification %>
+                <div class="form-inputs">
+                  <%= f.association :dog, :label => "Please select dog:", collection: current_user.dogs%>
+                </div>
+                <div class="form-actions" id="nav-btn">
+                  <p><%= f.submit "Book vet", id: 'book-button'%></p>
+                </div>
+              <% end %>
               </div>
             <% end %>
-            </div>
-
             <%= link_to 'Back to all vets', users_path, class:'back-link' %>
         </div>
       </div>

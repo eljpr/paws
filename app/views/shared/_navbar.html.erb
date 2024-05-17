@@ -28,11 +28,12 @@
               <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
               <% else %>
               <%= link_to "My dogs", dogs_path, class: "dropdown-item" %>
-              <% unless current_user.dogs.empty? %>
-                <% current_user.dogs.each do |dog| %>
-                <%= link_to "#{dog.name}'s vet: #{dog.vet_dogs.first.user.first_name}", user_path(dog.vet_dogs.first.user), class: "dropdown-item" %>
-                <% end %>
-              <% end %>
+              <%= link_to "All vets", users_path, class: "dropdown-item" %>
+              <%# unless current_user.dogs.empty? %>
+                <%# current_user.dogs.each do |dog| %>
+                <%#= link_to "#{dog.name}'s vet: #{dog.vet_dogs.first.user.first_name}", user_path(dog.vet_dogs.first.user), class: "dropdown-item" %>
+                <%# end %>
+              <%# end %>
               <% end %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

@@ -20,12 +20,13 @@
             <p class="card-text"><span class="details-key">Medication: </span><%= @dog.medication %></p>
             <p class="card-text"><span class="details-key">Weight:</span> <%= @dog.weight %></p>
             <p class="card-text"><span class="details-key">Vet:</span>
-            <% if @dog.vet_dogs %>
+            <% if @dog.vet_dogs.empty? %>
+              <span><%=link_to "Choose a vet for #{@dog.name}", users_path, class:'dog-name'%> </span>
+              <% else %>
               <% @dog.vet_dogs.each do |vet_dog| %>
                 <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name" %>
                 <% end %>
-                <% else %>
-                <%= @dog.name "doesn't have a vet"%>
+
             <% end %>
             </p>
             </div>
