@@ -9,7 +9,7 @@
           <div>
             <div class="d-flex justify-content-between mb-3">
             <div>
-              <h3 class="card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h3>
+              <h3 class="card-title vet-card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h3>
               </div>
               <div>
                 <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "avatar", alt: "#{vet.first_name}" %>
@@ -17,10 +17,10 @@
               </div>
             </div>
             <div id="vet-info">
-              <p class="card-text"><span class="detail-key"><strong>Cabinet Address:</strong> </span><%= vet.address %></p>
-              <p class="card-text"><span class="detail-key"><strong>Contact number:</strong></span> <%= vet.mobile_number %></p>
-              <p class="card-text"><span class="detail-key"><strong>Opening Time:</strong></span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
-              <p class="card-text"><span class="detail-key"><strong>Closing Time:</strong></span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
+              <p class="card-text"><span class="detail-key vet-detail-key vet-card-text"><strong>Cabinet Address:</strong> </span><%= vet.address %></p>
+              <p class="card-text"><span class="detail-key vet-detail-key vet-card-text"><strong>Contact number:</strong></span> <%= vet.mobile_number %></p>
+              <p class="card-text"><span class="detail-key vet-detail-key vet-card-text"><strong>Opening Time:</strong></span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
+              <p class="card-text"><span class="detail-key vet-detail-key vet-card-text"><strong>Closing Time:</strong></span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
             </div>
 
 <br>
