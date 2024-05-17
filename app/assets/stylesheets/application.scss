@@ -11,3 +11,10 @@
 @import "components/index";
 @import "pages/index";
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+@import "dogs/index";
+@import "users/index";
+
+// Custom CSS
+body{
+  background-color: $lbgreen-pawsg;
+}
