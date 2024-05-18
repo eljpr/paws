@@ -23,7 +23,9 @@
             <%= link_to 'Details', dog_path(dog), class:"dgreen-button" %>
             </div>
             <div>
-            <%= link_to 'Back', root_path, class:"green-back-link" %>
+              <%= link_to root_path, class:"green-back-link" do %>
+                <i class="fa-solid fa-arrow-left"></i> Home
+              <% end %>
             </div>
           </div>
       </div>

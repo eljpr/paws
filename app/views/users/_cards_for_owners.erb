@@ -1,4 +1,3 @@
-
 <h1>Select your vet</h1>
 <div class="row">
 <% @vets.each do |vet| %>
@@ -25,7 +24,9 @@
               <%= link_to 'Details', user_path(vet), class:'dgreen-button' %>
             </div>
             <div>
-              <%= link_to 'Back', root_path, class:'green-back-link' %>
+              <%= link_to root_path, class:"green-back-link" do %>
+                <i class="fa-solid fa-arrow-left"></i> Home
+              <% end %>
             </div>
           </div>
     </div>
