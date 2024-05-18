@@ -7,3 +7,17 @@ h1{
   justify-content: space-between;
   align-items: center;
 }
+
+.pup-health-details{
+  flex-shrink: 1;
+}
+
+.pup-info-details{
+  flex-grow:1;
+}
+
+.vet-name-yellow{
+  color: $dyellow-pawsg;
+  text-decoration:none;
+  font-weight:bolder;
+}

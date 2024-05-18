@@ -32,16 +32,16 @@
                 </span>
                 <% else %>
                 <% @dog.vet_dogs.each do |vet_dog| %>
-                    <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name" %>
+                    <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name-yellow" %>
                   <% end %>
               <% end %>
             </p>
         </div>
+        <br>
       </div>
-      </div>
-<br>
     <% if current_user.id == @dog.user.id  %>
       <%= render "owner_show" %>
     <% end %>
+      </div>
   </div>
 </div>

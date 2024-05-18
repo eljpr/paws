@@ -1,8 +1,10 @@
-<div class="button-flexbox">
-  <%= link_to "Update my pup's info", edit_dog_path, class:"dgreen-button" %>
-  <%= link_to dog_path(@dog),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class:"dgreen-button pup-button" do %>
-      <i class="fa-solid fa-minus"></i>  <i class="fa-solid fa-dog" style="color: #9d520e;"></i>
-  <% end %>
+<div class="button-container">
+  <div class="button-flexbox">
+    <%= link_to "Update my pup's info", edit_dog_path, class:"dgreen-button update-pup-button" %>
+    <%= link_to dog_path(@dog),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class:"dgreen-button pup-button remove-pup-button" do %>
+        <i class="fa-solid fa-minus"></i>  <i class="fa-solid fa-dog" style="color: #9d520e;"></i>
+    <% end %>
+  </div>
 </div>
