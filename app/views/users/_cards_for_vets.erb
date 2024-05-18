@@ -2,37 +2,32 @@
 <div class="row">
 <% @patients.each do |dog| %>
     <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-      <div class="card">
-        <div class="card-body">
-
-          <div>
-            <div class="d-flex justify-content-between mb-3">
-            <div>
-              <h3 class="card-title"><%= dog.name  %> </h3>
-              </div>
-              <div>
-                <%= cl_image_tag dog.photo.key, width: 40, height: 50, gravity: "auto", crop: "fill", class: "avatar", alt: "#{dog.name}" %>
-              </div>
-              </div>
-            </div>
-          <div class="dog-info">
-            <p class="card-text"><span class="details-key"><strong>Owner:</strong></span> <%= link_to dog.user.first_name, user_path(dog.user), class:"owner-name" %> </p>
-            <p class="card-text"><span class="details-key"><strong>Address:</strong></span> <%= dog.user.address %></p>
-            <p class="card-text"><span class="details-key"><strong>Mobile number:</strong></span> <%= dog.user.mobile_number %> </p>
+      <div class="card-container">
+        <div class="title-flexbox">
+          <div class="orange-title card-nav-title">
+            <h3 class="card-title"><%= dog.name  %> </h3>
+          </div>
+          <div class="card-nav-img img-rounded">
+              <%= cl_image_tag dog.photo.key, width: 40, height: 50, gravity: "auto", crop: "fill", class: "avatar", alt: "#{dog.name}" %>
+          </div>
+        </div>
+          <div class="card-body-details">
+            <p class="card-body-text"><span class="detail-key"><strong>Owner:</strong></span> <%= link_to dog.user.first_name, user_path(dog.user), class:"owner-name" %> </p>
+            <p class="card-body-text"><span class="detail-key"><strong>Address:</strong></span> <%= dog.user.address %></p>
+            <p class="card-body-text"><span class="detail-key"><strong>Mobile number:</strong></span> <%= dog.user.mobile_number %> </p>
           </div>
 
 <br>
-          <div class="d-flex justify-content-between" >
+          <div class="details-button-flexbox" >
             <div>
-            <%= link_to 'Details', dog_path(dog), class:"link-button" %>
+            <%= link_to 'Details', dog_path(dog), class:"dgreen-button" %>
             </div>
             <div>
-            <%= link_to 'Back', root_path, class:"back-link" %>
+            <%= link_to 'Back', root_path, class:"green-back-link" %>
             </div>
-        </div>
           </div>
-
-        </div>
       </div>
+
+    </div>
   <% end %>
 </div>

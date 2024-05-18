@@ -1,18 +1,32 @@
-.card{
+.card-container{
   border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
-.card-title .vet-card-title{
+.orange-title{
   color: $lorange-pawsg;
 }
 
 .detail-key{
   font-weight: 500;
-    .vet-detail-key{
-      color: $bblue-pawsg;
-    }
+  color: $bblue-pawsg;
+
 }
 
 // .card-text .vet-card-text{
 //   margin-bottom: 0px;
 // }
+
+.title-flexbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details-button-flexbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
