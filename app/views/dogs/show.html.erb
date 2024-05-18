@@ -14,9 +14,8 @@
         <span><%=link_to "Choose a vet for #{@dog.name}", users_path, class:'dog-name'%> </span>
         <% else %>
         <% @dog.vet_dogs.each do |vet_dog| %>
-          <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name" %>
+            <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name" %>
           <% end %>
-
       <% end %>
       </p>
     </div>
