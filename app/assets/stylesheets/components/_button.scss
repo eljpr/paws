@@ -1,20 +1,49 @@
 @import "config/colors";
 
-.back-link{
+.green-back-link{
   text-decoration: none;
-  margin-left: 15px;
+  // margin-left: 15px;
   color:$dbgreen-pawsg;
+}
+
+.yellow-back-link{
+  text-decoration: none;
+  // margin-left: 15px;
+  color:$lyellow-pawsg;
 }
 
 .dgreen-button{
   background-color: $dgreen-pawsg;
+  text-decoration: none;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  transition: 0.3s ease-in-out;
+  // transition: 0.1s ease-in-out;
 }
 
-.dgreen-button:hover{
-  background-color: $lgreen-pawsg;
+.dgreen-button:active{
+  background-color: $dyellow-pawsg;
+}
+
+.dyellow-button{
+  background-color: $dyellow-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  // transition: 0.1s ease-in-out;
+}
+
+.dyellow-button:active{
+  background-color: $dgreen-pawsg;
+}
+
+#add-pup{
+  text-align: center;
+}
+
+.pup-button{
+  line-height: 1.5;
 }

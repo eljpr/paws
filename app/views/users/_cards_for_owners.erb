@@ -1,40 +1,36 @@
-
 <h1>Select your vet</h1>
 <div class="row">
 <% @vets.each do |vet| %>
     <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-      <div class="card">
-        <div class="card-body">
-
-          <div>
-            <div class="d-flex justify-content-between mb-3">
-            <div>
-              <h3 class="card-title vet-card-title">DR. <%= vet.first_name%> <%= vet.last_name %></h3>
-              </div>
-              <div>
+      <div class="card-container">
+          <div class="title-flexbox">
+            <div class="orange-title card-nav-title">
+              <h3 >DR. <%= vet.first_name%> <%= vet.last_name %></h3>
+            </div>
+            <div class="card-nav-img img-rounded">
                 <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "avatar", alt: "#{vet.first_name}" %>
-              </div>
-              </div>
             </div>
-            <div id="vet-info">
-              <p class="card-text"><span class="detail-key vet-detail-key vet-card-text"><strong>Cabinet Address:</strong> </span><%= vet.address %></p>
-              <p class="card-text"><span class="detail-key vet-detail-key vet-card-text"><strong>Contact number:</strong></span> <%= vet.mobile_number %></p>
-              <p class="card-text"><span class="detail-key vet-detail-key vet-card-text"><strong>Opening Time:</strong></span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
-              <p class="card-text"><span class="detail-key vet-detail-key vet-card-text"><strong>Closing Time:</strong></span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
-            </div>
+          </div>
+          <div class="card-body-details">
+            <p class="card-body-text"><span class="detail-key"><strong>Cabinet Address:</strong> </span><%= vet.address %></p>
+            <p class="card-body--text"><span class="detail-key"><strong>Contact number:</strong></span> <%= vet.mobile_number %></p>
+            <p class="card-body--text"><span class="detail-key"><strong>Opening Time:</strong></span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
+            <p class="card-body-text"><span class="detail-key"><strong>Closing Time:</strong></span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
+          </div>
 
 <br>
-          <div class="d-flex justify-content-between" >
+          <div class="button-flexbox" >
             <div>
-            <%= link_to 'Details', user_path(vet), class:'dgreen-button' %>
+              <%= link_to 'Details', user_path(vet), class:'dgreen-button' %>
             </div>
             <div>
-            <%= link_to 'Back', root_path, class:'back-link' %>
+              <%= link_to root_path, class:"green-back-link" do %>
+                <i class="fa-solid fa-arrow-left"></i> Home
+              <% end %>
             </div>
-        </div>
-
           </div>
-      </div>
+    </div>
+
     </div>
   <% end %>
 </div>

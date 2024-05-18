@@ -15,9 +15,11 @@
     </div>
 
     <div class="form-actions" id="nav-btn">
-      <p><%= dog.submit "Update", class: 'update-button'%></p>
-      <p><%= link_to 'Back', dogs_path, class:'back-link' %></p>
+      <p><%= dog.submit "Update", class: 'dgreen-button'%></p>
+      <%= link_to dogs_path, class:"yellow-back-link" do %>
+      <i class="fa-solid fa-arrow-left"></i> My pups
+    <% end %>
     </div>
   <% end %>
-<hr>
+
 </div>

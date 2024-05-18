@@ -1,32 +1,4 @@
-@import "config/colors";
-
-.container{
-  background-color: $lgreen-pawsg;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
 h1{
   color: white;
-}
-
-.add-button{
-  background-color: $lorange-pawsg;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 10px;
-  transition: 0.3s ease-in-out;
-}
-
-.add-button:hover{
-  background-color: $dorange-pawsg;
-}
-
-.back-link{
-  text-decoration: none;
-  color: $lorange-pawsg;
-  margin-left: 15px;
 }
