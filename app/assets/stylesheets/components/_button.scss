@@ -2,7 +2,7 @@
 
 .back-link{
   text-decoration: none;
-  margin-left: 15px;
+  // margin-left: 15px;
   color:$dbgreen-pawsg;
 }
 
@@ -20,6 +20,10 @@
   background-color: $dyellow-pawsg;
 }
 
-.add-pup-button{
+#add-pup{
   text-align: center;
+}
+
+.pup-button{
+  line-height: 1.5;
 }
