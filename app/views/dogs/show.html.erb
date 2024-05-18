@@ -1,27 +1,30 @@
-<h1> <%= @dog.name %>'s details</h1>
-<div class="card-container">
-  <%= cl_image_tag @dog.photo.key, height: 500, width: 500, gravity: "auto", crop: "fill", alt: "#{@dog.name}", class:'img-square'%>
-  <h5 class="card-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
-    <div class="dog-info-details">
+<div class="container">
+  <h1> <%= @dog.name %>'s details</h1>
+  <div class="card-container">
+    <%= cl_image_tag @dog.photo.key, height: 500, width: 500, gravity: "auto", crop: "fill", alt: "#{@dog.name}", class:'img-square'%>
+    <h5 class="card-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
+      <div class="dog-info-details">
 
-      <p class="card-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span> <%= @dog.breed %></p>
-      <p class="card-text"><span class="detail-key"><i class="fa-solid fa-cake-candles"></i> : </span> <%= @dog.date_of_birth.strftime('%m/%d/%Y') %></p>
-      <p class="card-text"><span class="detail-key"><i class="fa-solid fa-bandage"></i> : </span><%= @dog.condition %></p>
-      <p class="card-text"><span class="detail-key"><i class="fa-solid fa-pills"></i> : </span><%= @dog.medication %></p>
-      <p class="card-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span> <%= @dog.weight %></p>
-      <p class="card-text"><span class="detail-key"><i class="fa-solid fa-user-doctor"></i></i> : </span>
-      <% if @dog.vet_dogs.empty? %>
-        <span><%=link_to "Choose a vet for #{@dog.name}", users_path, class:'dog-name'%> </span>
-        <% else %>
-        <% @dog.vet_dogs.each do |vet_dog| %>
-            <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name" %>
-          <% end %>
-      <% end %>
-      </p>
-    </div>
-  <% if current_user.id == @dog.user.id  %>
-    <%= render "owner_show" %>
-  <% else %>
-    <%= render "else_show" %>
-  <% end %>
+        <p class="card-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span> <%= @dog.breed %></p>
+        <p class="card-text"><span class="detail-key"><i class="fa-solid fa-cake-candles"></i> : </span> <%= @dog.date_of_birth.strftime('%m/%d/%Y') %></p>
+        <p class="card-text"><span class="detail-key"><i class="fa-solid fa-bandage"></i> : </span><%= @dog.condition %></p>
+        <p class="card-text"><span class="detail-key"><i class="fa-solid fa-pills"></i> : </span><%= @dog.medication %></p>
+        <p class="card-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span> <%= @dog.weight %></p>
+        <p class="card-text"><span class="detail-key"><i class="fa-solid fa-user-doctor"></i></i> : </span>
+
+        <% if @dog.vet_dogs.empty? %>
+          <span><%=link_to "Choose a vet for #{@dog.name}", users_path, class:'dog-name'%> </span>
+          <% else %>
+          <% @dog.vet_dogs.each do |vet_dog| %>
+              <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name" %>
+            <% end %>
+        <% end %>
+        </p>
+      </div>
+    <% if current_user.id == @dog.user.id  %>
+      <%= render "owner_show" %>
+    <% else %>
+      <%= render "else_show" %>
+    <% end %>
+  </div>
 </div>
