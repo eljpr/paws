@@ -27,6 +27,7 @@ def create
   puts params.inspect
   @walk = Walk.new
   @walk.dog = current_user.dogs.first
+  puts current_user.dogs.first
   @walk.user = current_user
   @walk.path = params["path"].map do |point_params|
     [point_params["lat"], point_params["lng"]] if point_params.is_a?(ActionController::Parameters)
