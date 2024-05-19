@@ -1,48 +1,47 @@
-h1{
-  color: white;
+.home-container{
+background-color: #ede4d5;
+padding: 10px;
 }
 
-h4, h6{
-  color: $dorange-pawsg;
-
+.home-container h1{
+  color: $bblue-pawsg;
+  font-weight: bolder;
 }
 
-.landing-container{
-  padding: 20px;
+.fancy-walk{
+  display: flex;
+  justify-content: space-between;
+  align-items:bottom;
+}
+
+.walk-icon img{
+  height: 100px;
+  width: 100px;
+}
+
+.walk-img-map{
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+.health-options{
+  text-align: right;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul#home-tracking-list{
+  list-style:none;
+}
+
+ul#home-tracking-list li{
+  display: inline-block;
+  list-style: none;
   margin: 0 auto;
-  text-align: center;
-}
-.landing-card{
-  background-color: #FCECC8;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  margin: 20px;
-}
+  padding-left: 13px;
+  padding-right: 13px;
 
-.get-started-button{
-  background-color:$dbblue-pawsg;
-  text-decoration:none;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: 0.3s ease-in-out;
-}
-
-.get-started-button:hover{
-  background-color: $bblue-pawsg;
-}
-
-.sign-in-button{
-  background-color: $dbgreen-pawsg;
-  text-decoration:none;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: 0.3s ease-in-out;
-}
-.sign-button:hover{
-  background-color: $lbgreen-pawsg;
 }
