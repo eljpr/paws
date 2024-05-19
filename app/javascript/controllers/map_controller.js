@@ -130,7 +130,6 @@ export default class extends Controller {
     this.watchID  = navigator.geolocation.watchPosition(position => { // isnt doing shit atm
       const lat = position.coords.latitude
       const lng = position.coords.longitude
-      console.log("fuck", position.coords)
       const coordinates = [lat, lng];
       this.path.push(coordinates);
       console.log("watch position coords: ",coordinates) // coordinates are empty ????
@@ -138,7 +137,7 @@ export default class extends Controller {
     }, error => console.error(error), {
       enableHighAccuracy: true,
       maximumAge: 1000,
-      timeout: 10000
+      timeout: 1000
     });
   }
 //stop tracking
