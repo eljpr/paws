@@ -1,0 +1,39 @@
+.menu-sticky {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:white;
+}
+
+ul#menuItems {
+  list-style: none;
+  background: none;
+  width: 100%;
+  padding: 0;
+  margin:0 auto;
+  text-align: center;
+}
+ul#menuItems li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 auto;
+  padding-left: 13px;
+  padding-right: 13px;
+
+}
+ul#menuItems li a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: $dgreen-pawsg;
+  width: auto;
+  display: block;
+  text-align: center;
+  height: 40px;
+  font-size:29px;
+  margin: 0;
+}
+
+ul#menuItems li a:active{
+  color: $dyellow-pawsg;
+}

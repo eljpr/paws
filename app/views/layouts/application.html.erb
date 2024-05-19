@@ -3,9 +3,9 @@
   <head>
     <title>Paws</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <!-- <%= csrf_meta_tags %>
+    <!-- <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-     <meta name="csrf-token" content="<%= csrf_meta_tags %>">
+    <meta name="csrf-token" content="<%= csrf_meta_tags %>">
     <meta name="csrf-token" content="<%= form_authenticity_token %>"> -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,8 +16,13 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="shared-body">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <%= yield %>
+      <% if user_signed_in? %>
+        <%= render "shared/menu" %>
+      <% end %>
+    </div>
   </body>
 </html>
