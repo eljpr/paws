@@ -116,6 +116,7 @@ export default class extends Controller {
           const { latitude, longitude } = position.coords;
           console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
           this.path = [{"lat": latitude,"lng": longitude}];
+          this.updatePathLayer();
         },
         (error) => {
           console.error("Error getting location:", error);
@@ -126,10 +127,13 @@ export default class extends Controller {
     }
     //this.path = navigator.geolocation.getCurrentPosition(geolocation);  //[{"lat": 51.44901,"lng": -0.29155}];
     console.log(this.path)
-    this.watchID  = navigator.geolocation.watchPosition(position => {
-      const {lat, lng} = position.coords;
+    this.watchID  = navigator.geolocation.watchPosition(position => { // isnt doing shit atm
+      const lat = position.coords.latitude
+      const lng = position.coords.longitude
+      console.log("fuck", position.coords)
       const coordinates = [lat, lng];
       this.path.push(coordinates);
+      console.log("watch position coords: ",coordinates) // coordinates are empty ????
       this.updatePathLayer();
     }, error => console.error(error), {
       enableHighAccuracy: true,
@@ -168,7 +172,7 @@ export default class extends Controller {
       layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': '#888', 'line-width': 6 }
     });
-    this.pathLayer = true;
+    //this.pathLayer = true;
 
 
   }
