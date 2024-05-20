@@ -1,6 +1,7 @@
 <div class="button-container">
+<br>
   <div class="button-flexbox">
-    <%= link_to "Update my pup's info", edit_dog_path, class:"dgreen-button update-pup-button" %>
+    <%= link_to "Update my pup's info", edit_dog_path, class:"dyellow-button update-pup-button" %>
     <%= link_to dog_path(@dog),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
       class:"dgreen-button pup-button remove-pup-button" do %>

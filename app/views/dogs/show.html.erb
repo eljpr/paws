@@ -10,7 +10,10 @@
       <i class="fa-solid fa-arrow-left"></i> My pup patients
     <% end %>
   <% end %>
-    <%= cl_image_tag @dog.photo.key, height: 500, width: 500, gravity: "auto", crop: "fill", alt: "#{@dog.name}", class:'img-square'%>
+  <div class="dog-show-img-center">
+    <%= cl_image_tag @dog.photo.key, gravity: "auto", crop: "fill", alt: "#{@dog.name}", class:'img-square'%>
+  </div>
+    <br>
     <h5 class="dblue-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
       <div class="card-body-details">
       <div class="pup-info">
@@ -25,7 +28,7 @@
             <p class="card-text"><span class="detail-key"><i class="fa-solid fa-user-doctor"></i></i> : </span>
               <% if @dog.vet_dogs.empty? %>
                 <span>
-                <%= link_to users_path, class:"dyellow-button pup-button" do %>
+                <%= link_to users_path, class:"yellow-back-link pup-button" do %>
                 <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-stethoscope"></i> Choose vet
       <% end %>
       </div>
