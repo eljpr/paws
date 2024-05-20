@@ -1,4 +1,9 @@
 <div class="container">
+<div>
+  <%= link_to dog_prescriptions_path, class:"yellow-back-link" do %>
+    <i class="fa-solid fa-arrow-left"></i> All prescriptions
+  <% end %>
+</div>
 <h2><%= @prescription.medication_name %></h2>
 <h5><span class="detail-key"><i class="fa-solid fa-tablets"></i> :</span> <%= @prescription.description %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-syringe"></i> :</span> <%= @prescription.dosage %></h5>
@@ -14,4 +19,20 @@
     <% else %>
   <h5><span class="detail-key"><i class="fa-solid fa-calendar"></i> :</span> Take for <%= days.to_i %> days</h5>
   <% end %>
+  <h5><%= @prescription.completed %></h5>
+  <br>
+<!--  edit if user is vet-->
+<% if current_user.is_vet %>
+<div class="button-container">
+<br>
+  <div class="button-flexbox">
+    <%= link_to "Edit", edit_dog_prescription_path(@prescription), class:"dyellow-button update-pup-button" %>
+    <%= link_to dog_prescription_path(@prescription),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class:"dgreen-button pup-button remove-pup-button" do %>
+        Delete
+    <% end %>
+  </div>
+</div>
+<% end %>
 </div>

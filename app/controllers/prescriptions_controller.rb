@@ -25,7 +25,7 @@ class PrescriptionsController < ApplicationController
 
   def update
     if @prescription.update(prescription_params)
-      redirect_to @prescription
+      # redirect_to @prescription
     else
       render :edit
     end
