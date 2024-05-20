@@ -1,6 +1,7 @@
 .home-container{
 background-color: #ede4d5;
 padding: 10px;
+height: 100%;
 }
 
 .home-container h1{
@@ -25,8 +26,24 @@ padding: 10px;
   border-radius: 5px;
 }
 
+.walk-section > h6{
+  color: $orange-pawsg;
+  font-weight: bolder;
+}
+
+.chat-img{
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+}
+
 .health-options{
   text-align: right;
+}
+
+.health-options > h6{
+  color: $bblue-pawsg;
+  font-weight: bolder;
 }
 
 a{
@@ -44,4 +61,14 @@ ul#home-tracking-list li{
   padding-left: 13px;
   padding-right: 13px;
 
+}
+
+.chat-options > h6 {
+  color: $dbgreen-pawsg;
+  font-weight: bolder;
+}
+
+.vet-landing > h6{
+  color: $dbgreen-pawsg;
+  font-weight: bolder;
 }

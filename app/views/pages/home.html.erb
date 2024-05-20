@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
     <% if current_user.is_vet %>
-
+      <%= render "vet_home" %>
     <% else %>
       <%= render "owner_home" %>
     <% end %>

@@ -15,7 +15,8 @@
             <br>
             <br>
             <br>
-              <img src="https://cdn.vectorstock.com/i/1000x1000/56/37/people-walking-dog-in-nature-vector-34895637.webp" alt="walking">
+            <br>
+              <%= image_tag "/walking.png" %>
             </div>
           </div>
         </div>
@@ -25,7 +26,7 @@
           <div class="chat-icon">
             <%= link_to dogs_path do %>
               <ul id="home-tracking-list">
-                <li><%= image_tag "/energy_ok", class:"home-track-icons" %></li>
+                <li><%= image_tag "/happy_bg", class:"home-track-icons" %></li>
                 <li><%= image_tag "/medication_painkillers", class:"home-track-icons" %></li>
                 <li><%= image_tag "/grooming_brushing", class:"home-track-icons" %></li>
                 <li><%= image_tag "/training_agility", class:"home-track-icons" %></li>
@@ -38,22 +39,10 @@
         <div class="chat-options">
           <h6>Ask any questions to our chatbot</h6>
           <div class="chat-icon">
-            <%= link_to walks_path do %>
-              <%= image_tag "chat.svg", class:"walk-img-map" %>
+            <%= link_to chats_path do %>
+              <%= image_tag "chat.svg", class:"chat-img" %>
             <% end %>
           </div>
         </div>
       </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
   </div>
