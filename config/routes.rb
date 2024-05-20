@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :logs
     resources :markers, only: [:create]
   end
+
   resources :chats, only: %i[index show create] do
     resources :messages, only: [:create]
   end

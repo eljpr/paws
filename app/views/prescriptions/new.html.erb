@@ -1,0 +1,21 @@
+<% if current_user.is_vet %>
+  <div class="parent container d-flex flex-column align-items-center h-100">
+    <h1>Add your new puppy</h1>
+    <%= simple_form_for @prescription do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :description %>
+      </div>
+
+      <div class="form-actions" id="nav-btn">
+        <p><%= f.submit "Add prescription", class: 'dgreen-button'%></p>
+        <%= link_to dogs_path(@dog), class:"yellow-back-link" do %>
+        <i class="fa-solid fa-arrow-left"></i> My pups
+        <% end %>
+      </div>
+    <% end %>
+    <hr>
+  </div>
+<% end %>
+</div>
