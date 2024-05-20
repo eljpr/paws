@@ -31,6 +31,8 @@ export default class extends Controller {
 
     //add a button to start and stop tracking
     this.addTrackingButton();
+    this.haversineDistance();
+    this.calculateTotalDistance();
 
   }
 // adds markers to map
@@ -175,6 +177,33 @@ export default class extends Controller {
 
 
   }
+  // calculate the distance and speed using haversine formula
+  // haversineDistance(coords1, coords2) {
+  //   const toRad = (x) => x *Math.PI / 180;
+
+  //   const lat1 = coords1[0];
+  //   const lon1 = coords1[1];
+  //   const lat2 = coords2[0];
+  //   const lon2 = coords2[1];
+  //   console.log(lat1, lon1, lat2, lon2)
+  //   const R = 6371; // radius of earth ish
+  //   const Dlat = toRad(lat2- lat1);
+  //   const dlon = toRad(lon2 - lon1);
+  //   const a = Math.sin(Dlat / 2) * Math.sin(dlat / 2) +
+  //             Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+  //             Math.sin(dlon / 2) * Math.sin(dlon / 2);
+  //   const c = 2 * Math.atan(Math.sqrt(a), Math.sqrt( 1 - a)); // stole this
+  //   return R * c; //distance in km
+
+  // }
+  // calculateTotalDistance(path) {
+  //   let totalDistance = 0;
+  //   for (let i = 1; i < path.length; i++) {
+  //     totalDistance += haversineDistance(path[i - 1], path[i]);
+  //   }
+  //   return totalDistance
+
+  // }
   // Save the tracked path to the server
   savePath() {
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
@@ -191,6 +220,7 @@ export default class extends Controller {
     .then(response => response.json())
     .then(data => console.log(`Walk saved with ID: ${data.id}`))
     .catch(error => console.error('Error:', error));
-
+    //const totalDistance = this.calculateTotalDistance(this.path);
+    //console.log(`Total distance walked: ${totalDistance.toFixed(2)} km`)
     }
   }
