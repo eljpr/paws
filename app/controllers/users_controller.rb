@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @vet_dog = VetDog.new
-
+    @pending = @user.vet_dogs.where(status: "pending")
+    @accepted = @user.vet_dogs.where(status: "accepted")
   end
 end

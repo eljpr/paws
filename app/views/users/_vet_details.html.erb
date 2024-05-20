@@ -1,31 +1,73 @@
 <h1> Dr.<%= @user.last_name %>'s details</h1>
-  <div>
-    <%= link_to users_path, class:"green-back-link" do %>
-    <i class="fa-solid fa-arrow-left"></i> Vets
-    <% end %>
-  </div>
-<div class="card-container">
-
-    <%= cl_image_tag @user.photo.key, height: 500, width: 500, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", class:'img-square'%>
-    <h5 class="card-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>
-    <div class="card-body-details">
-      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= @user.address %></p>
-      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= @user.mobile_number %> </p>
-      <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= @user.opening_time.strftime('%I:%M:%S %p') %> </p>
-      <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= @user.closing_time.strftime('%I:%M:%S %p') %> </p>
+<% if current_user.is_vet %>
+<!--Back link for vets-->
+    <div>
+      <%= link_to users_path, class:"green-back-link" do %>
+      <i class="fa-solid fa-arrow-left"></i> Patients
+      <% end %>
     </div>
+<% else %>
+    <div>
+<!--Back link for owners-->
+      <%= link_to users_path, class:"green-back-link" do %>
+      <i class="fa-solid fa-arrow-left"></i> Vets
+      <% end %>
+    </div>
+<% end %>
+<div class="card-container">
+  <%= cl_image_tag @user.photo.key, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", class:'img-square'%>
+  <h5 class="card-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>
+  <div class="card-body-details">
+    <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= @user.address %></p>
+    <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= @user.mobile_number %> </p>
+    <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= @user.opening_time.strftime('%I:%M:%S %p') %> </p>
+    <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= @user.closing_time.strftime('%I:%M:%S %p') %> </p>
+  </div>
 
-      <hr>
-<% if @vet_dog.id == nil && !current_user.is_vet %>
+  <hr>
+<!--  Client request section for vets -->
+<% if current_user.is_vet %>
+  <% if !@pending.empty? %>
+      <h6>Pending patient requests</h6>
+        <% @pending.each do |request| %>
+          <div class="card-body-details request-flex">
+            <div class="client-request">
+            <p class="card-body-text">
+              <span class="detail-key"><i class="fa-solid fa-user"></i> : </span> <%= request.dog.user.first_name %> <%= request.dog.user.last_name %> |
+              <span class="detail-key"><i class="fa-solid fa-dog"></i> : </span> <%= request.dog.name %>
+            </p>
+            </div>
+            <div class="accept-reject">
+              <span class="accept-button">
+                <%= link_to accept_vet_dog_path(request), data: {turbo_method: :patch} do %>
+                  <i class="fa-solid fa-check"></i>
+                <% end %>
+              </span>
+              <span class="reject-button">
+                <%= link_to vet_dog_path(request), data: {turbo_method: :delete} do%>
+                  <i class="fa-solid fa-xmark"></i>
+                <% end %>
+              </span>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+  <% end %>
+  <% if !@accepted.empty? %>
+  <h6>You currently have <%= @accepted.length %> clients</h6>
+  <% end %>
+
+
+<% if !current_user.is_vet %>
   <div class="new-vet-form">
   <%= simple_form_for [@user, @vet_dog] do |f| %>
     <%= f.error_notification %>
       <div class="vet-form-inputs">
-        <%= f.association :dog, :label => "Please select dog:", collection: current_user.dogs%>
+        <%= f.association :dog, :label => "Please select dog:", collection: @patients%>
       </div>
       <div class="button-flexbox">
         <div class="vet-form-actions">
-          <p><%= f.submit "Book vet", class: 'dyellow-button'%></p>
+          <p><%= f.submit "Send request to vet", class: 'dyellow-button'%></p>
         </div>
     <% end %>
   <% end %>
@@ -33,3 +75,10 @@
       </div>
   </div>
 </div>
+    </div>
+
+<!---->
+<!--custom route to accept or reject bookings
+inside that action vet_dog.update = accepted
+1. if you apply for all of them and 1 accepts-->
+<!---->

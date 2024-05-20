@@ -1,0 +1,29 @@
+
+.request-flex{
+  display:flex;
+  justify-content: space-between;
+}
+
+
+.accept-button{
+  background-color: $lgreen-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.accept-reject a{
+  text-decoration: none;
+  color: white;
+}
+
+.reject-button{
+  background-color: $dorange-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
