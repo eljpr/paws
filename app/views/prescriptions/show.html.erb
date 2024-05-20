@@ -1,0 +1,17 @@
+<div class="container">
+<h2><%= @prescription.medication_name %></h2>
+<h5><span class="detail-key"><i class="fa-solid fa-tablets"></i> :</span> <%= @prescription.description %></h5>
+<h5><span class="detail-key"><i class="fa-solid fa-syringe"></i> :</span> <%= @prescription.dosage %></h5>
+<h5><span class="detail-key"><i class="fa-solid fa-clock"></i> :</span> <%= @prescription.time_of_day %></h5>
+<% if @prescription.number_of_times_per_day = 1 %>
+<h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Please take <%= @prescription.number_of_times_per_day%> dose a day</h5>
+<% else %>
+<h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Please take <%= @prescription.number_of_times_per_day%> doses a day</h5>
+<% end %>
+  <% days = @prescription.end_date - @prescription.start_date %>
+  <% if days == 1 %>
+  <h5><span class="detail-key"><i class="fa-solid fa-calendar"></i> :</span> Take for <%= days.to_i %> day</h5>
+    <% else %>
+  <h5><span class="detail-key"><i class="fa-solid fa-calendar"></i> :</span> Take for <%= days.to_i %> days</h5>
+  <% end %>
+</div>
