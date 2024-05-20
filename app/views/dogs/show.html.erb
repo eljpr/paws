@@ -1,6 +1,5 @@
 <div class="container">
   <h1> <%= @dog.name %>'s details</h1>
-  <div class="card-container">
   <% if current_user.id == @dog.user.id  %>
     <%= link_to dogs_path, class:"green-back-link" do %>
       <i class="fa-solid fa-arrow-left"></i> My pups
@@ -10,6 +9,7 @@
       <i class="fa-solid fa-arrow-left"></i> My pup patients
     <% end %>
   <% end %>
+  <div class="card-container">
   <div class="dog-show-img-center">
     <%= cl_image_tag @dog.photo.key, gravity: "auto", crop: "fill", alt: "#{@dog.name}", class:'img-square'%>
   </div>
