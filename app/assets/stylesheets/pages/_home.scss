@@ -4,9 +4,44 @@ padding: 10px;
 height: 100%;
 }
 
+.login{
+  text-align: right;
+  margin-top: 10px;
+}
+
+.get-started-button{
+  background-color: $bblue-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.get-started-button:active{
+  background-color: $dyellow-pawsg;
+}
+
+.sign-in-button{
+  background-color: $dyellow-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.sign-in-button:active{
+  background-color: $bblue-pawsg;
+}
+
 .home-container h1{
   color: $bblue-pawsg;
   font-weight: bolder;
+}
+
+.home-options > h2{
+  color: $bblue-pawsg;
 }
 
 .home-track-icons{
