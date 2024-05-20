@@ -35,7 +35,7 @@ def create
  respond_to do |format|
   if @walk.save!
     format.html { redirect_to @walk, notice: "Walk was succesfully created."  }
-    format.json { render json: { status: :ok, message: "Success!" }}
+    format.json { render json: { status: :ok, message: "Success!", id: @walk.id }}
   else
     format.html {render :new, status: :unprocessable_entity}
     format.json { render json: {status: :unprocessable_entity} }
