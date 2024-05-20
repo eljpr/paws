@@ -16,7 +16,7 @@
     </div>
 
       <hr>
-<% if @vet_dog.id == nil %>
+<% if @vet_dog.id == nil && !current_user.is_vet %>
   <div class="new-vet-form">
   <%= simple_form_for [@user, @vet_dog] do |f| %>
     <%= f.error_notification %>

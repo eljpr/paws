@@ -20,28 +20,28 @@
     </div>
   </div>
 </div>
-<% if current_user.is_vet %>
-    <% else %>
+<%# if current_user.is_vet %>
+    <%# else %>
     <% if @user.dogs.length == 1 %>
         <div class="row">
-          <div class="col mt-3 mb-3">
+          <div class="col mt-1 mb-1">
             <div class="card-container">
                         <div class="title-flexbox">
-                          <div>
-                            <h5 class="card-nav-title"><span class="owner-pet-title"><strong><%= @user.first_name%>'s pup:</strong></span></h5>
+                          <div class="dgreen-title">
+                            <h5 class="card-nav-title"><span class="owner-pet-title "><strong><%= @user.first_name%>'s pup:</strong></span></h5>
                           </div>
-                          <div>
+                          <div class="dog-show-img-center">
                             <%= cl_image_tag @user.dogs.first.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{@user.dogs.first.name}" %>
                           </div>
                         </div>
 
 
                       <p class="card-body-text"><span class="detail-key"><strong>Name: </strong></span><%= link_to @user.dogs.first.name, dog_path(@user.dogs.first) %></p>
-                      <p class="card-body-text"><span class="detail-key"><strong>Date of Birth: </strong></span><%= @user.dogs.first.date_of_birth %></p>
-                      <p class="card-body-text"><span class="detail-key"><strong>Breed: </strong></span><%= @user.dogs.first.breed %></p>
-                      <p class="card-body-text"><span class="detail-key"><strong>Weight: </strong></span><%= @user.dogs.first.weight %>kg</p>
-                      <p class="card-body-text"><span class="detail-key"><strong>Preexisting condition: </strong></span><%= @user.dogs.first.condition %></p>
-                      <p class="card-body-text"><span class="detail-key"><strong>Medication: </strong></span><%= @user.dogs.first.medication %></p>
+                      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-cake-candles"></i> : </span><%= @user.dogs.first.date_of_birth %></p>
+                      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span><%= @user.dogs.first.breed %></p>
+                      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span><%= @user.dogs.first.weight %>kg</p>
+                      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-bandage"></i> : </span><%= @user.dogs.first.condition %></p>
+                      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-pills"></i> : </span><%= @user.dogs.first.medication %></p>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
       <h5 class="white-title"><span class="owner-pet-title"><strong><%= @user.first_name%>'s pups:</strong></span></h5>
         <div class="row">
           <%@user.dogs.each do |pet|%><!---->
-            <div class="col-sm-12 mt-3 mb-3">
+            <div class="col-sm-12 mt-1 mb-1">
               <div class="card-container">
                   <div>
                     <div class="title-flexbox">
@@ -71,4 +71,4 @@
             <% end %>
         </div>
     <% end %>
-  <% end %>
+  <%# end %>
