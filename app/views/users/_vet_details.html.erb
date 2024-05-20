@@ -63,7 +63,7 @@
   <%= simple_form_for [@user, @vet_dog] do |f| %>
     <%= f.error_notification %>
       <div class="vet-form-inputs">
-        <%= f.association :dog, :label => "Please select dog:", collection: @patients%>
+        <%= f.association :dog, :label => "Please select dog:", collection: @pending%>
       </div>
       <div class="button-flexbox">
         <div class="vet-form-actions">
