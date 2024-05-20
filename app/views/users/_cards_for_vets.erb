@@ -13,19 +13,19 @@
             <h3 class="card-title"><%= dog.name  %> </h3>
           </div>
           <div class="card-nav-img img-rounded">
-              <%= cl_image_tag dog.photo.key, width: 40, height: 50, gravity: "auto", crop: "fill", class: "avatar", alt: "#{dog.name}" %>
+              <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{dog.name}" %>
           </div>
         </div>
           <div class="card-body-details">
-            <p class="card-body-text"><span class="detail-key"><strong>Owner:</strong></span> <%= link_to dog.user.first_name, user_path(dog.user), class:"owner-name" %> </p>
-            <p class="card-body-text"><span class="detail-key"><strong>Address:</strong></span> <%= dog.user.address %></p>
-            <p class="card-body-text"><span class="detail-key"><strong>Mobile number:</strong></span> <%= dog.user.mobile_number %> </p>
+            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-user"></i> : </span> <strong><%= link_to dog.user.first_name, user_path(dog.user), class:"owner-name" %></strong> </p>
+            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= dog.user.address %></p>
+            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= dog.user.mobile_number %> </p>
           </div>
 
 <br>
           <div class="button-flexbox" >
             <div>
-            <%= link_to 'Details', dog_path(dog), class:"dgreen-button" %>
+            <%= link_to 'Details', dog_path(dog), class:"dyellow-button" %>
             </div>
 
           </div>

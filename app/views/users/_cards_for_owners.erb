@@ -1,4 +1,6 @@
-<h1>Select your vet</h1>
+
+  <h1>Select your vet</h1>
+
   <div>
     <%= link_to root_path, class:"green-back-link" do %>
       <i class="fa-solid fa-arrow-left"></i> Home
@@ -13,20 +15,20 @@
               <h3 >DR. <%= vet.first_name%> <%= vet.last_name %></h3>
             </div>
             <div class="card-nav-img img-rounded">
-                <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "avatar", alt: "#{vet.first_name}" %>
+                <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{vet.first_name}" %>
             </div>
           </div>
           <div class="card-body-details">
             <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span><%= vet.address %></p>
-            <p class="card-body--text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= vet.mobile_number %></p>
-            <p class="card-body--text"><span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
+            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= vet.mobile_number %></p>
+            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
             <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
           </div>
 
 <br>
           <div class="button-flexbox" >
             <div>
-              <%= link_to 'Details', user_path(vet), class:'dgreen-button' %>
+              <%= link_to 'Details', user_path(vet), class:'dyellow-button' %>
             </div>
 
           </div>
