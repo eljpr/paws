@@ -3,7 +3,7 @@
   <div class="col mt-3 mb-3">
     <div class="card-container">
         <div class="img-square">
-          <%= cl_image_tag @user.photo.key, height: 500, width: 500, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", id: 'vet-pic', class:'avatar'%>
+          <%= cl_image_tag @user.photo.key, height: 350, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", class:"img-square"%>
         </div>
         <br>
           <h5 class="orange-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>
@@ -25,7 +25,7 @@
                           <h5 class="card-nav-title"><span class="owner-pet-title"><strong><%= @user.first_name%>'s pup:</strong></span></h5>
                         </div>
                         <div>
-                          <%= cl_image_tag @user.dogs.first.photo.key, width: 50, height: 40, gravity: "auto", crop: "fill", class: "img-rounded card-nav-img", alt: "#{@user.dogs.first.name}" %>
+                          <%= cl_image_tag @user.dogs.first.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{@user.dogs.first.name}" %>
                         </div>
                       </div>
 
@@ -49,7 +49,7 @@
                   <div class="title-flexbox">
                       <p class="card-body-text" ><%= link_to pet.name, dog_path(pet), class:"dog-name-link" %></p>
                     <div class="card-nav-img">
-                      <%= cl_image_tag pet.photo.key, width: 50, height: 40, gravity: "auto", crop: "fill", class: "avatar", alt: "#{pet.name}" %>
+                      <%= cl_image_tag pet.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{pet.name}" %>
                     </div>
                   </div>
                     <div class="card-body-details">
