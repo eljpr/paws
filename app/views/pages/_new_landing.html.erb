@@ -1,12 +1,20 @@
   <div class="home-container">
-    <h1>Hi <%= current_user.first_name %>...</h1>
+  <div class="login">
+    <%= link_to "Get Started", new_user_registration_path, class: "get-started-button" %>
+    <%= link_to "Sign in", new_user_session_path, class: "sign-in-button" %>
+  </div>
       <div class="home-options">
+            <h2>Vets</h2>
+        <div class="vet-landing">
+          <h6>Check on your puppies</h6>
+          <h6>See your pending client requests</h6>
+        </div>
+        <hr>
+      <h2>Pet owners</h2>
         <div class="walk-section">
-          <h6>Fancy a walk?</h6>
+          <h6>Take your dog out for a walk!</h6>
           <div class="fancy-walk">
-            <%= link_to walks_path do %>
-              <%= image_tag "walk-map", class:"walk-img-map" %>
-            <% end %>
+            <%= image_tag "walk-map", class:"walk-img-map" %>
             <%= image_tag "arrow_green.PNG", class:"arrow-green" %>
           </div>
             <div class="walk-icon">
@@ -18,13 +26,11 @@
         <div class="health-options">
           <h6>Keep on top of your dog's health</h6>
           <div class="chat-icon">
-            <%= link_to dogs_path do %>
               <ul id="home-tracking-list">
                 <li><%= image_tag "mood_happy.PNG", class:"home-track-icons" %></li>
                 <li><%= image_tag "grooming_brushing.PNG", class:"home-track-icons" %></li>
                 <li><%= image_tag "training_agility.PNG", class:"home-track-icons" %></li>
                 <li><%= image_tag "food_kibble.PNG", class:"home-track-icons" %></li>
-            <% end %>
             </div>
             </div>
             <div class="arrow-blue-container">
@@ -34,9 +40,7 @@
         <div class="chat-options">
           <h6>Ask any questions to our chatbot</h6>
           <div class="chat-icon">
-            <%= link_to chats_path do %>
               <%= image_tag "chat.svg", class:"chat-img" %>
-            <% end %>
           </div>
         </div>
       </div>

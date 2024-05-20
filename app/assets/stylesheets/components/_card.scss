@@ -3,8 +3,8 @@
   background-color: white;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top:5px;
+  margin-bottom: 5px;
 }
 
 .orange-title{
@@ -15,9 +15,14 @@
   color: $dbblue-pawsg;
 }
 
+.card-body-text{
+  margin:0;
+}
+
 .detail-key{
   font-weight: 500;
   color: $bblue-pawsg;
+  line-height: 0.5;
 
 }
 

@@ -1,4 +1,22 @@
+<% if current_user.is_vet %>
 <div class="menu-sticky">
+  <ul id="menuItems">
+    <li> <%= link_to walks_path do %>
+      <i class="fa-solid fa-user-plus"></i>
+    <% end %></li>
+    <li> <%= link_to root_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %></li>
+    <li> <%= link_to users_path do %>
+      <i class="fa-solid fa-dog"></i>
+    <% end %></li>
+    <li> <%= link_to user_path(current_user) do %>
+      <i class="fa-solid fa-user"></i>
+    <% end %></li>
+  </ul>
+</div>
+  <% else %>
+  <div class="menu-sticky">
   <ul id="menuItems">
     <li> <%= link_to users_path do %>
       <i class="fa-solid fa-stethoscope"></i>
@@ -15,8 +33,6 @@
     <li> <%= link_to dogs_path do %>
       <i class="fa-solid fa-dog"></i>
     <% end %></li>
-    <li> <%= link_to users_path(current_user) do %>
-      <i class="fa-solid fa-user"></i>
-    <% end %></li>
   </ul>
 </div>
+<% end %>
