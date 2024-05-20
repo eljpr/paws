@@ -9,15 +9,40 @@ height: 100%;
   font-weight: bolder;
 }
 
-.fancy-walk{
-  display: flex;
-  justify-content: space-between;
-  align-items:bottom;
+.home-track-icons{
+  width: 80px;
+  height: 60px;
+}
+
+.arrow-green{
+  height: 100px;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.arrow-yellow{
+  height: 150px;
+  width: 150px;
+  text-align: left;
+}
+
+.arrow-blue{
+  height: 100px;
+  width: 100px;
+}
+.arrow-blue-container{
+  text-align: center;
+}
+
+
+.walk-icon{
+  text-align: right;
 }
 
 .walk-icon img{
-  height: 100px;
-  width: 100px;
+  height: 250px;
+  width: 320px;
 }
 
 .walk-img-map{
@@ -52,15 +77,13 @@ a{
 
 ul#home-tracking-list{
   list-style:none;
+  padding: 0;
 }
 
 ul#home-tracking-list li{
   display: inline-block;
   list-style: none;
-  margin: 0 auto;
-  padding-left: 13px;
-  padding-right: 13px;
-
+  margin: 0;
 }
 
 .chat-options > h6 {
