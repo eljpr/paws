@@ -1,0 +1,47 @@
+<h1>Logs</h1>
+
+<% @logs.each do |log| %>
+  <div class="container card">
+    <div class="row row-cols-1">
+
+      <div class="row row-cols-2">
+        <div class="col-6">
+          <p> Date: <%= log.created_at.strftime("%d-%m-%Y") %> </p>
+        </div>
+        <div class="row row-cols-3">
+          <div class="col-1">
+            <%# <%= link_to 'V', dog_log_path(log) %> %>
+          </div>
+          <div class="col-1">
+            <%# <%= link_to 'E', edit_dog_log_path(log) %> %>
+          </div>
+          <div class="col-1">
+            <%# <%= link_to 'D', dog_log_path(log) %> %>
+          </div></div>
+      </div>
+
+        <div class="row">
+          <div class="col">
+            <p> Food: <%= log.food %> </p>
+          </div>
+        </div>
+         <div class="row">
+          <div class="col">
+            <p> Medication: <%= log.medication %> </p>
+          </div>
+        </div>
+         <div class="row">
+          <div class="col">
+            <p> Special treat: <%= log.special_treat %> </p>
+          </div>
+        </div>
+         <div class="row">
+          <div class="col">
+            <p> Mood: <%= log.mood %> </p>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+<% end %>

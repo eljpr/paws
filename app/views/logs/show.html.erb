@@ -1,0 +1,21 @@
+<div class="container">
+  <h1><%= @dog.name %>'s log</h1>
+
+  <div class="card">
+  <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+    <p>Breed: <%= @dog.breed %></p>
+    <p>Date of birth: <%= @dog.date_of_birth %></p>
+    <p>Pre-existing condition:<%= @dog.condition %></p>
+    <p>Medication: <%= @dog.medication %></p>
+    <p>Weight: <%= @dog.weight %></p>
+
+
+  </div>
+
+  <p><%= link_to "Update my pup's info", edit_dog_path %></p>
+  <p><%= link_to "Remove dog",
+    dog_path(@dog),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %></p>
+  <p><%= link_to 'Back', dogs_path %></p>
+</div>

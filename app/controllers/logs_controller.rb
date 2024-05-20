@@ -1,10 +1,13 @@
 class LogsController < ApplicationController
+  before_action :set_log, only: [:show, :edit, :update, :destroy]
+
   def index
     @logs = Log.all
   end
 
   def new
     @log = Log.new
+    @dog = set_dog
   end
 
   def create
@@ -19,15 +22,14 @@ class LogsController < ApplicationController
   end
 
   def show
-    @log = Log.find(params[:id])
+    set_dog
   end
 
   def edit
-    @log = Log.find(params[:id])
+    set_dog
   end
 
   def update
-    @log = Log.find(params[:id])
     if @log.update(log_params)
       redirect_to dog_log_path(@log), notice: 'Log updated successfully.'
     else
@@ -36,7 +38,6 @@ class LogsController < ApplicationController
   end
 
   def destroy
-    @log = Log.find(params[:id])
     @log.destroy
     redirect_to dog_logs_path, status: :see_other
   end
@@ -47,8 +48,11 @@ class LogsController < ApplicationController
     params.require(:logs).permit(:medication, :food, :special_treat, :grooming, :stool, :vaccination, :mood, :energy, :training)
   end
 
-  def set_dog
-    @dog = Dog.find_by(params[:id])
+  def set_log
+    @log = Log.find(params[:id])
   end
 
+  def set_dog
+    @dog = Dog.find(params[:dog_id])
+  end
 end
