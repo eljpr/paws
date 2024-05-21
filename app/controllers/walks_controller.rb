@@ -29,21 +29,27 @@ def create
   @walk.dog = current_user.dogs.first
   puts current_user.dogs.first
   @walk.user = current_user
-  @walk.path = params["path"].map do |point_params|
-    [point_params["lat"], point_params["lng"]] if point_params.is_a?(ActionController::Parameters)
-  end
+
+  # @walk.path = params[:path].map { |point_params| [point_params[:lat], point_params[:lng]] if point_params.is_a?(ActionController::Parameters) }.compact
+
+
+  @walk.path = params["path"]
+
+
+
+
  respond_to do |format|
-  if @walk.save!
+  if @walk.save
     format.html { redirect_to @walk, notice: "Walk was succesfully created."  }
     format.json { render json: { status: :ok, message: "Success!", id: @walk.id }}
   else
     format.html {render :new, status: :unprocessable_entity}
-    format.json { render json: {status: :unprocessable_entity} }
+    format.json { render json: {status: :unprocessable_entity, errors: @walk.errors.full_messages} }
   end
  end
 end
 
 def walk_params
-  params.require(:walk).permit(:start_time, :end_time, :start_lat, :start_lng, :end_lat, :end_lng, :distance, :pace, :distance, path: [])
+  params.require(:walk).permit(:start_time, :end_time, :start_lat, :start_lng, :end_lat, :end_lng, :distance, :pace, path: [])
 end
 end
