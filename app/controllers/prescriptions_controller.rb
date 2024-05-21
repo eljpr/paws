@@ -1,4 +1,5 @@
 class PrescriptionsController < ApplicationController
+  before_action :set_dog, only: %i[index new create update]
   before_action :set_prescription, only: %i[show edit update destroy]
   def index
     @prescriptions = Prescription.all
@@ -41,8 +42,9 @@ class PrescriptionsController < ApplicationController
   end
 
   def destroy
+    @prescription.dog = @dog
     @prescription.destroy
-    redirect_to prescriptions_path, status: :see_other
+    redirect_to dog_prescriptions_path, status: :see_other
   end
 
   private
@@ -53,5 +55,9 @@ class PrescriptionsController < ApplicationController
 
   def set_prescription
     @prescription = Prescription.find(params[:id])
+  end
+
+  def set_dog
+    @dog = Dog.find(params[:dog_id])
   end
 end

@@ -28,19 +28,23 @@
     <% ongoing.each do |prescription| %>
     <% days_left = prescription.end_date - Date.today %>
       <br>
-      <div class="prescriptions-status">
-        <h6 id="presctiption-name-index">
-        <%= link_to dog_prescription_path(@dog, prescription), class:"dyellow-button" do %>
-          <%= prescription.medication_name %>
-      <% end %>
-        </h6>
-  <!--number of days left on prescription-->
-        <% if days_left > 1 %>
-        <span> <i class="fa-solid fa-arrow-right"></i> <em><%= days_left.to_i %> days left</em></span>
-          <% else %>
-        <span>  <i class="fa-solid fa-arrow-right"></i><em><%= days_left.to_i %> day left</em></span>
-          <% end %> <!--end of days left if statement-->
-  </div>
+      <div class="prescriptions-status prescription-flexbox">
+          <h6 id="presctiption-name-index">
+          <%= link_to dog_prescription_path(@dog, prescription), class:"ongoing-button" do %>
+            <%= prescription.medication_name %>
+        <% end %>
+          </h6>
+          <div class="prescriptions-status-details">
+          <span>Prescribed on <%= prescription.created_at.strftime('%m/%d/%Y') %></span>
+    <!--number of days left on prescription-->
+          <% if days_left > 1 %>
+          <span> <i class="fa-solid fa-arrow-right"></i> <em><%= days_left.to_i %> days left</em></span>
+            <% else %>
+          <span>  <i class="fa-solid fa-arrow-right"></i><em><%= days_left.to_i %> day left</em></span>
+            <% end %>
+  <!--end of days left if statement-->
+          </div>
+      </div>
     <% end %>
   </div>
   <!--end of ongoing prescription iteration-->

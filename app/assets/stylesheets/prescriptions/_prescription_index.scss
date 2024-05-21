@@ -1,5 +1,15 @@
 .prescriptions-status{
-  line-height: 1;
+  line-height: 1.5;
+}
+
+.prescription-flexbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prescriptions-status-details > span{
+  text-align: center;
 }
 
 #presctiption-name-index{
@@ -9,4 +19,36 @@
 
 .prescriptions-status-container{
   margin: 20px 0;
+}
+
+.ongoing-button{
+  background-color: $dbyellow-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 5px;
+  // transition:
+}
+.ongoing-button:active{
+  background-color: $lbyellow-pawsg;
+}
+
+.mark-complete > a{
+  text-decoration: none;
+  color: white;
+}
+
+.mark-complete{
+  background-color: $lgreen-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  // transition: 0.1s ease-in-out;
+}
+
+.mark-complete:active{
+  background-color: $dbgreen-pawsg;
 }

@@ -7,13 +7,14 @@
 <br>
 <!--prescription details-->
 <h2 class="orange-title"><strong><%= @prescription.medication_name %></strong></h2>
+<h5><span class="detail-key"><i class="fa-solid fa-pen"></i> :</span> Prescribed on <%= @prescription.created_at.strftime('%m/%d/%Y') %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-tablets"></i> :</span> <%= @prescription.description %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-syringe"></i> :</span> <%= @prescription.dosage %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-clock"></i> :</span> <%= @prescription.time_of_day %></h5>
 <% if @prescription.number_of_times_per_day = 1 %>
-<h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Please take <%= @prescription.number_of_times_per_day%> dose a day</h5>
+<h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Take <%= @prescription.number_of_times_per_day%> dose a day</h5>
 <% else %>
-<h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Please take <%= @prescription.number_of_times_per_day%> doses a day</h5>
+<h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Take <%= @prescription.number_of_times_per_day%> doses a day</h5>
 <% end %>
   <% days = @prescription.end_date - @prescription.start_date %>
   <% if days == 1 %>
@@ -38,7 +39,7 @@
 <!--  mark as complete for owner -->
 <% if !@prescription.completed %>
 <h5><span class="detail-key"><strong>Mark as complete:</strong></span>
-  <span class="dgreen-button">
+  <span class="mark-complete">
     <%= link_to complete_prescription_path(@prescription), data: {turbo_method: :patch} do %>
       <i class="fa-solid fa-check"></i>
     <% end %>
@@ -46,7 +47,7 @@
 <% end %>
 
 <!--  edit/remove if user is vet-->
-<% if current_user.is_vet && !@prescription.completed?%>
+<% if current_user.is_vet %>
 <div class="button-container">
 <br>
   <div class="button-flexbox">
