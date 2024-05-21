@@ -226,63 +226,63 @@ export default class extends Controller {
     //console.log(`Total distance walked: ${totalDistance.toFixed(2)} km`)
     }
 
-  //   showPopup(Walk) {
-  //     //Create a div element for the popup
-  //     console.log('showPopup function called');
-  //     console.log('Walk ID:', Walk.id);
-  //     console.log('Start Time:', Walk.start_time);
-  //     console.log('End Time:', Walk.end_time);
-  //     console.log('Distance:', Walk.distance);
-  //     console.log('Pace:', Walk.pace);
-  //     const popup = document.createElement('div');
-  //     popup.classList.add('popup');
-  //     //create content for popup
-  //     const content = document.createElement('div');
-  //     content.innerHTML =  `
-  //     <h2>Last Walk</h2>
-  //     <p>Walk ID: ${Walkalk.id}</p>
-  //     <p>Start Time: ${Walk.start_time}</p>
-  //     <p>End Time: ${Walk.end_time}</p>
-  //     <p>Distance: ${Walk.distance}</p>
-  //     <p>Pace: ${Walk.pace}</p>
-  // `;  //add content to the popup
-  //     popup.appendChild(content);
+    showPopup(Walk) {
+      //Create a div element for the popup
+      console.log('showPopup function called');
+      console.log('Walk ID:', Walk.id);
+      console.log('Start Time:', Walk.start_time);
+      console.log('End Time:', Walk.end_time);
+      console.log('Distance:', Walk.distance);
+      console.log('Pace:', Walk.pace);
+      const popup = document.createElement('div');
+      popup.classList.add('popup');
+      //create content for popup
+      const content = document.createElement('div');
+      content.innerHTML =  `
+      <h2>Last Walk</h2>
+      <p>Walk ID: ${Walk.id}</p>
+      <p>Start Time: ${Walk.start_time}</p>
+      <p>End Time: ${Walk.end_time}</p>
+      <p>Distance: ${Walk.distance}</p>
+      <p>Pace: ${Walk.pace}</p>
+  `;  //add content to the popup
+      popup.appendChild(content);
 
-  //     //append popup  to the body
-  //     document.body.appendChild(popup);
-  //    // Close the popup after 5 seconds
-  //   setTimeout(() => {
-  //       document.body.removeChild(popup);
-  //   }, 5000);
-  //   const style = document.createElement('style');
-  //       style.innerHTML = `
-  //           .popup {
-  //               position: fixed;
-  //               top: 50%;
-  //               left: 50%;
-  //               transform: translate(-50%, -50%);
-  //               background-color: white;
-  //               padding: 20px;
-  //               border: 1px solid #ccc;
-  //               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  //               z-index: 9999;
-  //           }
+      //append popup  to the body
+      document.body.appendChild(popup);
+     // Close the popup after 5 seconds
+    setTimeout(() => {
+        document.body.removeChild(popup);
+    }, 5000);
+    const style = document.createElement('style');
+        style.innerHTML = `
+            .popup {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                padding: 20px;
+                border: 1px solid #ccc;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                z-index: 9999;
+            }
 
-  //           .popup h2 {
-  //               margin-top: 0;
-  //           }
+            .popup h2 {
+                margin-top: 0;
+            }
 
-  //           .popup p {
-  //               margin: 5px 0;
-  //           }
+            .popup p {
+                margin: 5px 0;
+            }
 
-  //           .tracking-button {
-  //               position: fixed;
-  //               top: 10px;
-  //               left: 50%;
-  //               transform: translateX(-50%);
-  //           }
-  //       `; document.head.appendChild(style);
+            .tracking-button {
+                position: fixed;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        `; document.head.appendChild(style);
 
-  //   }
+    }
   }
