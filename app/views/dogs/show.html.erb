@@ -23,41 +23,81 @@
         <p><%= link_to "Update my pup's info", edit_dog_path, class:"orange-back-link" %></p>
       <% end %>
       <div class="card-body-details">
-      <div class="pup-info">
-          <div class="pup-info-details">
-          <p class="card-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span> <%= @dog.breed %></p>
-          <p class="card-text"><span class="detail-key"><i class="fa-solid fa-cake-candles"></i> : </span> <%= @dog.date_of_birth.strftime('%m/%d/%Y') %></p>
-          <p class="card-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span> <%= @dog.weight %></p>
-          </div>
-          <div class="pup-health-details">
-            <p class="card-text"><span class="detail-key"><i class="fa-solid fa-bandage"></i> : </span><%= @dog.condition %></p>
-            <p class="card-text"><span class="detail-key"><i class="fa-solid fa-pills"></i> : </span><%= @dog.medication %></p>
-            <p class="card-text"><span class="detail-key"><i class="fa-solid fa-user-doctor"></i></i> : </span>
-              <% if @dog.vet_dogs.empty? %>
-                <span>
-                <%= link_to users_path, class:"yellow-back-link pup-button" do %>
-                <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-stethoscope"></i> Choose vet
-                <% end %>
-                </span>
-              <% elsif %>
-                <% @pending.each do |vet| %>
-                    <%= link_to user_path(vet), class:"vet-name-yellow" do %>
-                      Request sent to <%= vet.user.first_name %>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item dog-profile-tab" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Profile</button>
+          </li>
+          <li class="nav-item dog-profile-tab" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Prescriptions</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <div class="pup-info">
+              <div class="pup-info-details">
+              <p class="card-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span> <%= @dog.breed %></p>
+              <p class="card-text"><span class="detail-key"><i class="fa-solid fa-cake-candles"></i> : </span> <%= @dog.date_of_birth.strftime('%m/%d/%Y') %></p>
+              <p class="card-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span> <%= @dog.weight %></p>
+              </div>
+              <div class="pup-health-details">
+                <p class="card-text"><span class="detail-key"><i class="fa-solid fa-bandage"></i> : </span><%= @dog.condition %></p>
+                <p class="card-text"><span class="detail-key"><i class="fa-solid fa-pills"></i> : </span><%= @dog.medication %></p>
+                <p class="card-text"><span class="detail-key"><i class="fa-solid fa-user-doctor"></i></i> : </span>
+                  <% if @dog.vet_dogs.empty? %>
+                    <span>
+                    <%= link_to users_path, class:"yellow-back-link pup-button" do %>
+                    <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-stethoscope"></i> Choose vet
                     <% end %>
+                    </span>
+                  <% elsif @pending.present? %>
+                    <% @pending.each do |vet| %>
+                        <%= link_to user_path(vet), class:"vet-name-yellow" do %>
+                          <%= vet.user.first_name %> (pending accept)
+                        <% end %>
+                      <% end %>
+                  <% else %>
+                    <% @accepted.each do |vet| %>
+                      <% if current_user.is_vet %>
+    <!--                  add a condition if vet is looking at their own profile-->
+                        <%= link_to vet.user.first_name, user_path(current_user, showmyself: true), class:"vet-name-yellow" %>
+                        <% else %>
+                        <%= link_to vet.user.first_name, user_path(vet), class:"vet-name-yellow" %>
+                        <% end %>
+                      <% end %>
                   <% end %>
-              <% else %>
-                <% @dog.vet_dogs.each do |vet_dog| %>
-                    <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name-yellow" %>
-                  <% end %>
+                </p>
+                </div>
+              </div>
+        <% if current_user.id == @dog.user.id %>
+          <%= render "owner_show" %> <!-- this is the partial for the owner -->
+        <% end %>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <div class="dog-prescription-container">
+              <% @prescriptions.each do |prescription| %>
+                <p><%= prescription.medication_name %> |
+                Status:
+                <% if prescription.completed? %>
+                <%= 'completed' %>
+                <% else %>
+                <%='ongoing' %>
               <% end %>
-            </p>
+                </p>
+              <% end %>
+              <%= link_to dog_prescriptions_path(@dog), class:"yellow-back-link" do %>
+                  See all prescriptions
+              <% end %>
+            </div>
+              <% if current_user.is_vet %>
+              <%= render "vet_show" %>
+              <% end %>
           </div>
         </div>
-        <br>
-      </div>
-    <% if current_user.id == @dog.user.id %>
-      <%= render "owner_show" %>
-    <% end %>
+
+
+
       </div>
   </div>
 </div>
