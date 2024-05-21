@@ -15,7 +15,11 @@
     </div>
 <% end %>
 <div class="card-container">
-  <%= cl_image_tag @user.photo.key, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", class:'img-square'%>
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", class:'img-square'%>
+      <% else %>
+        <%= image_tag "profile_placeholder", class:"img-square" %>
+    <% end %>
   <h5 class="card-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>
   <div class="card-body-details">
     <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= @user.address %></p>
@@ -52,10 +56,10 @@
             </div>
         <% end %>
       <% end %>
-  <% end %>
   <% if !@accepted.empty? %>
   <h6>You currently have <%= @accepted.length %> clients</h6>
   <% end %>
+<% end %>
 
 
 <% if !current_user.is_vet %>

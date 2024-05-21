@@ -18,7 +18,11 @@
   <div class="col mt-3 mb-3">
     <div class="card-container">
         <div>
-          <%= cl_image_tag @user.photo.key, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", class:"img-square"%>
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", class:'img-square'%>
+      <% else %>
+        <%= image_tag "profile_placeholder", class:"img-square" %>
+    <% end %>
         </div>
         <br>
           <h5 class="orange-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>
