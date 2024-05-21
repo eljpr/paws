@@ -6,7 +6,7 @@ class Log < ApplicationRecord
   STOOL         = ["Normal", "Constipation", "Diarrhea"]
   VACCINATION   = ["None", "Distemper", "Parvovirus", "Adenovirus", "Leptospira"]
   MOOD          = ["Happy", "Fearful", "Anxious", "Jealous", "Aggressive"]
-  ENERGY        = ["Energertic", "Ok", "Tired", "Exhausted", "Calm Excited"]
+  ENERGY        = ["Energertic", "Ok", "Tired", "Exhausted", "Calm", "Excited"]
   TRAINING      = ["Obedience", "Therapy", "Behavioural", "Agility", "Protection", "Service", "Tracking"]
 
   belongs_to :dog
