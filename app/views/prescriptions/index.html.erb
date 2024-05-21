@@ -1,0 +1,16 @@
+<h1><%= @dog.name %>'s prescriptions</h1>
+
+<% @prescriptions.each do |prescription| %>
+<p><%= prescription.medication_name %></p>
+<% days_left = prescription.end_date - Date.today %>
+<% if !prescription.completed? %>
+    <% if days_left > 1 %>
+    <p>You have <%= days_left.to_i %> days left</p>
+      <% else %>
+    <p>You have <%= days_left.to_i %> day left</p>
+      <% end %>
+    <p><%= link_to "Mark as completed", dog_prescription_path(@dog, prescription), method: :put %></p>
+    <% else %>
+      <p>Well done pup! You're all done</p>
+  <% end %>
+<% end %>
