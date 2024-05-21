@@ -29,7 +29,7 @@
     <%= link_to "Edit", edit_dog_prescription_path(@prescription), class:"dyellow-button update-pup-button" %>
     <%= link_to dog_prescription_path(@prescription),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class:"dgreen-button pup-button remove-pup-button" do %>
+      class:"dgreen-button pup-button" do %>
         Delete
     <% end %>
   </div>

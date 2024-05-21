@@ -19,6 +19,9 @@
   </div>
     <br>
     <h5 class="dblue-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
+      <% if current_user.id == @dog.user.id %>
+        <p><%= link_to "Update my pup's info", edit_dog_path, class:"orange-back-link" %></p>
+      <% end %>
       <div class="card-body-details">
       <div class="pup-info">
           <div class="pup-info-details">
@@ -36,12 +39,12 @@
                 <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-stethoscope"></i> Choose vet
                 <% end %>
                 </span>
-              <%# elsif %>
-                <%# @pending.each do |vet| %>
-                    <%#= link_to user_path(vet_dog.user), class:"vet-name-yellow" do %>
-<!--                      Request sent to <%#= vet.user.first_name %>-->
-                    <%# end %>
-                  <%# end %>
+              <% elsif %>
+                <% @pending.each do |vet| %>
+                    <%= link_to user_path(vet), class:"vet-name-yellow" do %>
+                      Request sent to <%= vet.user.first_name %>
+                    <% end %>
+                  <% end %>
               <% else %>
                 <% @dog.vet_dogs.each do |vet_dog| %>
                     <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name-yellow" %>
