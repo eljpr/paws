@@ -9,8 +9,8 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
+ActiveRecord::Schema[7.1].define(version: 2024_05_21_140642) do
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_110909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,16 +63,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_110909) do
   end
 
   create_table "logs", force: :cascade do |t|
-    t.string "food"
-    t.string "medication"
-    t.string "special_treat"
-    t.string "grooming"
-    t.string "stool"
-    t.string "vaccination"
+    t.text "food", default: [], array: true
+    t.text "medication", default: [], array: true
+    t.text "special_treat", default: [], array: true
+    t.text "grooming", default: [], array: true
+    t.text "stool", default: [], array: true
+    t.text "vaccination", default: [], array: true
     t.bigint "dog_id", null: false
-    t.string "mood"
-    t.string "energy"
-    t.string "training"
+    t.text "mood", default: [], array: true
+    t.text "energy", default: [], array: true
+    t.text "training", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dog_id"], name: "index_logs_on_dog_id"

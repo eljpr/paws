@@ -2,20 +2,21 @@ class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy]
 
   def index
-    @logs = Log.all
+    @logs = Log.where(dog_id: set_dog)
   end
 
   def new
     @log = Log.new
-    @log.dog = set_dog
+    @dog = set_dog
   end
 
   def create
     @log = Log.new(log_params)
-    @log.dog = @dog
+    @log.dog = set_dog
+    @builded_log = build_log(params["log"], @log)
 
-    if @log.save!
-      redirect_to dog_logs_path(@log), notice: 'Log created successfully.'
+    if @builded_log.save!
+      redirect_to dog_logs_path(set_dog), notice: 'Log created successfully.'
     else
       render :new, status: :unprosseable_entity
     end
@@ -30,8 +31,10 @@ class LogsController < ApplicationController
   end
 
   def update
-    if @log.update(log_params)
-      redirect_to dog_log_path(@log), notice: 'Log updated successfully.'
+    @builded_log = build_log(params["log"], @log)
+
+    if @log.update(@builded_log.attributes)
+      redirect_to dog_log_path(set_dog), notice: 'Log updated successfully.'
     else
       render :edit
     end
@@ -44,8 +47,21 @@ class LogsController < ApplicationController
 
   private
 
+  def build_log(values, log)
+    log.medication = values["medication"].drop(1)
+    log.food = values["food"].drop(1)
+    log.special_treat = values["special_treat"].drop(1)
+    log.grooming = values["grooming"].drop(1)
+    log.stool = values["stool"].drop(1)
+    log.vaccination = values["vaccination"].drop(1)
+    log.mood = values["mood"].drop(1)
+    log.energy = values["energy"].drop(1)
+    log.training = values["training"].drop(1)
+    return log
+  end
+
   def log_params
-    params.require(:log).permit(:medication, :food, :special_treat, :grooming, :stool, :vaccination, :mood, :energy, :training)
+    params.require(:log).permit(medication:[], food:[], special_treat:[], grooming:[], stool:[], vaccination:[], mood:[], energy:[], training:[])
   end
 
   def set_log

@@ -1,9 +1,14 @@
 .card {
-  background-color: $gray-10;
   width: 360px;
   height: 135px;
-  border-radius: 20px;
+
   padding: 20px;
+  margin-bottom: 10px;
+
+  background-color: $gray-10;
+  border-radius: 20px;
+  border: 1px solid $lorange-pawsg;
+  box-shadow: 3px 3px 8px $lorange-pawsg;
 }
 
 .log-date {
