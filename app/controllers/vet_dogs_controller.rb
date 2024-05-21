@@ -13,13 +13,13 @@
 
     def accept
       @vet_dog = VetDog.find(params[:id]).update(status: "accepted")
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user, showmyself: true)
     end
 
     def destroy
       @vet_dog = VetDog.find(params[:id])
       @vet_dog.destroy
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user, showmyself: true)
     end
 
     private

@@ -39,15 +39,19 @@
                 <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-stethoscope"></i> Choose vet
                 <% end %>
                 </span>
-              <% elsif %>
+              <% elsif @pending.present? %>
                 <% @pending.each do |vet| %>
                     <%= link_to user_path(vet), class:"vet-name-yellow" do %>
-                      Request sent to <%= vet.user.first_name %>
+                      <%= vet.user.first_name %> (pending accept)
                     <% end %>
                   <% end %>
               <% else %>
-                <% @dog.vet_dogs.each do |vet_dog| %>
-                    <%= link_to vet_dog.user.first_name, user_path(vet_dog.user), class:"vet-name-yellow" %>
+                <% @accepted.each do |vet| %>
+                  <% if current_user.is_vet %>
+                    <%= link_to vet.user.first_name, user_path(current_user, showmyself: true), class:"vet-name-yellow" %>
+                    <% else %>
+                    <%= link_to vet.user.first_name, user_path(vet), class:"vet-name-yellow" %>
+                    <% end %>
                   <% end %>
               <% end %>
             </p>

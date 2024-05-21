@@ -23,6 +23,7 @@ class DogsController < ApplicationController
 
   def show
     @pending = @dog.vet_dogs.where(status: "pending")
+    @accepted = @dog.vet_dogs.where(status: "accepted")
   end
 
   def edit; end
