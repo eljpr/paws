@@ -6,7 +6,7 @@
       <div class="row row-cols-2">
         <div class="col-6">
           <p class="card-text log-date">
-            <span class="detail-key">
+            <span class="log-log-detail-key">
               <i class="fa-solid fa-calendar-days"></i>
             </span>
             : <%= log.created_at.strftime("%d-%m-%Y") %>
@@ -15,21 +15,21 @@
         <div class="row row-cols-3">
           <div class="col-1">
             <%= link_to dog_log_path(:dog_id=>log.dog_id, :id => log.id) do %>
-              <span class="detail-key-view">
+              <span class="log-detail-key-view">
                 <i class="fa-solid fa-eye"></i>
               </span>
             <% end %>
           </div>
           <div class="col-1">
             <%= link_to edit_dog_log_path(:dog_id=>log.dog_id, :id => log.id) do %>
-            <span class="detail-key-edit">
+            <span class="log-detail-key-edit">
               <i class="fa-solid fa-pen"></i>
             </span>
             <% end %>
           </div>
           <div class="col-1">
             <%= link_to dog_log_path(:dog_id=>log.dog_id, :id => log.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-            <span class="detail-key-destroy">
+            <span class="log-detail-key-destroy">
               <i class="fa-solid fa-trash"></i>
             </span>
             <% end %>
@@ -39,22 +39,22 @@
 
         <div class="row">
           <div class="col">
-            <p class="card-text"> <span class="detail-key"> <i class="fa-solid fa-bowl-food"></i> </span> : <%= log.food %> </p>
+            <p class="card-text"> <span class="log-detail-key"> <i class="fa-solid fa-bowl-food"></i> </span> : <%= log.food %> </p>
           </div>
         </div>
          <div class="row">
           <div class="col">
-            <p class="card-text"> <span class="detail-key"> <i class="fa-solid fa-pills"></i> </span> : <%= log.medication %> </p>
+            <p class="card-text"> <span class="log-detail-key"> <i class="fa-solid fa-pills"></i> </span> : <%= log.medication %> </p>
           </div>
         </div>
          <div class="row">
           <div class="col">
-            <p class="card-text"> <span class="detail-key"> <i class="fa-solid fa-bone"></i> </span> : <%= log.special_treat %> </p>
+            <p class="card-text"> <span class="log-detail-key"> <i class="fa-solid fa-bone"></i> </span> : <%= log.special_treat %> </p>
           </div>
         </div>
          <div class="row">
           <div class="col">
-          <p class="card-text"> <span class="detail-key"> <i class="fa-solid fa-face-smile"></i> </span> : <%= log.mood %> </p>
+          <p class="card-text"> <span class="log-detail-key"> <i class="fa-solid fa-face-smile"></i> </span> : <%= log.mood %> </p>
           </div>
         </div>
 
