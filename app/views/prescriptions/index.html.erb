@@ -20,6 +20,7 @@
   <!--end of prescription iteration-->
 
   <!--if prescription is ongoing-->
+  <div class="prescriptions-status-container">
       <h5 class="dblue-title"><strong>Ongoing Prescriptions</strong></h5>
       <% if ongoing.empty? %>
       <h6><em>None</em></h6>
@@ -39,11 +40,13 @@
           <% else %>
         <span>  <i class="fa-solid fa-arrow-right"></i><em><%= days_left.to_i %> day left</em></span>
           <% end %> <!--end of days left if statement-->
-    </div>
+  </div>
     <% end %>
+  </div>
   <!--end of ongoing prescription iteration-->
 
   <!--if prescription is complete-->
+  <div class="prescriptions-status-container">
       <h5 class="dblue-title"><strong>Completed Prescriptions</strong></h5>
     <% completed.each do |prescription| %>
       <div class="prescriptions-status">
@@ -54,6 +57,7 @@
       </h6>
       </div>
     <% end %>
+  </div>
   <!--end of completed prescription iteration-->
 
 <!--  add prescription button for vet-->
