@@ -1,11 +1,18 @@
 <% if current_user.is_vet %>
   <div class="parent container d-flex flex-column align-items-center h-100">
-    <h1>Add your new puppy</h1>
-    <%= simple_form_for @prescription do |f| %>
+    <h2>New prescription for <%= @dog.name %></h2>
+    <%= simple_form_for [@dog, @prescription] do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
+        <%= f.input :medication_name %>
         <%= f.input :description %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date%>
+        <%= f.input :dosage %>
+        <%= f.input :number_of_times_per_day %>
+        <%= f.input :time_of_day %>
+        <%= f.input :completed %>
       </div>
 
       <div class="form-actions" id="nav-btn">

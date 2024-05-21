@@ -20,9 +20,12 @@
   <!--end of prescription iteration-->
 
   <!--if prescription is ongoing-->
+      <h5 class="dblue-title"><strong>Ongoing Prescriptions</strong></h5>
+      <% if ongoing.empty? %>
+      <h6><em>None</em></h6>
+      <% end %>
     <% ongoing.each do |prescription| %>
     <% days_left = prescription.end_date - Date.today %>
-      <h5 class="dblue-title"><strong>Ongoing Prescriptions</strong></h5>
       <br>
       <div class="prescriptions-status">
         <h6 id="presctiption-name-index">
@@ -41,8 +44,8 @@
   <!--end of ongoing prescription iteration-->
 
   <!--if prescription is complete-->
-    <% completed.each do |prescription| %>
       <h5 class="dblue-title"><strong>Completed Prescriptions</strong></h5>
+    <% completed.each do |prescription| %>
       <div class="prescriptions-status">
       <h6>
         <%= link_to dog_prescription_path(@dog, prescription), class:"yellow-back-link" do %>
@@ -52,4 +55,16 @@
       </div>
     <% end %>
   <!--end of completed prescription iteration-->
+
+<!--  add prescription button for vet-->
+<% if current_user.is_vet %>
+  <div class="button-container">
+<br>
+  <div class="log-button">
+  <%= link_to new_dog_prescription_path(@dog), class:"dgreen-button pup-button" do %>
+    <i class="fa-solid fa-plus"></i> Prescription
+  <% end %>
+  </div>
+</div>
+<% end %>
 </div>
