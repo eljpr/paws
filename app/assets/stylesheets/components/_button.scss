@@ -63,6 +63,10 @@
   background-color: $lbyellow-pawsg;
 }
 
+.log-button {
+  text-align: center;
+}
+
 #add-pup{
   text-align: center;
 }
@@ -71,26 +75,7 @@
   line-height: 1.5;
 }
 
-.log-button {
-  text-align: center;
-
-}
 
 .log-button > .pup-button {
   font-size:larger;
-}
-
-.remove-pup-button{
-  background-color: red;
-  text-decoration: none;
-  // margin-left: 15px;
-  color:white;
-  font-weight: bolder;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-
-.remove-pup-link:active{
-  background-color:$lorange-pawsg;
 }

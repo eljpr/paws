@@ -21,10 +21,13 @@ class Walk < ApplicationRecord
   end
   def set_coords_calc_dist_pace
     return if path.blank?
+    puts "Path: #{path.inspect}"
     #set the start coords from the array taken
     self.start_lat, self.start_lng = path.first #when pressing the start track button this then takes that data
     self.end_lat, self.end_lng = path.last   #the last element of the array
-
+    # Debugging output
+  puts "Start: #{start_lat}, #{start_lng}"
+  puts "End: #{end_lat}, #{end_lng}"
     #calculate the total distance
     self.distance = calculate_total_distance
 

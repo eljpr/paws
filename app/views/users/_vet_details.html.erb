@@ -31,7 +31,15 @@
   <hr>
 <!--  Client request section for vets -->
 <% if current_user.is_vet %>
+  <% if !@accepted.empty? %>
+    <% if @accepted.length > 1 %>
+      <h6>You currently have <%= @accepted.length %> clients</h6>
+      <% else %>
+      <h6>You currently have <%= @accepted.length %> clients</h6>
+      <% end %>
+  <% end %>
   <% if !@pending.empty? %>
+  <hr>
       <h6>Pending patient requests</h6>
         <% @pending.each do |request| %>
           <div class="card-body-details request-flex">
@@ -56,13 +64,6 @@
             </div>
         <% end %>
       <% end %>
-  <% if !@accepted.empty? %>
-    <% if @accepted.length > 1 %>
-      <h6>You currently have <%= @accepted.length %> clients</h6>
-      <% else %>
-      <h6>You currently have <%= @accepted.length %> clients</h6>
-      <% end %>
-  <% end %>
 <% end %>
 
 

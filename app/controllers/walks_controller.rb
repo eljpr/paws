@@ -30,11 +30,11 @@ def create
   puts current_user.dogs.first
   @walk.start_time = Time.current if @walk.start_time.nil?  #set start time
   @walk.end_time = Time.current + 1.hour if @walk.end_time.nil?
+
   @walk.user = current_user
-binding.break
-  @walk.path = params["path"].map do |point_params|
-    [point_params["lat"], point_params["lng"]] if point_params.is_a?(ActionController::Parameters)
-  end
+
+  @walk.path = params["path"]
+  @walk.set_coords_calc_dist_pace
  respond_to do |format|
   if @walk.save!
     format.html { redirect_to @walk, notice: "Walk was succesfully created."  }

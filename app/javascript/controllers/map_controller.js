@@ -108,7 +108,6 @@ export default class extends Controller {
       this.stopTracking();
     }
   }
-
   // start tracking the walk
   startTracking() {
     if (navigator.geolocation) {
@@ -116,7 +115,7 @@ export default class extends Controller {
         (position) => {
           const { latitude, longitude } = position.coords;
           console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-          this.path = [{"lat": latitude,"lng": longitude}];
+          this.path.push([ latitude, longitude]);
           this.updatePathLayer();
         },
         (error) => {
@@ -132,12 +131,13 @@ export default class extends Controller {
       const lat = position.coords.latitude
       const lng = position.coords.longitude
       const coordinates = [lat, lng];
-      this.path.push(coordinates);
+      // this.path.push(coordinates);
+      this.path.push([ lat, lng]);
       console.log("watch position coords: ",coordinates) // coordinates are empty ????
       this.updatePathLayer();
     }, error => console.error(error), {
       enableHighAccuracy: true,
-      maximumAge: 1000,
+      maximumAge: 100,
       timeout: 1000
     });
   }
@@ -154,7 +154,6 @@ export default class extends Controller {
     if (this.map.getSource('route')) {
       this.map.removeSource('route');
     }
-
     this.map.addSource('route', {
       type: 'geojson',
       data: {
@@ -172,9 +171,7 @@ export default class extends Controller {
       layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': '#888', 'line-width': 6 }
     });
-    //this.pathLayer = true;
-
-
+    //this.pathLayer = true
   }
   // calculate the distance and speed using haversine formula
   // haversineDistance(coords1, coords2) {
@@ -205,6 +202,7 @@ export default class extends Controller {
   // }
   // Save the tracked path to the server
   savePath() {
+    console.log(this.path)
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     console.log(token)
     fetch('/walks', {
