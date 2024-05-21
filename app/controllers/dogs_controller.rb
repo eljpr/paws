@@ -21,7 +21,9 @@ class DogsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @pending = @dog.vet_dogs.where(status: "pending")
+  end
 
   def edit; end
 

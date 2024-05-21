@@ -57,7 +57,11 @@
         <% end %>
       <% end %>
   <% if !@accepted.empty? %>
-  <h6>You currently have <%= @accepted.length %> clients</h6>
+    <% if @accepted.length > 1 %>
+      <h6>You currently have <%= @accepted.length %> clients</h6>
+      <% else %>
+      <h6>You currently have <%= @accepted.length %> clients</h6>
+      <% end %>
   <% end %>
 <% end %>
 
@@ -67,7 +71,7 @@
   <%= simple_form_for [@user, @vet_dog] do |f| %>
     <%= f.error_notification %>
       <div class="vet-form-inputs">
-        <%= f.association :dog, :label => "Please select dog:", collection: @pending%>
+        <%= f.association :dog, :label => "Please select dog:", collection: @no_vet%>
       </div>
       <div class="button-flexbox">
         <div class="vet-form-actions">
@@ -80,9 +84,3 @@
   </div>
 </div>
     </div>
-
-<!---->
-<!--custom route to accept or reject bookings
-inside that action vet_dog.update = accepted
-1. if you apply for all of them and 1 accepts-->
-<!---->
