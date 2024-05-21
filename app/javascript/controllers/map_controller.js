@@ -109,7 +109,6 @@ export default class extends Controller {
       this.stopTracking();
     }
   }
-
   // start tracking the walk
   startTracking() {
     if (navigator.geolocation) {
@@ -155,7 +154,6 @@ export default class extends Controller {
     if (this.map.getSource('route')) {
       this.map.removeSource('route');
     }
-
     this.map.addSource('route', {
       type: 'geojson',
       data: {
@@ -173,9 +171,7 @@ export default class extends Controller {
       layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': '#888', 'line-width': 6 }
     });
-    //this.pathLayer = true;
-
-
+    //this.pathLayer = true
   }
   // calculate the distance and speed using haversine formula
   // haversineDistance(coords1, coords2) {
