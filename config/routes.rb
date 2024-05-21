@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :users, only: %i[index show] do
-    resources :vet_dogs, only: [:create]
+    resources :vet_dogs, only: %i[create]
+  end
+  resources :vet_dogs, only: :destroy do
+    member do
+      patch :accept
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -21,6 +26,7 @@ Rails.application.routes.draw do
     resources :logs
     resources :markers, only: [:create]
   end
+
   resources :chats, only: %i[index show create] do
     resources :messages, only: [:create]
   end

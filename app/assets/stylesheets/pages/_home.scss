@@ -1,6 +1,37 @@
 .home-container{
-background-color: #ede4d5;
 padding: 10px;
+height: 100%;
+}
+
+.login{
+  text-align: right;
+  margin-top: 10px;
+}
+
+.get-started-button{
+  background-color: $bblue-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.get-started-button:active{
+  background-color: $dyellow-pawsg;
+}
+
+.sign-in-button{
+  background-color: $dyellow-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.sign-in-button:active{
+  background-color: $bblue-pawsg;
 }
 
 .home-container h1{
@@ -8,18 +39,58 @@ padding: 10px;
   font-weight: bolder;
 }
 
-.fancy-walk{
-  display: flex;
-  justify-content: space-between;
-  align-items:bottom;
+.home-options > h2{
+  color: $bblue-pawsg;
 }
 
-.walk-icon img{
+.home-track-icons{
+  width: 80px;
+  height: 60px;
+}
+
+.arrow-green{
+  height: 100px;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.arrow-yellow{
+  height: 150px;
+  width: 150px;
+  text-align: left;
+}
+
+.arrow-blue{
   height: 100px;
   width: 100px;
 }
+.arrow-blue-container{
+  text-align: center;
+}
+
+
+.walk-icon{
+  text-align: right;
+}
+
+.walk-icon img{
+  height: 250px;
+  width: 320px;
+}
 
 .walk-img-map{
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+.walk-section > h6{
+  color: $orange-pawsg;
+  font-weight: bolder;
+}
+
+.chat-img{
   height: 200px;
   width: 200px;
   border-radius: 5px;
@@ -29,19 +100,60 @@ padding: 10px;
   text-align: right;
 }
 
+.health-options > h6{
+  color: $bblue-pawsg;
+  font-weight: bolder;
+}
+
 a{
   text-decoration: none;
 }
 
 ul#home-tracking-list{
   list-style:none;
+  padding: 0;
 }
 
 ul#home-tracking-list li{
   display: inline-block;
   list-style: none;
-  margin: 0 auto;
-  padding-left: 13px;
-  padding-right: 13px;
+  margin: 0;
+}
 
+.chat-options > h6 {
+  color: $dbgreen-pawsg;
+  font-weight: bolder;
+}
+
+.vet-landing > h6{
+  color: $dbgreen-pawsg;
+  font-weight: bolder;
+}
+
+
+.footer {
+  background: $dorange-pawsg;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: $lyellow-pawsg;
+  text-align: center;
+}
+.footer-links {
+  text-align: center;
+}
+.footer-links a {
+  color: $dyellow-pawsg;
+  opacity: 0.30;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: $lbblue-pawsg;
 }

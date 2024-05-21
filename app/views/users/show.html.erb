@@ -1,7 +1,11 @@
 <div class="container">
-<% if current_user.is_vet %>
-  <%= render "owner_details" %>
-<% else %>
+<% if current_user.is_vet && params[:showmyself].present?%>
   <%= render "vet_details" %>
+<% elsif current_user.is_vet%>
+  <%= render "owner_details" %>
+  <% elsif !current_user.is_vet && params[:showmyself].present?%>
+    <%= render "owner_details" %>
+<% else %>
+<%= render "vet_details" %>
 <% end %>
 </div>

@@ -1,0 +1,49 @@
+<div class="parent container d-flex flex-column h-100">
+  <h1><%= @dog.name %>'s log</h1>
+
+  <div class="text-end">
+    <%= link_to dog_logs_path do%>
+      <span class="back-bttn"><i class="fa-solid fa-arrow-left-long"></i> Back</span>
+    <% end %>
+  </div>
+
+  <div class="text-center">
+    <%= cl_image_tag @dog.photo.key, height: 300, width: 300, crop: :fill, class: "img-cover" %>
+    <br>
+
+    <span class="img-icon"><i class="fa-solid fa-bowl-food"></i></span>
+    <span><%= @log.food %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-pills"></i></span>
+    <span><%= @log.medication %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-bone"></i></span>
+    <span><%= @log.special_treat %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-shower"></i></span>
+    <span><%= @log.grooming %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-poo"></i></span>
+    <span><%= @log.stool %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-syringe"></i></span>
+    <span><%= @log.vaccination %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-face-smile"></i></span>
+    <span><%= @log.mood %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-bolt"></i></span>
+    <span><%= @log.energy %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-shield-dog"></i></span>
+    <span><%= @log.training %></span>
+  </div>
+</div>

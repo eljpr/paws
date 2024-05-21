@@ -1,6 +1,4 @@
-h1{
-  color: white;
-}
+
 
 .pup-info{
   display:flex;
@@ -20,4 +18,8 @@ h1{
   color: $dyellow-pawsg;
   text-decoration:none;
   font-weight:bolder;
+}
+
+.dog-show-img-center{
+  text-align: center;
 }

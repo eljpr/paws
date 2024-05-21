@@ -4,12 +4,35 @@
   text-decoration: none;
   // margin-left: 15px;
   color:$dbgreen-pawsg;
+  font-weight: bolder;
+}
+
+.green-back-link:active{
+  color:$lgreen-pawsg;
+
 }
 
 .yellow-back-link{
   text-decoration: none;
   // margin-left: 15px;
-  color:$lyellow-pawsg;
+  color:$dyellow-pawsg;
+  font-weight: bolder;
+}
+
+.yellow-back-link:active{
+  color:$yellow-pawsg;
+
+}
+
+.orange-back-link{
+  text-decoration: none;
+  // margin-left: 15px;
+  color:$dborange-pawsg;
+  font-weight: bolder;
+}
+
+.orange-back-link:active{
+  color:$lorange-pawsg;
 }
 
 .dgreen-button{
@@ -23,11 +46,11 @@
 }
 
 .dgreen-button:active{
-  background-color: $dyellow-pawsg;
+  background-color: $lbgreen-pawsg;
 }
 
 .dyellow-button{
-  background-color: $dyellow-pawsg;
+  background-color: $dbyellow-pawsg;
   text-decoration: none;
   color: white;
   border: none;
@@ -37,7 +60,7 @@
 }
 
 .dyellow-button:active{
-  background-color: $dgreen-pawsg;
+  background-color: $lbyellow-pawsg;
 }
 
 #add-pup{
@@ -46,4 +69,28 @@
 
 .pup-button{
   line-height: 1.5;
+}
+
+.log-button {
+  text-align: center;
+
+}
+
+.log-button > .pup-button {
+  font-size:larger;
+}
+
+.remove-pup-button{
+  background-color: red;
+  text-decoration: none;
+  // margin-left: 15px;
+  color:white;
+  font-weight: bolder;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+
+.remove-pup-link:active{
+  background-color:$lorange-pawsg;
 }
