@@ -54,7 +54,11 @@
       <% end %>
   <% end %>
   <% if !@accepted.empty? %>
-  <h6>You currently have <%= @accepted.length %> clients</h6>
+    <% if @accepted.length > 1 %>
+      <h6>You currently have <%= @accepted.length %> clients</h6>
+      <% else %>
+      <h6>You currently have <%= @accepted.length %> clients</h6>
+      <% end %>
   <% end %>
 
 
