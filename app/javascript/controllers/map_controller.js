@@ -31,8 +31,7 @@ export default class extends Controller {
 
     //add a button to start and stop tracking
     this.addTrackingButton();
-    this.haversineDistance();
-    this.calculateTotalDistance();
+
 
   }
 // adds markers to map
