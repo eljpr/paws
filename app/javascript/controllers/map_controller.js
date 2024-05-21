@@ -117,7 +117,7 @@ export default class extends Controller {
         (position) => {
           const { latitude, longitude } = position.coords;
           console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-          this.path = [{"lat": latitude,"lng": longitude}];
+          this.path.push([ latitude, longitude]);
           this.updatePathLayer();
         },
         (error) => {
@@ -138,7 +138,7 @@ export default class extends Controller {
       this.updatePathLayer();
     }, error => console.error(error), {
       enableHighAccuracy: true,
-      maximumAge: 1000,
+      maximumAge: 100,
       timeout: 1000
     });
   }
@@ -206,6 +206,7 @@ export default class extends Controller {
   // }
   // Save the tracked path to the server
   savePath() {
+    console.log(this.path)
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     console.log(token)
     fetch('/walks', {
