@@ -48,6 +48,7 @@
               <% else %>
                 <% @accepted.each do |vet| %>
                   <% if current_user.is_vet %>
+<!--                  add a condition if vet is looking at their own profile-->
                     <%= link_to vet.user.first_name, user_path(current_user, showmyself: true), class:"vet-name-yellow" %>
                     <% else %>
                     <%= link_to vet.user.first_name, user_path(vet), class:"vet-name-yellow" %>
