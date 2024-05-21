@@ -1,8 +1,10 @@
 .img-cover {
+  margin: 10px auto 20px;
+
+  background-color: $gray-10;
   border-radius: 20px;
   border: 1px solid $lorange-pawsg;
   box-shadow: 3px 3px 8px $lorange-pawsg;
-  margin: 10px auto 20px;
 }
 
 .img-icon {
