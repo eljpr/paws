@@ -1,7 +1,11 @@
 <h1><%= @dog.name %>'s prescriptions</h1>
 
 <% @prescriptions.each do |prescription| %>
-<p><%= prescription.medication_name %></p>
+<p>
+      <%= link_to dog_prescription_path(@dog, prescription), class:"yellow-back-link" do %>
+      <%= prescription.medication_name %>
+    <% end %>
+</p>
 <% days_left = prescription.end_date - Date.today %>
 <% if !prescription.completed? %>
     <% if days_left > 1 %>

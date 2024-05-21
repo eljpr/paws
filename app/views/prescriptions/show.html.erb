@@ -4,7 +4,8 @@
     <i class="fa-solid fa-arrow-left"></i> All prescriptions
   <% end %>
 </div>
-<h2><%= @prescription.medication_name %></h2>
+<br>
+<h2 class="orange-title"><strong><%= @prescription.medication_name %></strong></h2>
 <h5><span class="detail-key"><i class="fa-solid fa-tablets"></i> :</span> <%= @prescription.description %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-syringe"></i> :</span> <%= @prescription.dosage %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-clock"></i> :</span> <%= @prescription.time_of_day %></h5>
@@ -19,7 +20,18 @@
     <% else %>
   <h5><span class="detail-key"><i class="fa-solid fa-calendar"></i> :</span> Take for <%= days.to_i %> days</h5>
   <% end %>
-  <h5><%= @prescription.completed %></h5>
+
+  <% if %>
+  <% @prescription.completed? %>
+    <h5><span class="detail-key"> <strong>Status:</strong> </span>This prescription is complete</h5>
+    <% else %>
+    <% days_left = @prescription.end_date - Date.today %>
+      <% if days_left > 1 %>
+    <h5><span class="detail-key"><strong>Status:</strong></span> You have <%= days_left.to_i %> days left</h5>
+      <% else %>
+    <h5><span class="detail-key"><strong>Status:</strong></span> You have <%= days_left.to_i %> day left</h5>
+      <% end %>
+  <% end %>
   <br>
 <!--  edit if user is vet-->
 <% if current_user.is_vet %>
