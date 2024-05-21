@@ -15,7 +15,11 @@
               <h3 >DR. <%= vet.first_name%> <%= vet.last_name %></h3>
             </div>
             <div class="card-nav-img img-rounded">
-                <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{vet.first_name}" %>
+              <% if vet.photo.attached? %>
+                <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", alt: "#{vet.first_name}", class:'small-img-square'%>
+              <% else %>
+                <%= image_tag "profile_placeholder", class:"small-img-square" %>
+            <% end %>
             </div>
           </div>
           <div class="card-body-details">

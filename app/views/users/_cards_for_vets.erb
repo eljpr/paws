@@ -16,7 +16,11 @@
             <h3 class="card-title"><%= dog.name  %> </h3>
           </div>
           <div class="card-nav-img img-rounded">
-              <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{dog.name}" %>
+              <% if dog.photo.attached? %>
+                <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{dog.name}" %>
+              <% else %>
+                <%= image_tag "dog_placeholder", class:"small-img-square" %>
+            <% end %>
           </div>
         </div>
           <div class="card-body-details">
