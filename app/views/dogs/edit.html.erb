@@ -1,32 +1,40 @@
 
-<div class="parent container d-flex flex-column align-items-center h-100">
+  <div class="container">
   <h1>Update your puppy's info</h1>
-  <%= simple_form_for @dog do |dog| %>
-    <%= dog.error_notification %>
-
-    <div class="form-inputs">
-      <%= dog.input :name %>
-      <%= dog.input :breed %>
-      <%= dog.input :date_of_birth %>
-      <%= dog.input :weight %>
-      <%= dog.input :condition %>
-      <%= dog.input :medication %>
-
-    </div>
-
-    <div class="form-actions" id="nav-btn">
-      <p><%= dog.submit "Update", class: 'dgreen-button'%></p>
+    <div>
       <%= link_to dogs_path, class:"orange-back-link" do %>
       <i class="fa-solid fa-arrow-left"></i> My pups
-    <% end %>
+      <% end %>
     </div>
-  <% end %>
+    <br>
+  <div class="parent container d-flex flex-column align-items-center h-100">
+    <%= simple_form_for @dog do |dog| %>
+      <%= dog.error_notification %>
 
-<br>
-<br>
-    <%= link_to dog_path(@dog),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class:"dgreen-button pup-button remove-pup-button" do %>
-        <i class="fa-solid fa-minus"></i>  <i class="fa-solid fa-dog" style="color: #9d520e;"></i>
+      <div class="form-inputs">
+        <%= dog.input :name %>
+        <%= dog.input :breed %>
+        <%= dog.input :date_of_birth %>
+        <%= dog.input :weight %>
+        <%= dog.input :condition %>
+        <%= dog.input :medication %>
+
+      </div>
+
+      <div class="form-actions" >
+        <p><%= dog.submit "Update", class: 'dgreen-button'%></p>
+      </div>
     <% end %>
+
+  <br>
+  <br>
+  <hr>
+    <p>
+        <%= link_to dog_path(@dog),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class:"remove-pup-button" do %>
+            <i class="fa-solid fa-xmark"></i>  <i class="fa-solid fa-dog"></i>
+        <% end %>
+    </p>
+  </div>
 </div>
