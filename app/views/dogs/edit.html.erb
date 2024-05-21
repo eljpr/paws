@@ -22,4 +22,11 @@
     </div>
   <% end %>
 
+<br>
+<br>
+    <%= link_to dog_path(@dog),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class:"dgreen-button pup-button remove-pup-button" do %>
+        <i class="fa-solid fa-minus"></i>  <i class="fa-solid fa-dog" style="color: #9d520e;"></i>
+    <% end %>
 </div>
