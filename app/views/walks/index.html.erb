@@ -71,13 +71,7 @@
         }
 
         document.getElementById('showPopupButton').addEventListener('click', () => {
-            const walkData = {
-                id: 123,
-                start_time: '2024-05-21 10:00:00',
-                end_time: '2024-05-21 11:00:00',
-                distance: '5 km',
-                pace: '6 min/km'
-            };
+            const walkData = Walk.last();
             showPopup(walkData);
         });
     </script>
