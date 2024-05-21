@@ -6,6 +6,8 @@
     <% end %>
   </div>
   <hr>
+
+  <!--make completed and ongoing variables to iterate over to avoid styling clash-->
   <% completed = [] %>
   <% ongoing = [] %>
   <% @prescriptions.each do |prescription| %>
@@ -14,25 +16,29 @@
       <% else %>
       <% ongoing << prescription %>
     <% end %>
-  <% end %> <!--end of prescription iteration-->
+  <% end %>
+  <!--end of prescription iteration-->
 
+  <!--if prescription is ongoing-->
     <% ongoing.each do |prescription| %>
     <% days_left = prescription.end_date - Date.today %>
       <h5 class="dblue-title"><strong>Ongoing Prescriptions</strong></h5>
+      <br>
       <div class="prescriptions-status">
-        <h6>
-        <%= link_to dog_prescription_path(@dog, prescription), class:"yellow-back-link" do %>
+        <h6 id="presctiption-name-index">
+        <%= link_to dog_prescription_path(@dog, prescription), class:"dyellow-button" do %>
           <%= prescription.medication_name %>
       <% end %>
         </h6>
   <!--number of days left on prescription-->
         <% if days_left > 1 %>
-        <p><em><%= days_left.to_i %> days left</em></p>
+        <span> <i class="fa-solid fa-arrow-right"></i> <em><%= days_left.to_i %> days left</em></span>
           <% else %>
-        <p><em><%= days_left.to_i %> day left</em></p>
+        <span>  <i class="fa-solid fa-arrow-right"></i><em><%= days_left.to_i %> day left</em></span>
           <% end %> <!--end of days left if statement-->
     </div>
-    <% end %> <!--end of ongoing prescription iteration-->
+    <% end %>
+  <!--end of ongoing prescription iteration-->
 
   <!--if prescription is complete-->
     <% completed.each do |prescription| %>
@@ -44,5 +50,6 @@
         <% end %>
       </h6>
       </div>
-    <% end %> <!--end of completed prescription iteration-->
+    <% end %>
+  <!--end of completed prescription iteration-->
 </div>
