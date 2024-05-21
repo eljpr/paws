@@ -6,20 +6,82 @@
     <%= form.error_notification %>
 
     <div class="form-inputs">
-      <%= form.input :food, as: :check_boxes%>
-      <%= form.input :medication %>
-      <%= form.input :special_treat %>
-      <%= form.input :grooming %>
-      <%= form.input :stool %>
-      <%= form.input :vaccination %>
-      <%= form.input :mood %>
-      <%= form.input :energy %>
-      <%= form.input :training %>
+    <%= form.input :food,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::FOOD %>
+
+    <%= form.input :medication,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::MEDICATION %>
+
+    <%= form.input :special_treat,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::SPECIAL_TREAT %>
+
+    <%= form.input :grooming,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::GROOMING %>
+
+    <%= form.input :stool,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::STOOL %>
+
+    <%= form.input :vaccination,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::VACCINATION %>
+
+    <%= form.input :mood,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::MOOD %>
+
+    <%= form.input :energy,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::ENERGY %>
+
+    <%= form.input :training,
+                    as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'log-wrapper',
+                    item_wrapper_class: 'log-item',
+                    input_html: {class: 'log-selector'},
+                    collection: Log::TRAINING %>
     </div>
 
-    <div class="form-actions" id="nav-btn">
-      <p><%= form.submit "Create log", class: 'btn btn-primary'%></p>
-      <p><%= link_to 'Back', dog_logs_path %></p>
+    <div class="container d-flex justify-content-between form-actions" id="nav-btn">
+      <span><%= form.submit "Create log", class: 'dgreen-button'%></span>
+      <span><%= link_to 'Back', dog_logs_path %></span>
     </div>
   <% end %>
 

@@ -7,15 +7,15 @@ class LogsController < ApplicationController
 
   def new
     @log = Log.new
-    @dog = set_dog
+    @log.dog = set_dog
   end
 
   def create
     @log = Log.new(log_params)
     @log.dog = @dog
 
-    if @log.save
-      redirect_to dog_log_path(@log)
+    if @log.save!
+      redirect_to dog_logs_path(@log), notice: 'Log created successfully.'
     else
       render :new, status: :unprosseable_entity
     end
@@ -45,7 +45,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:logs).permit(:medication, :food, :special_treat, :grooming, :stool, :vaccination, :mood, :energy, :training)
+    params.require(:log).permit(:medication, :food, :special_treat, :grooming, :stool, :vaccination, :mood, :energy, :training)
   end
 
   def set_log

@@ -1,0 +1,42 @@
+.container {
+  padding-bottom: 35px;
+}
+
+.log-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.log-item {
+  flex: 0 0 30%;
+  border: 1px solid $lorange-pawsg;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.log-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.log-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  background-color: $gray-10;
+
+}
+
+.log-selector:checked + label {
+  background-color: $dorange-pawsg;
+  color: white !important;
+  font-weight: bold;
+}

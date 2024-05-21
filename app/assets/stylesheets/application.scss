@@ -14,18 +14,27 @@
 
 @import "dogs/index";
 @import "users/index";
+@import "logs/index";
 
 // Your custom CSS
-
 body{
   h1, h2, h3, h4, h5, h6{
-    font-family: $headers-font;
+    font-family: $headers-font;    
   }
   font-family: $body-font;
   background-color: #ede4d5;
 }
 
 h1{
-  color: $dbblue-pawsg;
+  color: $dorange-pawsg;
   font-weight: bolder;
+}
+
+.container input, .container select{
+  border: 1px solid $lorange-pawsg;
+  border-radius: 50px;
+}
+
+.form-actions .dgreen-button {
+  border: 1px solid $lgreen-pawsg;
 }

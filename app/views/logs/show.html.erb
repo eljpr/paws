@@ -1,21 +1,49 @@
-<div class="container">
+<div class="parent container d-flex flex-column h-100">
   <h1><%= @dog.name %>'s log</h1>
 
-  <div class="card">
-  <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
-    <p>Breed: <%= @dog.breed %></p>
-    <p>Date of birth: <%= @dog.date_of_birth %></p>
-    <p>Pre-existing condition:<%= @dog.condition %></p>
-    <p>Medication: <%= @dog.medication %></p>
-    <p>Weight: <%= @dog.weight %></p>
-
-
+  <div class="text-end">
+    <%= link_to dog_logs_path do%>
+      <span class="back-bttn"><i class="fa-solid fa-arrow-left-long"></i> Back</span>
+    <% end %>
   </div>
 
-  <p><%= link_to "Update my pup's info", edit_dog_path %></p>
-  <p><%= link_to "Remove dog",
-    dog_path(@dog),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %></p>
-  <p><%= link_to 'Back', dogs_path %></p>
+  <div class="text-center">
+    <%= cl_image_tag @dog.photo.key, height: 300, width: 300, crop: :fill, class: "img-cover" %>
+    <br>
+
+    <span class="img-icon"><i class="fa-solid fa-bowl-food"></i></span>
+    <span><%= @log.food %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-pills"></i></span>
+    <span><%= @log.medication %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-bone"></i></span>
+    <span><%= @log.special_treat %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-shower"></i></span>
+    <span><%= @log.grooming %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-poo"></i></span>
+    <span><%= @log.stool %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-syringe"></i></span>
+    <span><%= @log.vaccination %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-face-smile"></i></span>
+    <span><%= @log.mood %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-bolt"></i></span>
+    <span><%= @log.energy %></span>
+
+    <br>
+    <span class="img-icon"><i class="fa-solid fa-shield-dog"></i></span>
+    <span><%= @log.training %></span>
+  </div>
 </div>
