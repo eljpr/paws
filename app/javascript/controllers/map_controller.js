@@ -31,8 +31,7 @@ export default class extends Controller {
 
     //add a button to start and stop tracking
     this.addTrackingButton();
-    this.haversineDistance();
-    this.calculateTotalDistance();
+    //this.showPopup();
 
   }
 // adds markers to map
@@ -89,10 +88,15 @@ export default class extends Controller {
     button.textContent = 'Start tracking';
     button.classList.add('mapbox-ctrl', 'mapbox-ctrl-group');
     button.onclick = () => this.toggleTracking(button);
+    // Adjust the size of the button
+    button.style.width = '120px';
+    button.style.height = '100px';
+
     this.map.addControl({
       onAdd:  () => {
         const container = document.createElement('div');
         container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
+
         container.appendChild(button);
         return container;
       },
@@ -109,7 +113,6 @@ export default class extends Controller {
       this.stopTracking();
     }
   }
-
   // start tracking the walk
   startTracking() {
     if (navigator.geolocation) {
@@ -117,7 +120,7 @@ export default class extends Controller {
         (position) => {
           const { latitude, longitude } = position.coords;
           console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-          this.path = [{"lat": latitude,"lng": longitude}];
+          this.path.push([ latitude, longitude]);
           this.updatePathLayer();
         },
         (error) => {
@@ -133,7 +136,8 @@ export default class extends Controller {
       const lat = position.coords.latitude
       const lng = position.coords.longitude
       const coordinates = [lat, lng];
-      this.path.push(coordinates);
+      // this.path.push(coordinates);
+      this.path.push([ lat, lng]);
       console.log("watch position coords: ",coordinates) // coordinates are empty ????
       this.updatePathLayer();
     }, error => console.error(error), {
@@ -155,7 +159,6 @@ export default class extends Controller {
     if (this.map.getSource('route')) {
       this.map.removeSource('route');
     }
-
     this.map.addSource('route', {
       type: 'geojson',
       data: {
@@ -173,9 +176,7 @@ export default class extends Controller {
       layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': '#888', 'line-width': 6 }
     });
-    //this.pathLayer = true;
-
-
+    //this.pathLayer = true
   }
   // calculate the distance and speed using haversine formula
   // haversineDistance(coords1, coords2) {
@@ -206,6 +207,7 @@ export default class extends Controller {
   // }
   // Save the tracked path to the server
   savePath() {
+    console.log(this.path)
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     console.log(token)
     fetch('/walks', {
@@ -222,5 +224,65 @@ export default class extends Controller {
     .catch(error => console.error('Error:', error));
     //const totalDistance = this.calculateTotalDistance(this.path);
     //console.log(`Total distance walked: ${totalDistance.toFixed(2)} km`)
+    }
+
+    showPopup(Walk) {
+      //Create a div element for the popup
+      console.log('showPopup function called');
+      console.log('Walk ID:', Walk.id);
+      console.log('Start Time:', Walk.start_time);
+      console.log('End Time:', Walk.end_time);
+      console.log('Distance:', Walk.distance);
+      console.log('Pace:', Walk.pace);
+      const popup = document.createElement('div');
+      popup.classList.add('popup');
+      //create content for popup
+      const content = document.createElement('div');
+      content.innerHTML =  `
+      <h2>Last Walk</h2>
+      <p>Walk ID: ${Walk.id}</p>
+      <p>Start Time: ${Walk.start_time}</p>
+      <p>End Time: ${Walk.end_time}</p>
+      <p>Distance: ${Walk.distance}</p>
+      <p>Pace: ${Walk.pace}</p>
+  `;  //add content to the popup
+      popup.appendChild(content);
+
+      //append popup  to the body
+      document.body.appendChild(popup);
+     // Close the popup after 5 seconds
+    setTimeout(() => {
+        document.body.removeChild(popup);
+    }, 5000);
+    const style = document.createElement('style');
+        style.innerHTML = `
+            .popup {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                padding: 20px;
+                border: 1px solid #ccc;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                z-index: 9999;
+            }
+
+            .popup h2 {
+                margin-top: 0;
+            }
+
+            .popup p {
+                margin: 5px 0;
+            }
+
+            .tracking-button {
+                position: fixed;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        `; document.head.appendChild(style);
+
     }
   }

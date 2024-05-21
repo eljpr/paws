@@ -1,4 +1,5 @@
 class PrescriptionsController < ApplicationController
+  before_action :set_dog, only: %i[index new create update]
   before_action :set_prescription, only: %i[show edit update destroy]
   def index
     @prescriptions = Prescription.all
@@ -12,10 +13,15 @@ class PrescriptionsController < ApplicationController
 
   def create
     @prescription = Prescription.new(prescription_params)
+    @dog = Dog.find(params[:dog_id])
+    @user = current_user
+    @prescription.dog = @dog
+    @prescription.user = @user
+    @prescription.save
     if @prescription.save
-      redirect_to @prescription
+      redirect_to dog_prescription_path(@dog, @prescription)
     else
-      render 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -24,16 +30,21 @@ class PrescriptionsController < ApplicationController
   def edit; end
 
   def update
-    if @prescription.update(prescription_params)
-      # redirect_to @prescription
-    else
-      render :edit
-    end
+    @dog = Dog.find(params[:dog_id])
+    @prescription.update(prescription_params)
+    redirect_to dog_prescription_path(@dog, @prescription)
+  end
+
+  def complete
+    @prescription = Prescription.find(params[:id])
+    @prescription.update(completed: true)
+    redirect_to dog_prescription_path(@prescription.dog, @prescription)
   end
 
   def destroy
+    @prescription.dog = @dog
     @prescription.destroy
-    redirect_to prescriptions_path, status: :see_other
+    redirect_to dog_prescriptions_path, status: :see_other
   end
 
   private
@@ -44,5 +55,9 @@ class PrescriptionsController < ApplicationController
 
   def set_prescription
     @prescription = Prescription.find(params[:id])
+  end
+
+  def set_dog
+    @dog = Dog.find(params[:dog_id])
   end
 end

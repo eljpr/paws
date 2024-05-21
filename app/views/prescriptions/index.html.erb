@@ -1,16 +1,78 @@
-<h1><%= @dog.name %>'s prescriptions</h1>
+<div class="container">
+  <h1><%= @dog.name %>'s prescriptions</h1>
+  <div>
+    <%= link_to dog_path(@dog), class:"orange-back-link" do %>
+      <i class="fa-solid fa-arrow-left"></i> <%= @dog.name %>
+    <% end %>
+  </div>
+  <hr>
 
-<% @prescriptions.each do |prescription| %>
-<p><%= prescription.medication_name %></p>
-<% days_left = prescription.end_date - Date.today %>
-<% if !prescription.completed? %>
-    <% if days_left > 1 %>
-    <p>You have <%= days_left.to_i %> days left</p>
+  <!--make completed and ongoing variables to iterate over to avoid styling clash-->
+  <% completed = [] %>
+  <% ongoing = [] %>
+  <% @prescriptions.each do |prescription| %>
+    <% if prescription.completed %>
+      <% completed << prescription %>
       <% else %>
-    <p>You have <%= days_left.to_i %> day left</p>
-      <% end %>
-    <p><%= link_to "Mark as completed", dog_prescription_path(@dog, prescription), method: :put %></p>
-    <% else %>
-      <p>Well done pup! You're all done</p>
+      <% ongoing << prescription %>
+    <% end %>
   <% end %>
+  <!--end of prescription iteration-->
+
+  <!--if prescription is ongoing-->
+  <div class="prescriptions-status-container">
+      <h5 class="dblue-title"><strong>Ongoing Prescriptions</strong></h5>
+      <% if ongoing.empty? %>
+      <h6><em>None</em></h6>
+      <% end %>
+    <% ongoing.each do |prescription| %>
+    <% days_left = prescription.end_date - Date.today %>
+      <br>
+      <div class="prescriptions-status prescription-flexbox">
+          <h6 id="presctiption-name-index">
+          <%= link_to dog_prescription_path(@dog, prescription), class:"ongoing-button" do %>
+            <%= prescription.medication_name %>
+        <% end %>
+          </h6>
+          <div class="prescriptions-status-details">
+          <span>Prescribed on <%= prescription.created_at.strftime('%m/%d/%Y') %></span>
+    <!--number of days left on prescription-->
+          <% if days_left > 1 %>
+          <span> <i class="fa-solid fa-arrow-right"></i> <em><%= days_left.to_i %> days left</em></span>
+            <% else %>
+          <span>  <i class="fa-solid fa-arrow-right"></i><em><%= days_left.to_i %> day left</em></span>
+            <% end %>
+  <!--end of days left if statement-->
+          </div>
+      </div>
+    <% end %>
+  </div>
+  <!--end of ongoing prescription iteration-->
+
+  <!--if prescription is complete-->
+  <div class="prescriptions-status-container">
+      <h5 class="dblue-title"><strong>Completed Prescriptions</strong></h5>
+    <% completed.each do |prescription| %>
+      <div class="prescriptions-status">
+      <h6>
+        <%= link_to dog_prescription_path(@dog, prescription), class:"yellow-back-link" do %>
+          <%= prescription.medication_name %>
+        <% end %>
+      </h6>
+      </div>
+    <% end %>
+  </div>
+  <!--end of completed prescription iteration-->
+
+<!--  add prescription button for vet-->
+<% if current_user.is_vet %>
+  <div class="button-container">
+<br>
+  <div class="log-button">
+  <%= link_to new_dog_prescription_path(@dog), class:"dgreen-button pup-button" do %>
+    <i class="fa-solid fa-plus"></i> Prescription
+  <% end %>
+  </div>
+</div>
 <% end %>
+</div>

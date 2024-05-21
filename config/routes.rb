@@ -27,7 +27,14 @@ Rails.application.routes.draw do
     resources :markers, only: [:create]
   end
 
+  resources :prescriptions, only: :destroy do
+    member do
+      patch :complete
+    end
+  end
+
   resources :chats, only: %i[index show create] do
     resources :messages, only: [:create]
   end
+
 end

@@ -36,23 +36,23 @@
 </div>
 <% if current_user.is_vet && !params[:showmyself].present?%>
     <% if @user.dogs.length == 1 %>
+        <div class="dgreen-title">
+          <h5><span class="owner-pet-title "><strong><%= @user.first_name%>'s pup:</strong></span></h5>
+        </div>
         <div class="row">
           <div class="col mt-1 mb-1">
             <div class="card-container">
                 <div class="title-flexbox">
-                  <div class="dgreen-title">
-                    <h5><span class="owner-pet-title "><strong><%= @user.first_name%>'s pup:</strong></span></h5>
-                  </div>
-                  <div class="dog-show-img-center">
-                    <%= cl_image_tag @user.dogs.first.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{@user.dogs.first.name}" %>
-                  </div>
-                </div>
                 <div class="card-body-details">
                   <div class="pup-info">
                     <div class="pup-info-details">
                       <p class="card-body-text"><span class="detail-key"><strong>Name: </strong></span><%= link_to @user.dogs.first.name, dog_path(@user.dogs.first) %></p>
                       <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span><%= @user.dogs.first.breed %></p>
                     </div>
+                  </div>
+                </div>
+                  <div class="dog-show-img-center">
+                    <%= cl_image_tag @user.dogs.first.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{@user.dogs.first.name}" %>
                   </div>
                 </div>
             </div>
