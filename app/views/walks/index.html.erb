@@ -6,3 +6,80 @@
     data-controller="map"
 
      ></div>
+<body>
+    <button id="showPopupButton">Display Walk Data</button>
+
+    <script>
+        function showPopup(Walk) {
+            console.log('showPopup function called');
+            console.log('Walk ID:', Walk.id);
+            console.log('Start Time:', Walk.start_time);
+            console.log('End Time:', Walk.end_time);
+            console.log('Distance:', Walk.distance);
+            console.log('Pace:', Walk.pace);
+
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+
+            const content = document.createElement('div');
+            content.innerHTML =  `
+                <h2>Last Walk</h2>
+                <p>Walk ID: ${Walk.id}</p>
+                <p>Start Time: ${Walk.start_time}</p>
+                <p>End Time: ${Walk.end_time}</p>
+                <p>Distance: ${Walk.distance}</p>
+                <p>Pace: ${Walk.pace}</p>
+            `;
+
+            popup.appendChild(content);
+            document.body.appendChild(popup);
+
+            setTimeout(() => {
+                document.body.removeChild(popup);
+            }, 5000);
+
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .popup {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: white;
+                    padding: 20px;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    z-index: 9999;
+                }
+
+                .popup h2 {
+                    margin-top: 0;
+                }
+
+                .popup p {
+                    margin: 5px 0;
+                }
+
+                .tracking-button {
+                    position: fixed;
+                    top: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        document.getElementById('showPopupButton').addEventListener('click', () => {
+            const walkData = {
+                id: 123,
+                start_time: '2024-05-21 10:00:00',
+                end_time: '2024-05-21 11:00:00',
+                distance: '5 km',
+                pace: '6 min/km'
+            };
+            showPopup(walkData);
+        });
+    </script>
+</body>
+</html>
