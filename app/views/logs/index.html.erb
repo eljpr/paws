@@ -1,43 +1,60 @@
 <h1>Logs</h1>
 
 <% @logs.each do |log| %>
-  <div class="container card">
+  <div class="container card d-flex flex-column h-100">
     <div class="row row-cols-1">
-
       <div class="row row-cols-2">
         <div class="col-6">
-          <p> Date: <%= log.created_at.strftime("%d-%m-%Y") %> </p>
+          <p class="card-text log-date">
+            <span class="detail-key">
+              <i class="fa-solid fa-calendar-days"></i>
+            </span>
+            : <%= log.created_at.strftime("%d-%m-%Y") %>
+          </p>
         </div>
         <div class="row row-cols-3">
           <div class="col-1">
-            <%# <%= link_to 'V', dog_log_path(log) %> %>
+            <%= link_to dog_log_path(:dog_id=>log.dog_id, :id => log.id) do %>
+              <span class="detail-key-view">
+                <i class="fa-solid fa-eye"></i>
+              </span>
+            <% end %>
           </div>
           <div class="col-1">
-            <%# <%= link_to 'E', edit_dog_log_path(log) %> %>
+            <%= link_to edit_dog_log_path(:dog_id=>log.dog_id, :id => log.id) do %>
+            <span class="detail-key-edit">
+              <i class="fa-solid fa-pen"></i>
+            </span>
+            <% end %>
           </div>
           <div class="col-1">
-            <%# <%= link_to 'D', dog_log_path(log) %> %>
-          </div></div>
+            <%= link_to dog_log_path(:dog_id=>log.dog_id, :id => log.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <span class="detail-key-destroy">
+              <i class="fa-solid fa-trash"></i>
+            </span>
+            <% end %>
+          </div>
+        </div>
       </div>
 
         <div class="row">
           <div class="col">
-            <p> Food: <%= log.food %> </p>
+            <p class="card-text"> <span class="detail-key"> <i class="fa-solid fa-bowl-food"></i> </span> : <%= log.food %> </p>
           </div>
         </div>
          <div class="row">
           <div class="col">
-            <p> Medication: <%= log.medication %> </p>
+            <p class="card-text"> <span class="detail-key"> <i class="fa-solid fa-pills"></i> </span> : <%= log.medication %> </p>
           </div>
         </div>
          <div class="row">
           <div class="col">
-            <p> Special treat: <%= log.special_treat %> </p>
+            <p class="card-text"> <span class="detail-key"> <i class="fa-solid fa-bone"></i> </span> : <%= log.special_treat %> </p>
           </div>
         </div>
          <div class="row">
           <div class="col">
-            <p> Mood: <%= log.mood %> </p>
+          <p class="card-text"> <span class="detail-key"> <i class="fa-solid fa-face-smile"></i> </span> : <%= log.mood %> </p>
           </div>
         </div>
 

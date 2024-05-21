@@ -1,0 +1,31 @@
+.card {
+  background-color: $gray-10;
+  width: 360px;
+  height: 135px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.log-date {
+  font-weight: bold;
+}
+
+.detail-key {
+  color: $dgreen-pawsg;
+}
+
+.detail-key-view {
+  color: $dbblue-pawsg;
+}
+
+.detail-key-edit {
+  color: $dgreen-pawsg;
+}
+
+.detail-key-destroy {
+  color: $red;
+}
+
+.detail-key i {
+  width: 16px;
+}

@@ -14,5 +14,22 @@
 
 @import "dogs/index";
 @import "users/index";
+@import "logs/index";
 
 // Your custom CSS
+body {
+ background-color: #ede4d5;
+}
+
+h1 {
+  color: $dorange-pawsg;
+}
+
+.container input, .container select{
+  border: 1px solid $lorange-pawsg;
+  border-radius: 50px;
+}
+
+.form-actions .dgreen-button {
+  border: 1px solid $lgreen-pawsg;
+}
