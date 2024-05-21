@@ -5,6 +5,7 @@
   <% end %>
 </div>
 <br>
+<!--prescription details-->
 <h2 class="orange-title"><strong><%= @prescription.medication_name %></strong></h2>
 <h5><span class="detail-key"><i class="fa-solid fa-tablets"></i> :</span> <%= @prescription.description %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-syringe"></i> :</span> <%= @prescription.dosage %></h5>
@@ -21,6 +22,7 @@
   <h5><span class="detail-key"><i class="fa-solid fa-calendar"></i> :</span> Take for <%= days.to_i %> days</h5>
   <% end %>
 
+<!--prescription status -->
   <% if %>
   <% @prescription.completed? %>
     <h5><span class="detail-key"> <strong>Status:</strong> </span>This prescription is complete</h5>
@@ -32,17 +34,22 @@
     <h5><span class="detail-key"><strong>Status:</strong></span> You have <%= days_left.to_i %> day left</h5>
       <% end %>
   <% end %>
-  <br>
-<!--  edit if user is vet-->
+
+<!--  mark as complete for user -->
+
+
+<!--  edit/remove if user is vet-->
 <% if current_user.is_vet %>
 <div class="button-container">
 <br>
   <div class="button-flexbox">
-    <%= link_to "Edit", edit_dog_prescription_path(@prescription), class:"dyellow-button update-pup-button" %>
+    <%= link_to edit_dog_prescription_path(@prescription), class:"dgreen-button update-pup-button" do%>
+      <i class="fa-solid fa-pen-to-square"></i> Edit
+    <% end %>
     <%= link_to dog_prescription_path(@prescription),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class:"dgreen-button pup-button" do %>
-        Delete
+      class:"remove-prescription-button" do %>
+      <i class="fa-solid fa-xmark"></i> Remove
     <% end %>
   </div>
 </div>

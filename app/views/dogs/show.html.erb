@@ -20,7 +20,9 @@
     <br>
     <h5 class="dblue-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
       <% if current_user.id == @dog.user.id %>
-        <p><%= link_to "Update my pup's info", edit_dog_path, class:"orange-back-link" %></p>
+        <p><%= link_to edit_dog_path, class:"orange-back-link" do%></p>
+          <i class="fa-solid fa-pen-to-square"></i> Edit profile
+        <% end %>
       <% end %>
       <div class="card-body-details">
 

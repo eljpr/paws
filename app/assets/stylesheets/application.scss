@@ -15,11 +15,12 @@
 @import "dogs/index";
 @import "users/index";
 @import "logs/index";
+@import "prescriptions/index";
 
 // Your custom CSS
 body{
   h1, h2, h3, h4, h5, h6{
-    font-family: $headers-font;    
+    font-family: $headers-font;
   }
   font-family: $body-font;
   background-color: #ede4d5;
