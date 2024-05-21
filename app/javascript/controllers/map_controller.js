@@ -31,8 +31,7 @@ export default class extends Controller {
 
     //add a button to start and stop tracking
     this.addTrackingButton();
-    this.haversineDistance();
-    this.calculateTotalDistance();
+
 
   }
 // adds markers to map
@@ -132,7 +131,8 @@ export default class extends Controller {
       const lat = position.coords.latitude
       const lng = position.coords.longitude
       const coordinates = [lat, lng];
-      this.path.push(coordinates);
+      // this.path.push(coordinates);
+      this.path.push([ lat, lng]);
       console.log("watch position coords: ",coordinates) // coordinates are empty ????
       this.updatePathLayer();
     }, error => console.error(error), {
