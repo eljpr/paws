@@ -19,7 +19,31 @@ class Walk < ApplicationRecord
 
     rkm * c # Distance in kilometers
   end
-  def set_coords
+  def set_coords_calc_dist_pace
+    return if path.blank?
+    #set the start coords from the array taken
+    self.start_lat, self.start_lng = path.first #when pressing the start track button this then takes that data
+    self.end_lat, self.end_lng = path.last   #the last element of the array
+
+    #calculate the total distance
+    self.distance = calculate_total_distance
+
+    # Calculate pace (distance per hour)
+    self.pace = calculate_pace if start_time.present? && end_time.present?
+
 
   end
+  def calculate_total_distance
+    total_distance = 0.0
+    path.each_cons(2) do |(lat1, lng1), (lat2, lng2)|
+      total_distance +=self.class.haversine_distance(lat1, lng1, lat2, lng2)
+    end
+    return total_distance
+
+  end
+  def calculate_pace
+    duration_hours = (end_time - start_time) / 3600.0 #duration in hours
+    distance / duration_hours if duration_hours > 0
+  end
+
 end

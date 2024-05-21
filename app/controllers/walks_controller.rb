@@ -28,7 +28,10 @@ def create
   @walk = Walk.new
   @walk.dog = current_user.dogs.first
   puts current_user.dogs.first
+  @walk.start_time = Time.current if @walk.start_time.nil?  #set start time
+  @walk.end_time = Time.current + 1.hour if @walk.end_time.nil?
   @walk.user = current_user
+binding.break
   @walk.path = params["path"].map do |point_params|
     [point_params["lat"], point_params["lng"]] if point_params.is_a?(ActionController::Parameters)
   end
