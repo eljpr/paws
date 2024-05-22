@@ -2,13 +2,13 @@
 
 <% if current_user.is_vet %>
 <div>
-  <%= link_to users_path, class:"green-back-link" do %>
+  <%= link_to users_path, class:"orange-back-link" do %>
     <i class="fa-solid fa-arrow-left"></i> Patients
   <% end %>
 </div>
 <% else %>
 <div>
-  <%= link_to dogs_path, class:"green-back-link" do %>
+  <%= link_to dogs_path, class:"orange-back-link" do %>
     <i class="fa-solid fa-arrow-left"></i> My pups
   <% end %>
 </div>

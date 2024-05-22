@@ -3,14 +3,14 @@
   <% if current_user.is_vet %>
   <!--Back link for vets-->
       <div>
-        <%= link_to users_path, class:"green-back-link" do %>
+        <%= link_to users_path, class:"orange-back-link" do %>
         <i class="fa-solid fa-arrow-left"></i> Patients
         <% end %>
       </div>
   <% else %>
       <div>
   <!--Back link for owners-->
-        <%= link_to users_path, class:"green-back-link" do %>
+        <%= link_to users_path, class:"orange-back-link" do %>
         <i class="fa-solid fa-arrow-left"></i> Vets
         <% end %>
       </div>

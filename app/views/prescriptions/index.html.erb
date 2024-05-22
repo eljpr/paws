@@ -58,7 +58,7 @@
     <% completed.each do |prescription| %>
       <div class="prescriptions-status">
       <h6>
-        <%= link_to dog_prescription_path(@dog, prescription), class:"yellow-back-link" do %>
+        <%= link_to dog_prescription_path(@dog, prescription), class:"orange-back-link" do %>
           <%= prescription.medication_name %>
         <% end %>
       </h6>
