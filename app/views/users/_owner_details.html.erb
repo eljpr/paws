@@ -61,6 +61,7 @@
                     <%= cl_image_tag @user.dogs.first.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{@user.dogs.first.name}" %>
                   <% else %>
                     <%= image_tag "dog_placeholder", class:"small-img-square" %>
+                  <% end %>
                   </div>
                 </div>
             </div>
@@ -85,6 +86,7 @@
                         <%= cl_image_tag pet.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{pet.name}" %>
                       <% else %>
                         <%= image_tag "dog_placeholder", class:"small-img-square" %>
+                      <% end %>
                       </div>
                     </div>
                   </div>
