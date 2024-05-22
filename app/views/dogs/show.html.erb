@@ -86,7 +86,7 @@
     <!--                  add a condition if vet is looking at their own profile-->
                         <%= link_to vet.user.first_name, user_path(current_user, showmyself: true), class:"vet-name-yellow" %>
                         <% else %>
-                        <%= link_to vet.user.first_name, user_path(vet), class:"vet-name-yellow" %>
+                        <%= link_to vet.user.first_name, user_path(vet.user), class:"vet-name-yellow" %>
                         <% end %>
                       <% end %>
                   <% end %>
