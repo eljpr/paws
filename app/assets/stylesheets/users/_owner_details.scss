@@ -4,6 +4,8 @@
   font-weight: bolder;
 }
 
-.owner-log-out-button {
-  width: 100px;
+.owner-logout-flexbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

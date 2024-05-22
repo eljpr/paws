@@ -3,12 +3,12 @@
 <!--  back links-->
 <!--  back link for owners-->
   <% if current_user.id == @dog.user.id  %>
-    <%= link_to dogs_path, class:"green-back-link" do %>
+    <%= link_to dogs_path, class:"orange-back-link" do %>
       <i class="fa-solid fa-arrow-left"></i> My pups
     <% end %>
   <% else %>
 <!--  back link for vets-->
-    <%= link_to users_path, class:"green-back-link" do %>
+    <%= link_to users_path, class:"orange-back-link" do %>
       <i class="fa-solid fa-arrow-left"></i> My pup patients
     <% end %>
   <% end %>
@@ -43,7 +43,7 @@
 <!--dog-logs tab content-->
           <div class="tab-pane fade show active" id="dog-logs-tab-pane" role="tabpanel" aria-labelledby="dog-logs-tab" tabindex="0">
             <div class="dog-log-info">
-              <h6> <%= link_to dog_logs_path(@dog), class:"yellow-back-link" do %>
+              <h6> <%= link_to dog_logs_path(@dog), class:"orange-back-link" do %>
                   See all logs
                 <% end %> </h6>
                 <% if current_user.id == @dog.user.id %>
@@ -62,7 +62,7 @@
               <div class="pup-info-details">
               <p class="card-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span> <%= @dog.breed %></p>
               <p class="card-text"><span class="detail-key"><i class="fa-solid fa-cake-candles"></i> : </span> <%= @dog.date_of_birth.strftime('%m/%d/%Y') %></p>
-              <p class="card-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span> <%= @dog.weight %></p>
+              <p class="card-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span> <%= @dog.weight %> kg</p>
               </div>
               <div class="pup-health-details">
                 <p class="card-text"><span class="detail-key"><i class="fa-solid fa-bandage"></i> : </span><%= @dog.condition %></p>
@@ -70,7 +70,7 @@
                 <p class="card-text"><span class="detail-key"><i class="fa-solid fa-user-doctor"></i></i> : </span>
                   <% if @dog.vet_dogs.empty? %>
                     <span>
-                    <%= link_to users_path, class:"yellow-back-link pup-button" do %>
+                    <%= link_to users_path, class:"orange-back-link pup-button" do %>
                     <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-stethoscope"></i> Choose vet
                     <% end %>
                     </span>
@@ -96,7 +96,14 @@
           </div>
           <div class="tab-pane fade" id="prescriptions-tab-pane" role="tabpanel" aria-labelledby="prescriptions-tab" tabindex="2">
             <div class="dog-prescription-container">
+            <div class="dog-see-prescription-link">
+              <%= link_to dog_prescriptions_path(@dog), class:"orange-back-link" do %>
+                  See all prescriptions
+              <% end %>
+            </div>
+
               <% @prescriptions.each do |prescription| %>
+              <div>
                 <p><%= prescription.medication_name %> |
                 Status:
                 <% if prescription.completed? %>
@@ -106,9 +113,7 @@
                 <% end %>
                 </p>
               <% end %>
-              <%= link_to dog_prescriptions_path(@dog), class:"yellow-back-link" do %>
-                  See all prescriptions
-              <% end %>
+              </div>
             </div>
               <% if current_user.is_vet %>
               <%= render "vet_show" %>

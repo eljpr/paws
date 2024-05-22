@@ -1,43 +1,44 @@
+<div class="container">
+<h1>Select your vet</h1>
 
-  <h1>Select your vet</h1>
-
-  <div>
-    <%= link_to root_path, class:"green-back-link" do %>
+<div>
+    <%= link_to root_path, class:"orange-back-link" do %>
       <i class="fa-solid fa-arrow-left"></i> Home
     <% end %>
   </div>
-<div class="row">
-<% @vets.each do |vet| %>
-    <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-      <div class="card-container">
-          <div class="title-flexbox">
-            <div class="orange-title card-nav-title">
-              <h3 >DR. <%= vet.first_name%> <%= vet.last_name %></h3>
-            </div>
-            <div class="card-nav-img img-rounded">
-              <% if vet.photo.attached? %>
-                <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", alt: "#{vet.first_name}", class:'small-img-square'%>
-              <% else %>
-                <%= image_tag "profile_placeholder", class:"small-img-square" %>
-            <% end %>
-            </div>
-          </div>
-          <div class="card-body-details">
-            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span><%= vet.address %></p>
-            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= vet.mobile_number %></p>
-            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
-            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
-          </div>
+  <div class="row">
+  <% @vets.each do |vet| %>
+      <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+        <div class="card-container">
+          <%= link_to user_path(vet)do %>
 
-<br>
-          <div class="button-flexbox" >
-            <div>
-              <%= link_to 'Details', user_path(vet), class:'dyellow-button' %>
+            <div class="title-flexbox">
+              <div class="orange-title card-nav-title">
+                <h3 >Dr. <%= vet.first_name%> <%= vet.last_name %></h3>
+              </div>
+              <div class="card-nav-img img-rounded">
+                <% if vet.photo.attached? %>
+                  <%= cl_image_tag vet.photo.key, gravity: "auto", crop: "fill", alt: "#{vet.first_name}", class:'img-rounded'%>
+                <% else %>
+                  <%= image_tag "profile_placeholder", class:"img-rounded" %>
+              <% end %>
+              </div>
+            </div>
+            <div class="card-body-details vet-info-flexbox">
+              <div class="vet-info-flex-item">
+                <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span><%= vet.address %></p>
+                <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= vet.mobile_number %></p>
+              </div>
+              <div class="vet-info-flex-item">
+                <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= vet.opening_time.strftime('%I:%M:%S %p') %> </p>
+                <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= vet.closing_time.strftime('%I:%M:%S %p') %> </p>
+              </div>
             </div>
 
-          </div>
-    </div>
-
-    </div>
-  <% end %>
+  <br>
+        </div>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

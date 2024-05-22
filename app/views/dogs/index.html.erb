@@ -1,5 +1,5 @@
 <div class="container">
-<h1>My puppies</h1>
+<h1>My dogs</h1>
   <% @dogs.each do |dog| %>
   <div class="card-container">
     <div class="card-body-details dog-card-center">
@@ -10,7 +10,7 @@
     <% end %>
       <div class="dog-name-link">
       <br>
-        <h4><%= link_to dog.name, dog_path(dog), class:"yellow-back-link"%></h4>
+        <h4><%= link_to dog.name, dog_path(dog), class:"orange-back-link"%></h4>
         <p class="card-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span> <%= dog.breed %></p>
       </div>
     </div>
@@ -18,9 +18,9 @@
   </div>
   <% end %>
   <br>
-  <div id="add-pup">
-    <%= link_to new_dog_path, class:"dgreen-button pup-button" do %>
-    <i class="fa-solid fa-plus"></i>  <i class="fa-solid fa-dog" style="color: #9d520e;"></i>
+  <div id="add-pup" class="dgreen-button">
+    <%= link_to new_dog_path do %>
+    <i class="fa-solid fa-plus"></i> Add new dog
   <% end %>
   </div>
 </div>

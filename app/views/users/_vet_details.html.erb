@@ -1,16 +1,27 @@
 <div class="container">
   <h1> Dr.<%= @user.last_name %>'s details</h1>
+  <br>
+  <!--Back link for vets + logout button-->
   <% if current_user.is_vet %>
-  <!--Back link for vets-->
-      <div>
-        <%= link_to users_path, class:"green-back-link" do %>
-        <i class="fa-solid fa-arrow-left"></i> Patients
+      <div class="owner-logout-flexbox">
+        <div class="owner-logout-flex-item">
+          <%= link_to users_path, class:"orange-back-link" do %>
+          <i class="fa-solid fa-arrow-left"></i> Patients
+          <% end %>
+        </div>
+        <div class="owner-logout-flex-item">
+          <% if params[:showmyself].present? %>
+          <div class="orange-back-link">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         <% end %>
+        </div>
+  </div>
       </div>
+
   <% else %>
       <div>
   <!--Back link for owners-->
-        <%= link_to users_path, class:"green-back-link" do %>
+        <%= link_to users_path, class:"orange-back-link" do %>
         <i class="fa-solid fa-arrow-left"></i> Vets
         <% end %>
       </div>
@@ -21,13 +32,21 @@
         <% else %>
           <%= image_tag "profile_placeholder", class:"img-square" %>
       <% end %>
+  <div class="vet-profile-info">
     <h5 class="card-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>
     <div class="card-body-details">
-      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= @user.address %></p>
-      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= @user.mobile_number %> </p>
-      <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= @user.opening_time.strftime('%I:%M:%S %p') %> </p>
-      <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= @user.closing_time.strftime('%I:%M:%S %p') %> </p>
+      <div class="vet-info-flexbox">
+        <div class="vet-info-flex-item">
+          <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= @user.address %></p>
+          <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= @user.mobile_number %> </p>
+        </div>
+        <div class="vet-info-flex-item">
+          <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= @user.opening_time.strftime('%I:%M:%S %p') %> </p>
+          <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= @user.closing_time.strftime('%I:%M:%S %p') %> </p>
+        </div>
+      </div>
     </div>
+  </div>
 
     <hr>
   <!--  Client request section for vets -->
@@ -86,10 +105,6 @@
 
         </div>
     </div>
-    <% if current_user.is_vet && params[:showmyself].present? %>
-      <div class="dorange-button owner-log-out-button">
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-      </div>
-    <% end %>
+
   </div>
 </div>
