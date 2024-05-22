@@ -21,13 +21,21 @@
         <% else %>
           <%= image_tag "profile_placeholder", class:"img-square" %>
       <% end %>
+  <div class="vet-profile-info">
     <h5 class="card-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>
     <div class="card-body-details">
-      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= @user.address %></p>
-      <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= @user.mobile_number %> </p>
-      <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= @user.opening_time.strftime('%I:%M:%S %p') %> </p>
-      <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= @user.closing_time.strftime('%I:%M:%S %p') %> </p>
+      <div class="vet-info-flexbox">
+        <div class="vet-info-flex-item">
+          <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= @user.address %></p>
+          <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= @user.mobile_number %> </p>
+        </div>
+        <div class="vet-info-flex-item">
+          <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-open"></i> : </span> <%= @user.opening_time.strftime('%I:%M:%S %p') %> </p>
+          <p class="card-body-text"> <span class="detail-key"><i class="fa-solid fa-door-closed"></i> : </span> <%= @user.closing_time.strftime('%I:%M:%S %p') %> </p>
+        </div>
+      </div>
     </div>
+  </div>
 
     <hr>
   <!--  Client request section for vets -->

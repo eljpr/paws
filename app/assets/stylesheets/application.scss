@@ -23,12 +23,16 @@ body{
     font-family: $headers-font;
   }
   font-family: $body-font;
-  background-color: #ede4d5;
+  // background-color: #ede4d5;
 }
 
 h1{
   color: $dorange-pawsg;
   font-weight: bolder;
+}
+
+.container {
+  margin-top: 15px;
 }
 
 .container input, .container select, .container textarea{
