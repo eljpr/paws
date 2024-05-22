@@ -1,12 +1,23 @@
 <div class="container">
   <h1> Dr.<%= @user.last_name %>'s details</h1>
+  <br>
+  <!--Back link for vets + logout button-->
   <% if current_user.is_vet %>
-  <!--Back link for vets-->
-      <div>
-        <%= link_to users_path, class:"orange-back-link" do %>
-        <i class="fa-solid fa-arrow-left"></i> Patients
+      <div class="owner-logout-flexbox">
+        <div class="owner-logout-flex-item">
+          <%= link_to users_path, class:"orange-back-link" do %>
+          <i class="fa-solid fa-arrow-left"></i> Patients
+          <% end %>
+        </div>
+        <div class="owner-logout-flex-item">
+          <% if params[:showmyself].present? %>
+          <div class="orange-back-link">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         <% end %>
+        </div>
+  </div>
       </div>
+
   <% else %>
       <div>
   <!--Back link for owners-->
@@ -94,10 +105,6 @@
 
         </div>
     </div>
-    <% if current_user.is_vet && params[:showmyself].present? %>
-      <div class="dorange-button owner-log-out-button">
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-      </div>
-    <% end %>
+
   </div>
 </div>
