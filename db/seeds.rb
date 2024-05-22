@@ -14,6 +14,7 @@ require "open-uri"
 
 puts "Cleaning database"
 
+Log.destroy_all
 Prescription.destroy_all
 Walk.destroy_all
 VetDog.destroy_all
@@ -22,48 +23,48 @@ User.destroy_all
 
 puts "Creating users..."
 # Owners
-gilmar = User.create!(first_name: "Gilmar", last_name: "Margoti",  email: "gilmar@gmail.com", password: "123456", is_vet: false, address: "Rua da Alegria, 123", mobile_number: "123456789")
+gilmar = User.create!(first_name: "Gilmar", last_name: "Margoti",  email: "gilmar@gmail.com", password: "123456", is_vet: false, address: "Rua da Alegria, 123", mobile_number: "073456789")
 gilmar_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/gilmar_ooc7zo.jpg")
 gilmar.photo.attach(io: gilmar_pic, filename: "gilmar.jpg", content_type: "image/jpg")
 
-max = User.create!(first_name: "Max", last_name: "Cody", email: "codym08@gmail.com", password: "123456", is_vet: false, address: "Great Portland Street, 392", mobile_number: "293010394")
+max = User.create!(first_name: "Max", last_name: "Cody", email: "codym08@gmail.com", password: "123456", is_vet: false, address: "Great Portland Street, 392", mobile_number: "073010394")
 max_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/max_pzxuoc.jpg")
 max.photo.attach(io: max_pic, filename: "max.jpg", content_type: "image/jpg")
 
-ella = User.create!(first_name: "Ella", last_name: "Pierre", email: "ella@owner.com", password: "123456", is_vet: false, address: "Baker Street, 221B", mobile_number: "49449109103")
+ella = User.create!(first_name: "Ella", last_name: "Pierre", email: "ella@owner.com", password: "123456", is_vet: false, address: "Baker Street, 221B", mobile_number: "07449109103")
 ella_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715867864/ella_wu1qyd.jpg")
 ella.photo.attach(io: ella_pic, filename: "ella.jpg", content_type: "image/jpg")
 
-robbie = User.create!(first_name: "Robbie", last_name: "Radev", email: "robbie@owner.com", password: "123456", is_vet: false, address: "Bond Street, 221B", mobile_number: "233928405")
+robbie = User.create!(first_name: "Robbie", last_name: "Radev", email: "robbie@owner.com", password: "123456", is_vet: false, address: "Bond Street, 221B", mobile_number: "073928405")
 robbie_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865275/robbie_tuinzk.png")
 robbie.photo.attach(io: robbie_pic, filename: "robbie.jpg", content_type: "image/jpg")
 
-elise = User.create!(first_name: "Elise", last_name: "Acher", email: "elise@owner.com", password: "123456", is_vet: false, address: "Oxford Street, 221B", mobile_number: "693849302")
+elise = User.create!(first_name: "Elise", last_name: "Acher", email: "elise@owner.com", password: "123456", is_vet: false, address: "Oxford Street, 221B", mobile_number: "073849302")
 elise_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/elise_dw0yj2.jpg")
 elise.photo.attach(io: elise_pic, filename: "elise.jpg", content_type: "image/jpg")
 
-sofia = User.create!(first_name: "Sofia", last_name: "Singam", email: "sofia@owner.com", password: "123456", is_vet: false, address: "Regent Street, 221B", mobile_number: "950292842")
+sofia = User.create!(first_name: "Sofia", last_name: "Singam", email: "sofia@owner.com", password: "123456", is_vet: false, address: "Regent Street, 221B", mobile_number: "070292842")
 sofia_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865275/sofia_oq99yv.jpg")
 sofia.photo.attach(io: sofia_pic, filename: "sofia.jpg", content_type: "image/jpg")
 
 # Vets
-ife = User.create!(first_name: "Ife", last_name: "Odugbesan", email: "ife@vet.com", password: "123456", is_vet: true, address: "Wimpole Street", mobile_number: "902840502", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+ife = User.create!(first_name: "Ife", last_name: "Odugbesan", email: "ife@vet.com", password: "123456", is_vet: true, address: "Wimpole Street", mobile_number: "072840502", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
 ife_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/ife_ul1vki.png")
 ife.photo.attach(io: ife_pic, filename: "ife.jpg", content_type: "image/jpg")
 
-mo = User.create!(first_name: "Mo", last_name: "Rashid", email: "mo@vet.com", password: "123456", is_vet: true, address: "Harley Street", mobile_number: "749204910", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+mo = User.create!(first_name: "Mo", last_name: "Rashid", email: "mo@vet.com", password: "123456", is_vet: true, address: "Harley Street", mobile_number: "079204910", opening_time: Time.new(2024, 5, 15, 13, 0, 0), closing_time: Time.new(2024, 5, 15, 22, 0, 0))
 mo_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/mo_j8egri.jpg")
 mo.photo.attach(io: mo_pic, filename: "mo.jpg", content_type: "image/jpg")
 
-raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa@vet.com", password: "123456", is_vet: true, address: "Marylebone High Street", mobile_number: "293840502", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa@vet.com", password: "123456", is_vet: true, address: "Marylebone High Street", mobile_number: "073840502", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
 raeesa_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/raeesa_j8sgng.jpg")
 raeesa.photo.attach(io: raeesa_pic, filename: "raessa.jpg", content_type: "image/jpg")
 
-meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "940294901", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "070294901", opening_time: Time.new(2024, 5, 15, 10, 0, 0), closing_time: Time.new(2024, 5, 15, 19, 0, 0))
 meli_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/meli_jvwngi.jpg")
 meli.photo.attach(io: meli_pic, filename: "meli.jpg", content_type: "image/jpg")
 
-ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@vet.com", password: "123456", is_vet: true, address: "Carnaby Street", mobile_number: "839402940", opening_time: Time.new(2024, 5, 15, 9, 0, 0), closing_time: Time.new(2024, 5, 15, 18, 0, 0))
+ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@vet.com", password: "123456", is_vet: true, address: "Carnaby Street", mobile_number: "079402940", opening_time: Time.new(2024, 5, 15, 8, 0, 0), closing_time: Time.new(2024, 5, 15, 17, 0, 0))
 ben_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715868092/ben_wcjdeo.jpg")
 ben.photo.attach(io: ben_pic, filename: "ben.jpg", content_type: "image/jpg")
 
@@ -100,18 +101,30 @@ miko.photo.attach(io: miko_pic, filename: "miko.jpg", content_type: "image/jpg")
 puts "Dog created successfully..."
 
 puts "Creating vet_dogs"
-VetDog.create!(user: meli, dog: thalys)
-VetDog.create!(user: meli, dog: peneloppe)
-VetDog.create!(user: meli, dog: poker)
-VetDog.create!(user: ben, dog: ruby)
-VetDog.create!(user: ife, dog: miko)
-VetDog.create!(user: raeesa, dog: piggy)
-VetDog.create!(user: mo, dog: lulla)
+VetDog.create!(user: meli, dog: thalys, status: "accepted")
+VetDog.create!(user: meli, dog: peneloppe, status: "accepted")
+VetDog.create!(user: meli, dog: poker, status: "accepted")
+VetDog.create!(user: ben, dog: ruby, status: "accepted")
+VetDog.create!(user: ife, dog: miko, status: "accepted")
+VetDog.create!(user: raeesa, dog: piggy, status: "accepted")
+VetDog.create!(user: mo, dog: lulla, status: "accepted")
 puts"Vet_dog created successfully..."
 
 puts "Creating prescriptions"
+Prescription.create!(dog: thalys, user: ella, medication_name: "Advocate", completed: true, start_date: Date.new(2022, 3, 1), end_date: Date.new(2022, 3, 15), description: "Flea treatment", dosage: "1 pipette full spread all over your dog's coate once a month", time_of_day: "N/A", number_of_times_per_day: 0)
+Prescription.create!(dog: thalys, user: ella, medication_name: "Optimmune", completed: true, start_date: Date.new(2022, 12, 5), end_date: Date.new(2022, 12, 16), description: "Eye ointment", dosage: "3mg", time_of_day: "Before bed", number_of_times_per_day: 1)
 Prescription.create!(dog: thalys, user: ella, medication_name: "NSAID", completed: false, start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 5, 30), description: "Joint health supplement", dosage: "50mg", time_of_day: "morning", number_of_times_per_day: 1)
 puts "Prescription created successfully..."
+
+puts "Creating logs"
+Log.create!(dog: thalys, created_at: Date.new(2023, 5, 15), food: ["Kibble"], medication: ["Antibiotic"], special_treat: ["Dental-chews"], grooming: ["Brush"], stool: ["Normal"], vaccination: ["None"], mood: ["Happy", "Excited"], energy: ["Energetic"], training: ["Behavioural", "Obedience"])
+Log.create!(dog: thalys, created_at: Date.new(2023, 5, 16), food: ["Raw"], medication: ["Antibiotic"], special_treat: ["Dental-chews"], grooming: ["Brush"], stool: ["Normal"], vaccination: ["None"], mood: ["Happy"], energy: ["Energetic"], training: ["Behavioural"])
+Log.create!(dog: thalys, created_at: Date.new(2023, 5, 17), food: ["Kibble"], medication: ["Antibiotic"], special_treat: ["Dental-chews"], grooming: ["Brush"], stool: ["Normal"], vaccination: ["None"], mood: ["Happy"], energy: ["Calm"], training: ["Behavioural"])
+Log.create!(dog: thalys, created_at: Date.new(2023, 5, 18), food: ["Home-made"], medication: ["None"], special_treat: ["Rawhide"], grooming: ["Brush", "Bath"], stool: ["Normal"], vaccination: ["None"], mood: ["Anxious"], energy: ["Ok"], training: ["None"])
+Log.create!(dog: thalys, created_at: Date.new(2023, 5, 19), food: ["Home-made"], medication: ["None"], special_treat: ["Dental-chews"], grooming: ["Brush"], stool: ["Normal"], vaccination: ["None"], mood: ["Happy"], energy: ["Energetic"], training: ["Behavioural"])
+Log.create!(dog: thalys, created_at: Date.new(2023, 5, 20), food: ["Raw"], medication: ["None"], special_treat: ["Dental-chews"], grooming: ["Brush"], stool: ["Normal"], vaccination: ["None"], mood: ["Happy"], energy: ["Calm"], training: ["Behavioural"])
+Log.create!(dog: thalys, created_at: Date.new(2023, 5, 21), food: ["Home-made"], medication: ["None"], special_treat: ["Dental-chews"], grooming: ["Brush"], stool: ["Normal"], vaccination: ["None"], mood: ["Happy"], energy: ["Calm"], training: ["Behavioural"])
+puts "Log created successfully..."
 
 # Walk.create!(start_time: Time.new(2024, 5, 15, 9, 0, 0), end_time: Time.new(2024, 5, 15, 10, 0, 0), pace: 5.2, start_lat: 40.7128, start_lng: -74.0060, end_lat: 40.7218, end_lng: -73.9977, distance: 2.5, dog: Dog.first)
 # puts "creating a prescription"
