@@ -66,8 +66,9 @@
       <% end %>
 <% end %>
 
+<!--client request form for owners-->
+<% if !current_user.is_vet && @no_vet %>
 
-<% if !current_user.is_vet %>
   <div class="new-vet-form">
   <%= simple_form_for [@user, @vet_dog] do |f| %>
     <%= f.error_notification %>
@@ -78,8 +79,9 @@
         <div class="vet-form-actions">
           <p><%= f.submit "Send request to vet", class: 'dyellow-button'%></p>
         </div>
-    <% end %>
+
   <% end %>
+<% end %>
 
       </div>
   </div>
