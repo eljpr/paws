@@ -92,11 +92,12 @@ export default class extends Controller {
     button.style.width = '120px';
     button.style.height = '100px';
 
+
     this.map.addControl({
       onAdd:  () => {
         const container = document.createElement('div');
         container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
-
+        container.style.textAlign = 'center'; // Center align the button
         container.appendChild(button);
         return container;
       },
