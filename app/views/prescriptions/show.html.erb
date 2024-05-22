@@ -36,14 +36,18 @@
       <% end %>
   <% end %>
 
-<!--  mark as complete for owner -->
+<!--  mark as complete -->
 <% if !@prescription.completed %>
-<h5><span class="detail-key"><strong>Mark as complete:</strong></span>
-  <span class="mark-complete">
+<hr>
+
+  <div class="mark-complete">
+    <h6>
     <%= link_to complete_prescription_path(@prescription), data: {turbo_method: :patch} do %>
-      <i class="fa-solid fa-check"></i>
+      Mark as complete <i class="fa-solid fa-check"></i>
     <% end %>
-  </span>
+    </h6>
+  </div>
+</div>
 <% end %>
 
 <!--  edit/remove if user is vet-->
