@@ -32,6 +32,10 @@ Rails.application.routes.draw do
       patch :complete
     end
   end
+  namespace :api do
+    get 'walk/latest', to: 'walks#latest'
+
+  end
 
   resources :chats, only: %i[index show create] do
     resources :messages, only: [:create]

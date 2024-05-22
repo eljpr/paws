@@ -1,79 +1,148 @@
-<h1>Walks</h1>
- <div class="map-card" style="width: 1200px; height: 1200px;"
+<!-- <h1>Walks</h1>
+<div class="map-card" style="width: 1200px; height: 1200px;"
 
 
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-controller="map"
+    data-controller="map"> </div>
 
-     ></div>
 <body>
-    <button id="showPopupButton">Display Walk Data</button>
+<div class="navbar">
+        <p id="walkId">Walk ID: </p>
+        <p id="startTime">Start Time: </p>
+        <p id="endTime">End Time: </p>
+        <p id="distance">Distance: </p>
+        <p id="pace">Pace: </p>
+    </div>
 
-    <script>
-        function showPopup(Walk) {
-            console.log('showPopup function called');
-            console.log('Walk ID:', Walk.id);
-            console.log('Start Time:', Walk.start_time);
-            console.log('End Time:', Walk.end_time);
-            console.log('Distance:', Walk.distance);
-            console.log('Pace:', Walk.pace);
 
-            const popup = document.createElement('div');
-            popup.classList.add('popup');
 
-            const content = document.createElement('div');
-            content.innerHTML =  `
-                <h2>Last Walk</h2>
-                <p>Walk ID: ${Walk.id}</p>
-                <p>Start Time: ${Walk.start_time}</p>
-                <p>End Time: ${Walk.end_time}</p>
-                <p>Distance: ${Walk.distance}</p>
-                <p>Pace: ${Walk.pace}</p>
-            `;
+  <script>
+  async function fetchWalkData() {
+    try {
+      const response = await fetch('/api/walk');
+      if (!response.ok) {
+        throw new Error('network response was bad');
+      }
+      const walk = await response.json();
+      updateWalkData(walk);
+    } catch (Error) {
+      console.error('there is an issue with the fetch response', error);
+    }
+  }
+    function updateWalkData(walk) {
+      console.log('updateWalkdata function called');
+      console.log('Walk ID:', Walk.id);
+      console.log('Start Time:', Walk.start_time);
+      console.log('End Time:', Walk.end_time);
+      console.log('Distance:', Walk.distance);
+      console.log('Pace:', Walk.pace);
+      document.getElementById('walkId').innerText = `Walk ID: ${Walk.id}`;
+      document.getElementById('startTime').innerText = `Start Time: ${Walk.start_time}`;
+      document.getElementById('endTime').innerText = `End Time: ${Walk.end_time}`;
+      document.getElementById('distance').innerText = `Distance: ${Walk.distance}`;
+      document.getElementById('pace').innerText = `Pace: ${Walk.pace}`;
+         document.getElementById('showPopupButton').addEventListener('click', () => {
+            updateWalkData(Walk.last);
+    });
+    // CSS for the walk data display
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .walk-data-display {
+                position: fixed;
+                top: 10px;
+                width: 100%;
+                background-color: #f9f9f9;
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                z-index: 9999;
+            }
 
-            popup.appendChild(content);
-            document.body.appendChild(popup);
+            .walk-data-display h2 {
+                margin-top: 0;
+            }
 
-            setTimeout(() => {
-                document.body.removeChild(popup);
-            }, 5000);
+            .walk-data-display p {
+                margin: 5px 0;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    fetchWalkData();
 
-            const style = document.createElement('style');
-            style.innerHTML = `
-                .popup {
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: white;
-                    padding: 20px;
-                    border: 1px solid #ccc;
-                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                    z-index: 9999;
-                }
-
-                .popup h2 {
-                    margin-top: 0;
-                }
-
-                .popup p {
-                    margin: 5px 0;
-                }
-
-                .tracking-button {
-                    position: fixed;
-                    top: 10px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-            `;
-            document.head.appendChild(style);
+</body> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walks</title>
+    <style>
+        .map-card {
+            width: 1200px;
+            height: 1200px;
         }
 
-        document.getElementById('showPopupButton').addEventListener('click', () => {
-            const walkData = Walk.last();
-            showPopup(walkData);
-        });
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 50px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav-bar p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Walks</h1>
+    <div class="map-card"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-controller="map">
+    </div>
+<%= render 'walks/walk_data', walk: Walk.last %>
+
+<button id="showPopupButton">Display Walk Data</button>
+
+    <script>
+        async function fetchWalkData() {
+            try {
+                const response = await fetch('/api/walk');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const walk = await response.json();
+                updateWalkData(walk);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        function updateWalkData(walk) {
+            console.log('updateWalkData function called');
+            console.log('Walk ID:', walk.id);
+            console.log('Start Time:', walk.start_time);
+            console.log('End Time:', walk.end_time);
+            console.log('Distance:', walk.distance);
+            console.log('Pace:', walk.pace);
+
+            document.getElementById('walkId').innerText = `Walk ID: ${walk.id}`;
+            document.getElementById('startTime').innerText = `Start Time: ${walk.start_time}`;
+            document.getElementById('endTime').innerText = `End Time: ${walk.end_time}`;
+            document.getElementById('distance').innerText = `Distance: ${walk.distance}`;
+            document.getElementById('pace').innerText = `Pace: ${walk.pace}`;
+        }
+
+        // Fetch walk data on page load
+        fetchWalkData();
     </script>
 </body>
 </html>
