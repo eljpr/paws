@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :dogs do
     resources :walks, except: %i[update delete]
-    resources :prescriptions
+    resources :prescriptions, except: :destroy
     resources :logs
     resources :markers, only: [:create]
   end

@@ -11,10 +11,10 @@
 <h5><span class="detail-key"><i class="fa-solid fa-tablets"></i> :</span> <%= @prescription.description %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-syringe"></i> :</span> <%= @prescription.dosage %></h5>
 <h5><span class="detail-key"><i class="fa-solid fa-clock"></i> :</span> <%= @prescription.time_of_day %></h5>
-<% if @prescription.number_of_times_per_day = 1 %>
-<h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Take <%= @prescription.number_of_times_per_day%> dose a day</h5>
-<% else %>
+<% if @prescription.number_of_times_per_day > 1 %>
 <h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Take <%= @prescription.number_of_times_per_day%> doses a day</h5>
+<% else %>
+<h5><span class="detail-key"><i class="fa-solid fa-rotate-right"></i> :</span> Take <%= @prescription.number_of_times_per_day%> dose a day</h5>
 <% end %>
   <% days = @prescription.end_date - @prescription.start_date %>
   <% if days == 1 %>
@@ -51,10 +51,10 @@
 <div class="button-container">
 <br>
   <div class="button-flexbox">
-    <%= link_to edit_dog_prescription_path(@prescription), class:"dgreen-button update-pup-button" do%>
+    <%= link_to edit_dog_prescription_path(@dog, @prescription), class:"dgreen-button update-pup-button" do%>
       <i class="fa-solid fa-pen-to-square"></i> Edit
     <% end %>
-    <%= link_to dog_prescription_path(@prescription),
+    <%= link_to prescription_path(@prescription),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
       class:"remove-prescription-button" do %>
       <i class="fa-solid fa-xmark"></i> Remove
