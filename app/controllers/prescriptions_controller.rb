@@ -2,8 +2,7 @@ class PrescriptionsController < ApplicationController
   before_action :set_dog, only: %i[index new create show edit update]
   before_action :set_prescription, only: %i[show edit update destroy]
   def index
-    @prescriptions = Prescription.all
-    @dog = Dog.find(params[:dog_id])
+    @prescriptions = Prescription.where(dog_id: set_dog).order(created_at: :desc)
   end
 
   def new
