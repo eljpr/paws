@@ -7,6 +7,14 @@
   padding: 10px 20px;
   border-radius: 5px;
 }
-.mark-complete > a{
-  text-decoration: none;
+
+.mark-complete {
+  max-width: 200px;
+  h6{
+    margin: 0;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
