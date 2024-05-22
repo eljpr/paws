@@ -62,7 +62,7 @@
               <div class="pup-info-details">
               <p class="card-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span> <%= @dog.breed %></p>
               <p class="card-text"><span class="detail-key"><i class="fa-solid fa-cake-candles"></i> : </span> <%= @dog.date_of_birth.strftime('%m/%d/%Y') %></p>
-              <p class="card-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span> <%= @dog.weight %></p>
+              <p class="card-text"><span class="detail-key"><i class="fa-solid fa-weight-scale"></i> : </span> <%= @dog.weight %> kg</p>
               </div>
               <div class="pup-health-details">
                 <p class="card-text"><span class="detail-key"><i class="fa-solid fa-bandage"></i> : </span><%= @dog.condition %></p>
@@ -96,7 +96,14 @@
           </div>
           <div class="tab-pane fade" id="prescriptions-tab-pane" role="tabpanel" aria-labelledby="prescriptions-tab" tabindex="2">
             <div class="dog-prescription-container">
+            <div class="dog-see-prescription-link">
+              <%= link_to dog_prescriptions_path(@dog), class:"orange-back-link" do %>
+                  See all prescriptions
+              <% end %>
+            </div>
+
               <% @prescriptions.each do |prescription| %>
+              <div>
                 <p><%= prescription.medication_name %> |
                 Status:
                 <% if prescription.completed? %>
@@ -106,9 +113,7 @@
                 <% end %>
                 </p>
               <% end %>
-              <%= link_to dog_prescriptions_path(@dog), class:"orange-back-link" do %>
-                  See all prescriptions
-              <% end %>
+              </div>
             </div>
               <% if current_user.is_vet %>
               <%= render "vet_show" %>

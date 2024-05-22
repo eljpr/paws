@@ -73,3 +73,11 @@
 .log-button > .pup-button {
   font-size:larger;
 }
+
+.log-button{
+  display:flex;
+  font-size: larger;
+  a{
+    width:100%;
+  }
+}
