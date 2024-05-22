@@ -15,22 +15,16 @@
 
 <!--  start of dog card-->
   <div class="card-container">
-  <div class="dog-show-img-center">
+    <div class="dog-show-img-center">
       <% if @dog.photo.attached? %>
       <%= cl_image_tag @dog.photo.key, gravity: "auto", crop: "fill", alt: "#{@dog.name}", class:'img-square'%>
       <% else %>
       <%= image_tag "dog_placeholder", class:"img-square" %>
     <% end %>
-  </div>
+    </div>
     <br>
-    <h5 class="dblue-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
-      <% if current_user.id == @dog.user.id %>
-        <p><%= link_to edit_dog_path, class:"orange-back-link" do%></p>
-          <i class="fa-solid fa-pen-to-square"></i> Edit profile
-        <% end %>
-      <% end %>
+  <h5 class="dblue-title"><span class="dog-name"><strong><%= @dog.name%></strong></span> </h5>
       <div class="card-body-details">
-
 <!--start of tab section-->
 <!--tab nav bar-->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -59,6 +53,11 @@
           </div>
 <!--dog-profile tab content-->
           <div class="tab-pane fade " id="dog-profile-tab-pane" role="tabpanel" aria-labelledby="dog-profile-tab" tabindex="1">
+          <% if current_user.id == @dog.user.id %>
+            <p><%= link_to edit_dog_path, class:"orange-back-link" do%></p>
+              <i class="fa-solid fa-pen-to-square"></i> Edit profile
+            <% end %>
+          <% end %>
             <div class="pup-info">
               <div class="pup-info-details">
               <p class="card-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span> <%= @dog.breed %></p>
