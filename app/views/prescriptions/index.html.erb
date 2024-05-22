@@ -20,7 +20,8 @@
   <!--end of prescription iteration-->
 
   <!--if prescription is ongoing-->
-  <div class="prescriptions-status-container">
+  <div class="card-container">
+    <div class="prescriptions-status-container">
       <h5 class="dblue-title"><strong>Ongoing Prescriptions</strong></h5>
       <% if ongoing.empty? %>
       <h6><em>None</em></h6>
@@ -47,9 +48,12 @@
       </div>
     <% end %>
   </div>
+ </div>
   <!--end of ongoing prescription iteration-->
-
+<br>
   <!--if prescription is complete-->
+<div class="card-container">
+
   <div class="prescriptions-status-container">
       <h5 class="dblue-title"><strong>Completed Prescriptions</strong></h5>
       <% if completed.empty? %>
@@ -65,6 +69,7 @@
       </div>
     <% end %>
   </div>
+</div>
   <!--end of completed prescription iteration-->
 
 <!--  add prescription button for vet-->
