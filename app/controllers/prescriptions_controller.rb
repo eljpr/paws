@@ -42,9 +42,9 @@ class PrescriptionsController < ApplicationController
   end
 
   def destroy
-    @prescription.dog = @dog
+    # @prescription.dog = @dog
     if @prescription.destroy
-      redirect_to dog_prescriptions_path(@dog), status: :see_other
+      redirect_to dog_prescriptions_path(@prescription.dog), status: :see_other
     end
   end
 

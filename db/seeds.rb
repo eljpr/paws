@@ -79,10 +79,6 @@ thalys = Dog.create!(name: "Thalys", medication: "Amitraz", condition:"Demodex",
 thalys_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715867300/thalys_cyzlju.jpg")
 thalys.photo.attach(io: thalys_pic, filename: "thalys.jpg", content_type: "image/jpg")
 
-peneloppe = Dog.create!(name: "Peneloppe", medication: "None", condition:"None", breed: "Great Dane", user_id: gilmar.id, date_of_birth: Date.new(2015, 5, 15), weight: 45)
-peneloppe_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865275/peneloppe_vi9xf1.jpg")
-peneloppe.photo.attach(io: peneloppe_pic, filename: "peneloppe.jpg", content_type: "image/jpg")
-
 poker = Dog.create!(name: "Poker", medication: "None", condition:"None", breed: "Pomeranian", user_id: gilmar.id, date_of_birth: Date.new(2011, 05, 15), weight: 10)
 poker_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715868763/poker_bxorzz.jpg")
 poker.photo.attach(io: poker_pic, filename: "poker.jpg", content_type: "image/jpg")
@@ -95,19 +91,23 @@ lulla = Dog.create!(name: "Lulla", medication: "None", condition:"None", breed: 
 lulla_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/lulla_hqmnyn.avif")
 lulla.photo.attach(io: lulla_pic, filename: "lulla.jpg", content_type: "image/jpg")
 
-miko = Dog.create!(name: "Miko", medication: "None", condition:"None", breed: "Shiba Inu", user_id: sofia.id, date_of_birth: Date.new(2019, 8, 25), weight: 10)
+miko = Dog.create!(name: "Miko", medication: "None", condition:"None", breed: "Shiba Inu", user_id: robbie.id, date_of_birth: Date.new(2019, 8, 25), weight: 10)
 miko_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/miko_iymfty.avif")
 miko.photo.attach(io: miko_pic, filename: "miko.jpg", content_type: "image/jpg")
+
+peneloppe = Dog.create!(name: "Peneloppe", medication: "None", condition:"None", breed: "Great Dane", user_id: sofia.id, date_of_birth: Date.new(2015, 5, 15), weight: 45)
+peneloppe_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865275/peneloppe_vi9xf1.jpg")
+peneloppe.photo.attach(io: peneloppe_pic, filename: "peneloppe.jpg", content_type: "image/jpg")
 puts "Dog created successfully..."
 
 puts "Creating vet_dogs"
 VetDog.create!(user: meli, dog: thalys, status: "accepted")
-VetDog.create!(user: meli, dog: peneloppe, status: "accepted")
+VetDog.create!(user: ben, dog: peneloppe, status: "accepted")
 VetDog.create!(user: meli, dog: poker, status: "accepted")
-VetDog.create!(user: ben, dog: ruby, status: "accepted")
+VetDog.create!(user: meli, dog: ruby, status: "accepted")
+VetDog.create!(user: meli, dog: lulla, status: "accepted")
 VetDog.create!(user: ife, dog: miko, status: "accepted")
 VetDog.create!(user: raeesa, dog: piggy, status: "accepted")
-VetDog.create!(user: mo, dog: lulla, status: "accepted")
 puts"Vet_dog created successfully..."
 
 puts "Creating prescriptions"
