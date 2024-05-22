@@ -117,6 +117,7 @@ export default class extends Controller {
   // start tracking the walk
   startTracking() {
     if (navigator.geolocation) {
+      alert("your walk in being tracked")
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
