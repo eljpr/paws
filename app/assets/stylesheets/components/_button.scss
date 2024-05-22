@@ -63,6 +63,21 @@
   background-color: $lbyellow-pawsg;
 }
 
+
+.dorange-button{
+  background-color: $dorange-pawsg;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  // transition: 0.1s ease-in-out;
+}
+
+.dyellow-button:active{
+  background-color: $lborange-pawsg;
+}
+
 .log-button {
   text-align: center;
 }

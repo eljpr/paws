@@ -34,6 +34,11 @@
     </div>
   </div>
 </div>
+  <% if !current_user.is_vet && params[:showmyself].present? %>
+    <div class="dorange-button owner-log-out-button">
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+    </div>
+  <% end %>
 <% if current_user.is_vet && !params[:showmyself].present?%>
     <% if @user.dogs.length == 1 %>
         <div class="dgreen-title">
@@ -52,7 +57,11 @@
                   </div>
                 </div>
                   <div class="dog-show-img-center">
+                  <% if @user.dogs.first.photo.attached? %>
                     <%= cl_image_tag @user.dogs.first.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{@user.dogs.first.name}" %>
+                  <% else %>
+                    <%= image_tag "dog_placeholder", class:"small-img-square" %>
+                  <% end %>
                   </div>
                 </div>
             </div>
@@ -73,7 +82,11 @@
                           <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-paw"></i> : </span><%= pet.breed %></p>
                       </div>
                       <div class="card-nav-img">
+                      <% if pet.photo.attached? %>
                         <%= cl_image_tag pet.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{pet.name}" %>
+                      <% else %>
+                        <%= image_tag "dog_placeholder", class:"small-img-square" %>
+                      <% end %>
                       </div>
                     </div>
                   </div>
