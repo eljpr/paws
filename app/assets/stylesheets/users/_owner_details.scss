@@ -1,6 +1,6 @@
 .card-body-text > a {
   text-decoration: none;
-  color: $dyellow-pawsg;
+  color: $orange-pawsg;
   font-weight: bolder;
 }
 
@@ -8,4 +8,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.owner-pet-title{
+  color: $dorange-pawsg;
+  font-weight: 500;
 }

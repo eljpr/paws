@@ -10,23 +10,15 @@
     .card-body-text{
       color: black;
     }
+    h3 {
+      color: $lgreen-pawsg;
+    }
   }
 }
 
-.orange-title{
-  color: $dorange-pawsg;
-}
-
-.dblue-title{
-  color: $dbblue-pawsg;
-}
-
-.dyellow-title{
-  color: $dyellow-pawsg;
-}
-
-.dgreen-title{
-  color: $dgreen-pawsg;
+.green-title{
+  // color: $orange-pawsg;
+  color: $green-pawsg;
 }
 
 .card-body-text{
