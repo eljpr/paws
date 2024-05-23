@@ -105,17 +105,18 @@
             </div>
 
               <% @prescriptions.each do |prescription| %>
-              <div>
-                <p><%= prescription.medication_name %> |
-                Status:
-                <% if prescription.completed? %>
-                  <%= 'completed' %>
-                <% else %>
-                  <%='ongoing' %>
-                <% end %>
-                </p>
-              <% end %>
+              <div class="dog-prescription-status-flex">
+                  <p><i class="fa-solid fa-pills" style="color: #49822A;"></i> <%= prescription.medication_name %> </p>
+
+                  <p>Status:
+                  <% if prescription.completed? %>
+                    <%= 'completed' %>
+                  <% else %>
+                    <%='ongoing' %>
+                  <% end %>
+                  </p>
               </div>
+              <% end %>
             </div>
               <% if current_user.is_vet %>
               <%= render "vet_show" %>

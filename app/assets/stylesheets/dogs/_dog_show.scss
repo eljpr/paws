@@ -28,6 +28,10 @@
   color: $dgreen-pawsg;
 }
 
+.nav-link:hover{
+  color: $green-pawsg;
+}
+
 .dog-prescription-container{
   margin-top: 10px;
   margin-bottom: 10px;
@@ -62,4 +66,10 @@
 
 .dog-edit-profile{
   margin-bottom: 10px;
+}
+
+.dog-prescription-status-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
