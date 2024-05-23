@@ -1,0 +1,38 @@
+<div class="parent container d-flex flex-column h-100">
+  <h1>Question</h1>
+
+  <%= link_to chats_path, class:"green-back-link" do %>
+    <span>
+      <i class="fa-solid fa-arrow-left"></i>See previous questions
+    </span>
+  <% end %>
+
+  <div class="card d-flex flex-column h-100 question" id="first-card">
+    <div class="row">
+      <div class="row row-cols-2 d-flex justify-content-between">
+        <div class="col-1">
+          <span class="chatbox-question-icon">
+            <i class="fa-solid fa-circle-question"></i>
+          </span>
+        </div>
+        <div class="col-5 d-flex justify-content-end">
+          <span class="chatbox-created-at"> <%= @message.created_at.strftime("%d-%m-%Y") %> </span>
+        </div>
+      </div>
+
+      <p><%= @message.question %></p>
+    </div>
+  </div>
+
+  <div class="card d-flex flex-column h-100 answer">
+    <div class="row">
+      <div class="col">
+        <span class="chatbox-answer-icon">
+          <i class="fa-solid fa-comment-dots"></i>
+        </span>
+        <p><%= @message.content %></p>
+      </div>
+    </div>
+  </div>
+
+</div>
