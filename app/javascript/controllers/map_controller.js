@@ -44,7 +44,13 @@ export default class extends Controller {
 
           new mapboxgl.Marker()
           .setLngLat([longitude, latitude])
-          .addTo(this.map)
+          .addTo(this.map);
+          //zoom in on the marker
+          this.map.flyTo({
+            center: [longitude, latitude],
+            zoom:15, //adjustable
+            essential:true
+          });
         },
         (error) => {
           console.error("Error getting location:", error);
