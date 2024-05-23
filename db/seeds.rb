@@ -27,7 +27,7 @@ gilmar = User.create!(first_name: "Gilmar", last_name: "Margoti",  email: "gilma
 gilmar_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/gilmar_ooc7zo.jpg")
 gilmar.photo.attach(io: gilmar_pic, filename: "gilmar.jpg", content_type: "image/jpg")
 
-meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@vet.com", password: "123456", is_vet: false, address: "Berwick Street", mobile_number: "070294901", opening_time: Time.new(2024, 5, 15, 10, 0, 0), closing_time: Time.new(2024, 5, 15, 19, 0, 0))
+meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@owner.com", password: "123456", is_vet: false, address: "Berwick Street", mobile_number: "070294901")
 meli_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/meli_jvwngi.jpg")
 meli.photo.attach(io: meli_pic, filename: "meli.jpg", content_type: "image/jpg")
 
@@ -60,7 +60,7 @@ raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa
 raeesa_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/raeesa_j8sgng.jpg")
 raeesa.photo.attach(io: raeesa_pic, filename: "raessa.jpg", content_type: "image/jpg")
 
-max = User.create!(first_name: "Max", last_name: "Cody", email: "codym08@gmail.com", password: "123456", is_vet: true, address: "Great Portland Street, 392", mobile_number: "073010394")
+max = User.create!(first_name: "Max", last_name: "Cody", email: "max@vet.com", password: "123456", is_vet: true, address: "Great Portland Street, 392", mobile_number: "073010394", opening_time: Time.new(2024, 5, 15, 10, 0, 0), closing_time: Time.new(2024, 5, 15, 19, 0, 0))
 max_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/max_pzxuoc.jpg")
 max.photo.attach(io: max_pic, filename: "max.jpg", content_type: "image/jpg")
 
