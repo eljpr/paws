@@ -2,7 +2,7 @@ class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy]
 
   def index
-    @logs = Log.where(dog_id: set_dog)
+    @logs = Log.where(dog_id: set_dog).order(created_at: :DESC)
   end
 
   def new
