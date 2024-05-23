@@ -129,5 +129,3 @@ puts "Log created successfully..."
 
  #Walk.create!(user_id: User.first.id, id: 182, start_time: Time.new(2024, 5, 15, 9, 0, 0), end_time: Time.new(2024, 5, 15, 10, 0, 0), pace: 5.2, start_lat: 40.7128, start_lng: -74.0060, end_lat: 40.7218, end_lng: -73.9977, distance: 2.5, dog: Dog.first, path:[[51.50400742404889, -0.15271747011976594],[51.50352138865264, -0.15302161803251696],[51.50371526837865, -0.16317737569681162],[51.503792956860366, -0.17380783294118418],[51.50443518136383, -0.173451270610997],[51.505809322528364, -0.1727684916787539]] )
 # puts "creating a prescription"
-# Prescription.create!(dog: ruby, user: User.first, medication_name: 'Heartgard', completed: false, start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 5, 30), description: 'Heartworm prevention medication', dosage: '50mg', time_of_day: 'morning', number_of_times_per_day: 1)
-# puts "Prescription created successfully..."
