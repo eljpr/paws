@@ -1,40 +1,38 @@
 <h1>All your clients</h1>
-  <div>
-    <%= link_to root_path, class:"orange-back-link" do %>
-      <i class="fa-solid fa-arrow-left"></i> Home
-    <% end %>
-  </div>
+<!--  <div>-->
+    <%#= link_to root_path, class:"orange-back-link" do %>
+<!--      <i class="fa-solid fa-arrow-left"></i> Home-->
+    <%# end %>
+<!--  </div>-->
 
 
 <div class="row">
 <% @patients.each do |dog| %>
     <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
       <div class="card-container">
+            <%= link_to dog_path(dog), class:"dyellow-button" do %>
         <div class="title-flexbox">
-          <div class="orange-title card-nav-title">
-            <h3 class="card-title"><%= dog.name  %> </h3>
-          </div>
-          <div class="card-nav-img">
-              <% if dog.photo.attached? %>
-                <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{dog.name}" %>
-              <% else %>
-                <%= image_tag "dog_placeholder", class:"small-img-square" %>
-            <% end %>
-          </div>
-        </div>
-          <div class="card-body-details">
-            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-user"></i> : </span> <strong><%= link_to dog.user.first_name, user_path(dog.user), class:"owner-name" %></strong> </p>
-            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= dog.user.address %></p>
-            <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= dog.user.mobile_number %> </p>
-          </div>
-
-<br>
-          <div class="button-flexbox" >
-            <div>
-            <%= link_to 'Details', dog_path(dog), class:"dyellow-button" %>
+              <div class="green-title card-nav-title">
+                <h3 class="card-title"><%= dog.name  %> </h3>
+              </div>
+              <div class="card-nav-img">
+                  <% if dog.photo.attached? %>
+                    <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", class: "img-rounded", alt: "#{dog.name}" %>
+                  <% else %>
+                    <%= image_tag "dog_placeholder", class:"img-rounded" %>
+                <% end %>
+              </div>
             </div>
+              <div class="card-body-details">
+                <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-user"></i> : </span> <strong><%= link_to dog.user.first_name, user_path(dog.user), class:"owner-name" %></strong> </p>
+                <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-house-user"></i> : </span> <%= dog.user.address %></p>
+                <p class="card-body-text"><span class="detail-key"><i class="fa-solid fa-phone"></i> : </span> <%= dog.user.mobile_number %> </p>
+              </div>
 
-          </div>
+            <% end %>
+
+
+
       </div>
 
     </div>

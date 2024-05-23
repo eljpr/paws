@@ -1,11 +1,9 @@
 <div class="parent container d-flex flex-column h-100">
   <h1><%= @dog.name %>'s log</h1>
 
-  <div class="text-end">
-    <%= link_to dog_logs_path do%>
-      <span class="back-bttn"><i class="fa-solid fa-arrow-left-long"></i> Back</span>
+      <%= link_to dogs_path, class:"orange-back-link" do %>
+      <i class="fa-solid fa-arrow-left-long"></i> Back
     <% end %>
-  </div>
 
   <div class="text-center">
     <%= cl_image_tag @dog.photo.key, height: 300, width: 300, crop: :fill, class: "img-cover" %>

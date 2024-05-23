@@ -7,7 +7,7 @@
 <br>
   <div class="card-container prescription-show-info">
   <!--prescription details-->
-  <h2 class="orange-title"><strong><%= @prescription.medication_name %></strong></h2>
+  <h2 class="green-title"><strong><%= @prescription.medication_name %></strong></h2>
   <h5><span class="detail-key"><i class="fa-solid fa-pen"></i> :</span> Prescribed on <%= @prescription.created_at.strftime('%m/%d/%Y') %></h5>
   <h5><span class="detail-key"><i class="fa-solid fa-tablets"></i> :</span> <%= @prescription.description %></h5>
   <h5><span class="detail-key"><i class="fa-solid fa-syringe"></i> :</span> <%= @prescription.dosage %></h5>

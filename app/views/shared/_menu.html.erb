@@ -14,17 +14,17 @@
   <% else %>
   <div class="menu-sticky">
   <ul id="menuItems">
-    <li> <%= link_to users_path do %>
-      <i class="fa-solid fa-stethoscope"></i>
-    <% end %></li>
-    <li> <%= link_to walks_path do %>
-      <i class="fa-solid fa-shoe-prints"></i>
-    <% end %></li>
     <li> <%= link_to chats_path do %>
       <i class="fa-solid fa-comments"></i>
     <% end %></li>
+    <li> <%= link_to users_path do %>
+      <i class="fa-solid fa-stethoscope"></i>
+    <% end %></li>
     <li> <%= link_to dogs_path do %>
       <i class="fa-solid fa-dog"></i>
+    <% end %></li>
+    <li> <%= link_to walks_path do %>
+      <i class="fa-solid fa-shoe-prints"></i>
     <% end %></li>
     <li> <%= link_to user_path(current_user, showmyself: true) do %>
       <i class="fa-solid fa-user"></i>

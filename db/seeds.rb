@@ -23,14 +23,13 @@ User.destroy_all
 
 puts "Creating users..."
 # Owners
-max = User.create!(first_name: "Max", last_name: "Cody", email: "codym08@gmail.com", password: "123456", is_vet: false, address: "Great Portland Street, 392", mobile_number: "073010394")
-max_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/max_pzxuoc.jpg")
-max.photo.attach(io: max_pic, filename: "max.jpg", content_type: "image/jpg")
-
 gilmar = User.create!(first_name: "Gilmar", last_name: "Margoti",  email: "gilmar@gmail.com", password: "123456", is_vet: false, address: "Rua da Alegria, 123", mobile_number: "073456789")
 gilmar_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/gilmar_ooc7zo.jpg")
 gilmar.photo.attach(io: gilmar_pic, filename: "gilmar.jpg", content_type: "image/jpg")
 
+meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@owner.com", password: "123456", is_vet: false, address: "Berwick Street", mobile_number: "070294901")
+meli_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/meli_jvwngi.jpg")
+meli.photo.attach(io: meli_pic, filename: "meli.jpg", content_type: "image/jpg")
 
 
 ella = User.create!(first_name: "Ella", last_name: "Pierre", email: "ella@owner.com", password: "123456", is_vet: false, address: "Baker Street, 221B", mobile_number: "07449109103")
@@ -62,9 +61,9 @@ raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa
 raeesa_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/raeesa_j8sgng.jpg")
 raeesa.photo.attach(io: raeesa_pic, filename: "raessa.jpg", content_type: "image/jpg")
 
-meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "070294901", opening_time: Time.new(2024, 5, 15, 10, 0, 0), closing_time: Time.new(2024, 5, 15, 19, 0, 0))
-meli_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/meli_jvwngi.jpg")
-meli.photo.attach(io: meli_pic, filename: "meli.jpg", content_type: "image/jpg")
+max = User.create!(first_name: "Max", last_name: "Cody", email: "max@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "073010394", opening_time: Time.new(2024, 5, 15, 10, 0, 0), closing_time: Time.new(2024, 5, 15, 19, 0, 0))
+max_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/max_pzxuoc.jpg")
+max.photo.attach(io: max_pic, filename: "max.jpg", content_type: "image/jpg")
 
 ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@vet.com", password: "123456", is_vet: true, address: "Carnaby Street", mobile_number: "079402940", opening_time: Time.new(2024, 5, 15, 8, 0, 0), closing_time: Time.new(2024, 5, 15, 17, 0, 0))
 ben_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715868092/ben_wcjdeo.jpg")
@@ -73,7 +72,7 @@ ben.photo.attach(io: ben_pic, filename: "ben.jpg", content_type: "image/jpg")
 puts "Users created successfully..."
 
 puts "Creating dogs"
-ruby = Dog.create!(name: "Ruby", medication: "Glucosamine", condition:"None", breed: "Catalan Sheepdog", user_id: max.id, date_of_birth: Date.new(2019, 5, 10), weight: 25)
+ruby = Dog.create!(name: "Ruby", medication: "Glucosamine", condition:"None", breed: "Catalan Sheepdog", user_id: meli.id, date_of_birth: Date.new(2019, 5, 10), weight: 25)
 ruby_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715868357/ruby_uloemu.jpg")
 ruby.photo.attach(io: ruby_pic, filename: "ruby.jpg", content_type: "image/jpg")
 
@@ -103,11 +102,11 @@ peneloppe.photo.attach(io: peneloppe_pic, filename: "peneloppe.jpg", content_typ
 puts "Dog created successfully..."
 
 puts "Creating vet_dogs"
-VetDog.create!(user: meli, dog: thalys, status: "accepted")
+VetDog.create!(user: max, dog: thalys, status: "accepted")
 VetDog.create!(user: ben, dog: peneloppe, status: "accepted")
-VetDog.create!(user: meli, dog: poker, status: "accepted")
-VetDog.create!(user: meli, dog: ruby, status: "accepted")
-VetDog.create!(user: meli, dog: lulla, status: "accepted")
+VetDog.create!(user: max, dog: poker, status: "accepted")
+VetDog.create!(user: max, dog: ruby, status: "accepted")
+VetDog.create!(user: max, dog: lulla, status: "accepted")
 VetDog.create!(user: ife, dog: miko, status: "accepted")
 VetDog.create!(user: raeesa, dog: piggy, status: "accepted")
 puts"Vet_dog created successfully..."

@@ -1,19 +1,18 @@
 <div class="container">
 <h1>Select your vet</h1>
 
-<div>
-    <%= link_to root_path, class:"orange-back-link" do %>
-      <i class="fa-solid fa-arrow-left"></i> Home
-    <% end %>
-  </div>
+<!--<div>-->
+    <%#= link_to root_path, class:"orange-back-link" do %>
+<!--      <i class="fa-solid fa-arrow-left"></i> Home-->
+    <%# end %>
+<!--  </div>-->
   <div class="row">
   <% @vets.each do |vet| %>
       <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
-        <div class="card-container">
+        <div class="card-container vets-cards-links">
           <%= link_to user_path(vet)do %>
-
             <div class="title-flexbox">
-              <div class="orange-title card-nav-title">
+              <div class="green-title card-nav-title">
                 <h3 >Dr. <%= vet.first_name%> <%= vet.last_name %></h3>
               </div>
               <div class="card-nav-img img-rounded">
