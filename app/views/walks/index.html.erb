@@ -1,76 +1,4 @@
-<!-- <h1>Walks</h1>
-<div class="map-card" style="width: 1200px; height: 1200px;"
 
-
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-controller="map"> </div>
-
-<body>
-<div class="navbar">
-        <p id="walkId">Walk ID: </p>
-        <p id="startTime">Start Time: </p>
-        <p id="endTime">End Time: </p>
-        <p id="distance">Distance: </p>
-        <p id="pace">Pace: </p>
-    </div>
-
-
-
-  <script>
-  async function fetchWalkData() {
-    try {
-      const response = await fetch('/api/walk');
-      if (!response.ok) {
-        throw new Error('network response was bad');
-      }
-      const walk = await response.json();
-      updateWalkData(walk);
-    } catch (Error) {
-      console.error('there is an issue with the fetch response', error);
-    }
-  }
-    function updateWalkData(walk) {
-      console.log('updateWalkdata function called');
-      console.log('Walk ID:', Walk.id);
-      console.log('Start Time:', Walk.start_time);
-      console.log('End Time:', Walk.end_time);
-      console.log('Distance:', Walk.distance);
-      console.log('Pace:', Walk.pace);
-      document.getElementById('walkId').innerText = `Walk ID: ${Walk.id}`;
-      document.getElementById('startTime').innerText = `Start Time: ${Walk.start_time}`;
-      document.getElementById('endTime').innerText = `End Time: ${Walk.end_time}`;
-      document.getElementById('distance').innerText = `Distance: ${Walk.distance}`;
-      document.getElementById('pace').innerText = `Pace: ${Walk.pace}`;
-         document.getElementById('showPopupButton').addEventListener('click', () => {
-            updateWalkData(Walk.last);
-    });
-    // CSS for the walk data display
-        const style = document.createElement('style');
-        style.innerHTML = `
-            .walk-data-display {
-                position: fixed;
-                top: 10px;
-                width: 100%;
-                background-color: #f9f9f9;
-                padding: 10px;
-                border-bottom: 1px solid #ccc;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                z-index: 9999;
-            }
-
-            .walk-data-display h2 {
-                margin-top: 0;
-            }
-
-            .walk-data-display p {
-                margin: 5px 0;
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    fetchWalkData();
-
-</body> -->
 
     <style>
         .map-card {
@@ -104,7 +32,7 @@
         }
     </style>
 
-<body>
+
     <h1>Walks</h1>
     <div class="map-card"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
@@ -146,5 +74,3 @@
         // Fetch walk data on page load
         fetchWalkData();
     </script> -->
-</body>
-</html>

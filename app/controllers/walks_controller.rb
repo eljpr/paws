@@ -29,8 +29,8 @@ def create
   @walk = Walk.new
   @walk.dog = current_user.dogs.first
   puts current_user.dogs.first
-  @walk.start_time ||=  Time.current # if @walk.start_time.nil?  #set start time
-  @walk.end_time  ||=  Time.current #if @walk.end_time.nil?
+  @walk.start_time = params["start_time"]
+  @walk.end_time  = params["end_time"]
 
   @walk.user = current_user
 
