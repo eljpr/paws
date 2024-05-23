@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :chats, only: %i[index show create] do
+  resources :chats, only: %i[index show create new] do
     resources :messages, only: [:create]
   end
 

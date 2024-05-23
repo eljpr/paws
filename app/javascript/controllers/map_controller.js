@@ -44,7 +44,13 @@ export default class extends Controller {
 
           new mapboxgl.Marker()
           .setLngLat([longitude, latitude])
-          .addTo(this.map)
+          .addTo(this.map);
+          //zoom in on the marker
+          this.map.flyTo({
+            center: [longitude, latitude],
+            zoom:15, //adjustable
+            essential:true
+          });
         },
         (error) => {
           console.error("Error getting location:", error);
@@ -92,11 +98,12 @@ export default class extends Controller {
     button.style.width = '120px';
     button.style.height = '100px';
 
+
     this.map.addControl({
       onAdd:  () => {
         const container = document.createElement('div');
         container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
-
+        container.style.textAlign = 'center'; // Center align the button
         container.appendChild(button);
         return container;
       },
@@ -116,6 +123,7 @@ export default class extends Controller {
   // start tracking the walk
   startTracking() {
     if (navigator.geolocation) {
+      alert("your walk in being tracked")
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
@@ -237,15 +245,15 @@ export default class extends Controller {
       const popup = document.createElement('div');
       popup.classList.add('popup');
       //create content for popup
-      const content = document.createElement('div');
-      content.innerHTML =  `
-      <h2>Last Walk</h2>
-      <p>Walk ID: ${Walk.id}</p>
-      <p>Start Time: ${Walk.start_time}</p>
-      <p>End Time: ${Walk.end_time}</p>
-      <p>Distance: ${Walk.distance}</p>
-      <p>Pace: ${Walk.pace}</p>
-  `;  //add content to the popup
+  //     const content = document.createElement('div');
+  //     content.innerHTML =  `
+  //     <h2>Last Walk</h2>
+  //     <p>Walk ID: ${Walk.id}</p>
+  //     <p>Start Time: ${Walk.start_time}</p>
+  //     <p>End Time: ${Walk.end_time}</p>
+  //     <p>Distance: ${Walk.distance}</p>
+  //     <p>Pace: ${Walk.pace}</p>
+  // `;  //add content to the popup
       popup.appendChild(content);
 
       //append popup  to the body

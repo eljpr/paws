@@ -71,37 +71,39 @@
     fetchWalkData();
 
 </body> -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walks</title>
+
     <style>
         .map-card {
-            width: 1200px;
-            height: 1200px;
+            width: 430px;
+            height: 800px;
         }
 
         .nav-bar {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #333;
-            color: white;
+            background-color: white;
+            color: black;
             text-align: center;
             padding: 50px;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
             z-index: 9999;
             display: flex;
             justify-content: space-around;
+            margin-bottom: 40px;
+            font-size: 10;
         }
-
+        .flexbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
         .nav-bar p {
             margin: 0;
         }
     </style>
-</head>
+
 <body>
     <h1>Walks</h1>
     <div class="map-card"
@@ -112,7 +114,7 @@
 
 <button id="showPopupButton">Display Walk Data</button>
 
-    <script>
+   <!-- <script>
         async function fetchWalkData() {
             try {
                 const response = await fetch('/api/walk');
@@ -134,15 +136,15 @@
             console.log('Distance:', walk.distance);
             console.log('Pace:', walk.pace);
 
-            document.getElementById('walkId').innerText = `Walk ID: ${walk.id}`;
-            document.getElementById('startTime').innerText = `Start Time: ${walk.start_time}`;
-            document.getElementById('endTime').innerText = `End Time: ${walk.end_time}`;
-            document.getElementById('distance').innerText = `Distance: ${walk.distance}`;
-            document.getElementById('pace').innerText = `Pace: ${walk.pace}`;
+            // document.getElementById('walkId').innerText = `Walk ID: ${walk.id}`;
+            // document.getElementById('startTime').innerText = `Start Time: ${walk.start_time}`;
+            // document.getElementById('endTime').innerText = `End Time: ${walk.end_time}`;
+            // document.getElementById('distance').innerText = `Distance: ${walk.distance}`;
+            // document.getElementById('pace').innerText = `Pace: ${walk.pace}`;
         }
 
         // Fetch walk data on page load
         fetchWalkData();
-    </script>
+    </script> -->
 </body>
 </html>
