@@ -79,7 +79,7 @@
         }
 
         .nav-bar {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             width: 100%;
             background-color: white;
@@ -90,8 +90,15 @@
             z-index: 9999;
             display: flex;
             justify-content: space-around;
+            margin-bottom: 40px;
+            font-size: 10;
         }
-
+        .flexbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
         .nav-bar p {
             margin: 0;
         }
@@ -107,7 +114,7 @@
 
 <button id="showPopupButton">Display Walk Data</button>
 
-    <script>
+   <!-- <script>
         async function fetchWalkData() {
             try {
                 const response = await fetch('/api/walk');
@@ -129,15 +136,15 @@
             console.log('Distance:', walk.distance);
             console.log('Pace:', walk.pace);
 
-            document.getElementById('walkId').innerText = `Walk ID: ${walk.id}`;
-            document.getElementById('startTime').innerText = `Start Time: ${walk.start_time}`;
-            document.getElementById('endTime').innerText = `End Time: ${walk.end_time}`;
-            document.getElementById('distance').innerText = `Distance: ${walk.distance}`;
-            document.getElementById('pace').innerText = `Pace: ${walk.pace}`;
+            // document.getElementById('walkId').innerText = `Walk ID: ${walk.id}`;
+            // document.getElementById('startTime').innerText = `Start Time: ${walk.start_time}`;
+            // document.getElementById('endTime').innerText = `End Time: ${walk.end_time}`;
+            // document.getElementById('distance').innerText = `Distance: ${walk.distance}`;
+            // document.getElementById('pace').innerText = `Pace: ${walk.pace}`;
         }
 
         // Fetch walk data on page load
         fetchWalkData();
-    </script>
+    </script> -->
 </body>
 </html>
