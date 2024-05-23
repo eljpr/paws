@@ -7,7 +7,7 @@
   </div>
   <br>
     <div class="parent d-flex flex-column align-items-center h-100">
-      <h2>New prescription for <%= @dog.name %></h2>
+      <h2 class="green-title">New prescription for <%= @dog.name %></h2>
       <%= simple_form_for [@dog, @prescription] do |f| %>
         <%= f.error_notification %>
 
