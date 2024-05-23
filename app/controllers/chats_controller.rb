@@ -3,6 +3,8 @@ class ChatsController < ApplicationController
     @chat = current_user.chats.first
     if @chat.nil?
       @chat = Chat.new
+      @chat.chat_id = current_user.id
+      @chat.save!
     end
     @messages = Message.where(chat_id: @chat.id).order(created_at: :DESC)
   end
