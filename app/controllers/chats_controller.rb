@@ -1,10 +1,9 @@
 class ChatsController < ApplicationController
   def index
     @chat = current_user.chats.first
-
     if @chat.nil?
       @chat = Chat.new
-      @chat.chat_id = current_user.id
+      @chat.id = current_user.id
       @chat.save!
     end
 
