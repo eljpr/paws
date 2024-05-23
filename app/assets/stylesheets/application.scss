@@ -24,7 +24,7 @@ body{
     font-family: $headers-font;
   }
   font-family: $body-font;
-  background-color: #ede4d5;
+  // background-color: #ede4d5;
 }
 
 h1{
@@ -32,7 +32,11 @@ h1{
   font-weight: bolder;
 }
 
-.container input, .container select{
+.container {
+  margin-top: 15px;
+}
+
+.container input, .container select, .container textarea{
   border: 1px solid $lorange-pawsg;
   border-radius: 50px;
 }

@@ -7,3 +7,23 @@
   padding: 10px 20px;
   border-radius: 5px;
 }
+
+.mark-complete {
+  max-width: 100%;
+  text-align: center;
+  h6{
+    margin: 0 auto;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.prescription-show-info > h5 {
+  line-height: 3;
+}
+
+.mark-complete-container{
+margin-top: 130px;
+}

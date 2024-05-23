@@ -1,9 +1,8 @@
 class PrescriptionsController < ApplicationController
-  before_action :set_dog, only: %i[index new create update]
+  before_action :set_dog, only: %i[index new create show edit update]
   before_action :set_prescription, only: %i[show edit update destroy]
   def index
-    @prescriptions = Prescription.all
-    @dog = Dog.find(params[:dog_id])
+    @prescriptions = Prescription.where(dog_id: set_dog).order(created_at: :desc)
   end
 
   def new
@@ -42,9 +41,10 @@ class PrescriptionsController < ApplicationController
   end
 
   def destroy
-    @prescription.dog = @dog
-    @prescription.destroy
-    redirect_to dog_prescriptions_path, status: :see_other
+    # @prescription.dog = @dog
+    if @prescription.destroy
+      redirect_to dog_prescriptions_path(@prescription.dog), status: :see_other
+    end
   end
 
   private

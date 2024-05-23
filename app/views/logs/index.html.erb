@@ -1,5 +1,15 @@
 <div class="parent container d-flex flex-column h-100">
   <h1><%= @dog.name %>'s log</h1>
+    <div>
+    <%= link_to dog_path(@dog), class:"orange-back-link" do %>
+      <i class="fa-solid fa-arrow-left"></i> <%= @dog.name %>
+    <% end %>
+    </div>
+
+  <% if current_user.id == @dog.user.id %>
+    <%= render "owner_add_log" %> <!-- this is the partial for the owner -->
+  <br>
+  <% end %>
 
   <% @logs.each do |log| %>
     <div class="container card d-flex flex-column h-100">

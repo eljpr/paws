@@ -1,6 +1,6 @@
 <h1>All your clients</h1>
   <div>
-    <%= link_to root_path, class:"green-back-link" do %>
+    <%= link_to root_path, class:"orange-back-link" do %>
       <i class="fa-solid fa-arrow-left"></i> Home
     <% end %>
   </div>
@@ -14,7 +14,7 @@
           <div class="orange-title card-nav-title">
             <h3 class="card-title"><%= dog.name  %> </h3>
           </div>
-          <div class="card-nav-img img-rounded">
+          <div class="card-nav-img">
               <% if dog.photo.attached? %>
                 <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", class: "small-img-square", alt: "#{dog.name}" %>
               <% else %>

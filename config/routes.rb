@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :dogs do
     resources :walks, except: %i[update delete]
-    resources :prescriptions
+    resources :prescriptions, except: :destroy
     resources :logs
     resources :markers, only: [:create]
   end
@@ -31,6 +31,10 @@ Rails.application.routes.draw do
     member do
       patch :complete
     end
+  end
+  namespace :api do
+    get 'walk/latest', to: 'walks#latest'
+
   end
 
   resources :chats, only: %i[index show create new] do
