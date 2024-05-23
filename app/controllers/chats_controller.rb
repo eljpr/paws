@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
 
     if @chat.nil?
       @chat = Chat.new
-      @chat.chat_id = current_user.id
+      @chat.user_id = current_user.id
       @chat.save!
     end
 
@@ -14,6 +14,7 @@ class ChatsController < ApplicationController
   def new
     @chat = current_user.chats.first
     @message = Message.new
+    @message.chat = @chat
   end
 
   def show
