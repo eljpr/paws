@@ -28,6 +28,8 @@ export default class extends Controller {
     this.isTracking = false;
     this.path = [];
     this.pathLayer = null;
+    this.starTime = null;
+    this.endTime = null;
 
     //add a button to start and stop tracking
     this.addTrackingButton();
@@ -149,10 +151,13 @@ export default class extends Controller {
   // start tracking the walk
   startTracking() {
     if (navigator.geolocation) {
+      this.starTime = new Date();
+      console.log(this.starTime)
       alert("your walk in being tracked")
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
+
           console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
           this.path.push([ latitude, longitude]);
           this.updatePathLayer();
@@ -185,6 +190,8 @@ export default class extends Controller {
 //stop tracking
   stopTracking() {
     navigator.geolocation.clearWatch(this.watchID);
+    this.endTime = new Date();
+    console.log(this.endTime)
     this.savePath();
   }
   //update the path layer on the map
@@ -253,7 +260,7 @@ export default class extends Controller {
         'Content-Type': 'application/json',
         'X-CSRF-Token': token
       },
-      body: JSON.stringify({ path: this.path })
+      body: JSON.stringify({ path: this.path, start_time: this.starTime, end_time: this.endTime })
     })
     .then(response => response.json())
     .then(data => console.log(`Walk saved with ID: ${data.id}`))
