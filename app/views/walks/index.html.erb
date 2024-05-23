@@ -38,7 +38,7 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
         data-controller="map">
     </div>
-<%= render 'walks/walk_data', walk: Walk.last %>
+<%= render 'walks/walk_data', walk: @walk %>
 
 <button id="showPopupButton">Display Walk Data</button>
 

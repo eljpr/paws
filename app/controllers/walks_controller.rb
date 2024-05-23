@@ -1,6 +1,7 @@
 class WalksController < ApplicationController
   def index
     @walks = Walk.all
+    @walk = Walk.last
     @markers = @walks.map do |walk|
       {
         start_lng: walk.start_lng,
