@@ -92,11 +92,12 @@ export default class extends Controller {
     button.style.width = '120px';
     button.style.height = '100px';
 
+
     this.map.addControl({
       onAdd:  () => {
         const container = document.createElement('div');
         container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
-
+        container.style.textAlign = 'center'; // Center align the button
         container.appendChild(button);
         return container;
       },
@@ -116,6 +117,7 @@ export default class extends Controller {
   // start tracking the walk
   startTracking() {
     if (navigator.geolocation) {
+      alert("your walk in being tracked")
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
