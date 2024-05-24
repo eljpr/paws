@@ -23,7 +23,7 @@
               : <%= log.created_at.strftime("%d-%m-%Y") %>
             </p>
           </div>
-          <div class="row row-cols-3">
+          <div class="row row-cols-3 d-flex justify-content-end">
             <div class="col-1">
               <%= link_to dog_log_path(:dog_id=>log.dog_id, :id => log.id) do %>
                 <span class="log-detail-key-view">
