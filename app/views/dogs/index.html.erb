@@ -10,7 +10,7 @@
     </div>
 
   <% @dogs.each do |dog| %>
-    <div class="card-container">
+    <div class="card-container dogs-card-container">
       <div class="card-body-details dog-card-center">
         <% if dog.photo.attached? %>
           <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", alt: "#{dog.name}", class:'img-square'%>
