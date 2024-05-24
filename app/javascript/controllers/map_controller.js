@@ -33,35 +33,35 @@ export default class extends Controller {
 
     //add a button to start and stop tracking
     this.addTrackingButton();
-    this.addLogContainer();
+    //this.addLogContainer();
     //this.showPopup();
 
   }
-  addLogContainer() {
-    if (!document.getElementById('logContainer')) {
-      const logContainer = document.createElement('div');
-      logContainer.id = 'logContainer';
-      logContainer.style.position = 'fixed';
-      logContainer.style.bottom = '0';
-      logContainer.style.left = '0';
-      logContainer.style.width = '100%';
-      logContainer.style.maxHeight = '200px';
-      logContainer.style.overflowY = 'auto';
-      logContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-      logContainer.style.color = 'white';
-      logContainer.style.padding = '10px';
-      logContainer.style.fontFamily = 'monospace';
-      document.body.appendChild(logContainer);
-      this.log('Log container added to the DOM');
-    }
-  }
-  log(message) {
-    const logContainer = document.getElementById('logContainer');
-    const logMessage = document.createElement('div');
-    logMessage.textContent = message;
-    logContainer.appendChild(logMessage);
-    logContainer.scrollTop = logContainer.scrollHeight;
-  }
+  // addLogContainer() {
+  //   if (!document.getElementById('logContainer')) {
+  //     const logContainer = document.createElement('div');
+  //     logContainer.id = 'logContainer';
+  //     logContainer.style.position = 'fixed';
+  //     logContainer.style.bottom = '0';
+  //     logContainer.style.left = '0';
+  //     logContainer.style.width = '100%';
+  //     logContainer.style.maxHeight = '200px';
+  //     logContainer.style.overflowY = 'auto';
+  //     logContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  //     logContainer.style.color = 'white';
+  //     logContainer.style.padding = '10px';
+  //     logContainer.style.fontFamily = 'monospace';
+  //     document.body.appendChild(logContainer);
+  //     this.log('Log container added to the DOM');
+  //   }
+  // }
+  // log(message) {
+  //   const logContainer = document.getElementById('logContainer');
+  //   const logMessage = document.createElement('div');
+  //   logMessage.textContent = message;
+  //   logContainer.appendChild(logMessage);
+  //   logContainer.scrollTop = logContainer.scrollHeight;
+  // }
 // adds markers to map
   addMarkersToMap() {
     if (navigator.geolocation) {
