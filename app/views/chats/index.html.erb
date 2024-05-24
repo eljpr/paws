@@ -2,8 +2,16 @@
   <h1>Previous questions</h1>
 
   <div class="container d-flex flex-column align-items-center">
+    <div class="row d-flex flex-column w-100 text-center">
+      <%= link_to new_chat_path, class:"dgreen-button bttn-chatbox" do %>
+        <span>Ask something</span>
+        <i class="fa-solid fa-comment-medical"></i>
+      <% end %>
+    </div>
+
+
     <% @messages.each do |message|  %>
-      <div class="card d-flex flex-column h-100 question">
+      <div class="card d-flex flex-column h-100 question" data-controller="toggle">
         <div class="row">
           <div class="row row-cols-2 d-flex justify-content-between">
             <div class="col-1">
@@ -17,24 +25,18 @@
           </div>
 
           <p><%= message.question %></p>
-        </div>
-      </div>
 
-      <div class="card d-flex flex-column h-100 answer">
-        <div class="row">
-          <div class="col">
-            <span class="chatbox-answer-icon">
-              <i class="fa-solid fa-comment-dots"></i>
-            </span>
-            <p><%= message.content %></p>
+          <div class="row d-flex justify-content-end" class="mt-5">
+            <div class="col-1">
+              <span data-action="click->toggle#fire"><i class="fa-solid fa-eye"></i></span>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
 
-    <%= link_to new_chat_path, class:"dgreen-button bttn-chatbox" do %>
-      <span>Ask something</span>
-      <i class="fa-solid fa-comment-medical"></i>
+        <div data-toggle-target="togglableElement" class="d-none">
+          <%= render "answer_chatbox", message: message %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

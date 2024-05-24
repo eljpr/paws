@@ -1,6 +1,13 @@
 .question{
-  background-color: $gray-30;
   font-weight: bold;
+}
+
+.answer {
+  width: 100%;
+  font-weight: normal;
+  background-color: $gray-30;
+  border: none;
+  box-shadow: 5px 5px 3px $gray-40;
 }
 
 .chatbox-created-at {
@@ -11,4 +18,8 @@
 .card p {
   line-height: 1.7rem;
   text-align: justify;
+}
+
+.bttn-chatbox {
+  margin-bottom: 20px;
 }
