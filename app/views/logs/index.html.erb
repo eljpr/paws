@@ -8,11 +8,11 @@
 
   <% if current_user.id == @dog.user.id %>
     <%= render "owner_add_log" %> <!-- this is the partial for the owner -->
-  <br>
+    <br>
   <% end %>
 
   <% @logs.each do |log| %>
-    <div class="container card d-flex flex-column h-100">
+    <div class="container card d-flex flex-column h-100 log-card-container">
       <div class="row row-cols-1">
         <div class="row row-cols-2">
           <div class="col-6">
