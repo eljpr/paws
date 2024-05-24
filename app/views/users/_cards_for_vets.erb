@@ -19,7 +19,7 @@
                   <% if dog.photo.attached? %>
                     <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", class: "img-rounded", alt: "#{dog.name}" %>
                   <% else %>
-                    <%= image_tag "dog_placeholder", class:"img-rounded" %>
+                    <%= image_tag "dog_placeholder.png", class:"img-rounded" %>
                 <% end %>
               </div>
             </div>

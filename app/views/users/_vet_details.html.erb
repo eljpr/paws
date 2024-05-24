@@ -30,7 +30,7 @@
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, gravity: "auto", crop: "fill", alt: "#{@user.first_name}", class:'img-square'%>
         <% else %>
-          <%= image_tag "profile_placeholder", class:"img-square" %>
+          <%= image_tag "profile_placeholder.png", class:"img-square" %>
       <% end %>
   <div class="vet-profile-info">
     <h5 class="card-title green-title"><strong><%= @user.first_name %> <%= @user.last_name %></strong> </h5>

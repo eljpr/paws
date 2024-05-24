@@ -15,7 +15,7 @@
         <% if dog.photo.attached? %>
           <%= cl_image_tag dog.photo.key, gravity: "auto", crop: "fill", alt: "#{dog.name}", class:'img-square'%>
         <% else %>
-          <%= image_tag "dog_placeholder", class:"img-square" %>
+          <%= image_tag "dog_placeholder.png", class:"img-square" %>
         <% end %>
 
         <div class="dog-name-link">
