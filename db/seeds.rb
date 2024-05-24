@@ -14,6 +14,8 @@ require "open-uri"
 
 puts "Cleaning database"
 
+Message.destroy_all
+Chat.destroy_all
 Log.destroy_all
 Prescription.destroy_all
 Walk.destroy_all
@@ -23,9 +25,10 @@ User.destroy_all
 
 puts "Creating users..."
 # Owners
-gilmar = User.create!(first_name: "Gilmar", last_name: "Margoti",  email: "gilmar@gmail.com", password: "123456", is_vet: false, address: "Rua da Alegria, 123", mobile_number: "073456789")
-gilmar_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/gilmar_ooc7zo.jpg")
-gilmar.photo.attach(io: gilmar_pic, filename: "gilmar.jpg", content_type: "image/jpg")
+
+ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@owner.com", password: "123456", is_vet: false, address: "Carnaby Street", mobile_number: "079402940")
+ben_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715868092/ben_wcjdeo.jpg")
+ben.photo.attach(io: ben_pic, filename: "ben.jpg", content_type: "image/jpg")
 
 meli = User.create!(first_name: "Melissa", last_name: "Murday", email: "meli@owner.com", password: "123456", is_vet: false, address: "Berwick Street", mobile_number: "070294901")
 meli_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/meli_jvwngi.jpg")
@@ -61,13 +64,14 @@ raeesa = User.create!(first_name: "Raessa", last_name: "Qureshi", email: "raessa
 raeesa_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/raeesa_j8sgng.jpg")
 raeesa.photo.attach(io: raeesa_pic, filename: "raessa.jpg", content_type: "image/jpg")
 
-max = User.create!(first_name: "Max", last_name: "Cody", email: "max@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "073010394", opening_time: Time.new(2024, 5, 15, 10, 0, 0), closing_time: Time.new(2024, 5, 15, 19, 0, 0))
+max = User.create!(first_name: "Max", last_name: "Cody", email: "max@vet.com", password: "123456", is_vet: true, address: "Dean Street", mobile_number: "073010394", opening_time: Time.new(2024, 5, 15, 10, 0, 0), closing_time: Time.new(2024, 5, 15, 19, 0, 0))
 max_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865273/max_pzxuoc.jpg")
 max.photo.attach(io: max_pic, filename: "max.jpg", content_type: "image/jpg")
 
-ben = User.create!(first_name: "Ben", last_name: "Tisdall", email: "ben@vet.com", password: "123456", is_vet: true, address: "Carnaby Street", mobile_number: "079402940", opening_time: Time.new(2024, 5, 15, 8, 0, 0), closing_time: Time.new(2024, 5, 15, 17, 0, 0))
-ben_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715868092/ben_wcjdeo.jpg")
-ben.photo.attach(io: ben_pic, filename: "ben.jpg", content_type: "image/jpg")
+gilmar = User.create!(first_name: "Gilmar", last_name: "Margoti",  email: "gilmar@vet.com", password: "123456", is_vet: true, address: "Berwick Street", mobile_number: "073456789", opening_time: Time.new(2024, 5, 15, 8, 0, 0), closing_time: Time.new(2024, 5, 15, 17, 0, 0))
+gilmar_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715865274/gilmar_ooc7zo.jpg")
+gilmar.photo.attach(io: gilmar_pic, filename: "gilmar.jpg", content_type: "image/jpg")
+
 
 puts "Users created successfully..."
 
@@ -80,7 +84,7 @@ thalys = Dog.create!(name: "Thalys", medication: "Amitraz", condition:"Demodex",
 thalys_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715867300/thalys_cyzlju.jpg")
 thalys.photo.attach(io: thalys_pic, filename: "thalys.jpg", content_type: "image/jpg")
 
-poker = Dog.create!(name: "Poker", medication: "None", condition:"None", breed: "Pomeranian", user_id: gilmar.id, date_of_birth: Date.new(2011, 05, 15), weight: 10)
+poker = Dog.create!(name: "Poker", medication: "None", condition:"None", breed: "Pomeranian", user_id: ben.id, date_of_birth: Date.new(2011, 05, 15), weight: 10)
 poker_pic = URI.open("https://res.cloudinary.com/ddxuxbfmy/image/upload/v1715868763/poker_bxorzz.jpg")
 poker.photo.attach(io: poker_pic, filename: "poker.jpg", content_type: "image/jpg")
 
@@ -102,18 +106,19 @@ peneloppe.photo.attach(io: peneloppe_pic, filename: "peneloppe.jpg", content_typ
 puts "Dog created successfully..."
 
 puts "Creating vet_dogs"
-VetDog.create!(user: max, dog: thalys, status: "accepted")
-VetDog.create!(user: ben, dog: peneloppe, status: "accepted")
-VetDog.create!(user: max, dog: poker, status: "accepted")
-VetDog.create!(user: max, dog: ruby, status: "accepted")
-VetDog.create!(user: max, dog: lulla, status: "accepted")
-VetDog.create!(user: ife, dog: miko, status: "accepted")
-VetDog.create!(user: raeesa, dog: piggy, status: "accepted")
+VetDog.create!(user: gilmar, dog: thalys, status: "accepted")
+VetDog.create!(user: max, dog: peneloppe, status: "accepted")
+VetDog.create!(user: gilmar, dog: poker, status: "accepted")
+VetDog.create!(user: gilmar, dog: ruby, status: "accepted")
+VetDog.create!(user: gilmar, dog: lulla, status: "accepted")
+VetDog.create!(user: gilmar, dog: miko, status: "accepted")
+VetDog.create!(user: ife, dog: piggy, status: "accepted")
 puts"Vet_dog created successfully..."
 
 puts "Creating prescriptions"
 Prescription.create!(dog: thalys, user: ella, medication_name: "Advocate", completed: true, start_date: Date.new(2022, 3, 1), end_date: Date.new(2022, 3, 15), description: "Flea treatment", dosage: "1 pipette full spread all over your dog's coate once a month", time_of_day: "N/A", number_of_times_per_day: 0)
 Prescription.create!(dog: thalys, user: ella, medication_name: "Optimmune", completed: true, start_date: Date.new(2022, 12, 5), end_date: Date.new(2022, 12, 16), description: "Eye ointment", dosage: "3mg", time_of_day: "Before bed", number_of_times_per_day: 1)
+Prescription.create!(dog: thalys, user: ella, medication_name: "YuMove", completed: false, start_date: Date.new(2024, 5, 18), end_date: Date.new(2024, 5, 25), description: "Supplement for joints", dosage: "60mg", time_of_day: "before bed", number_of_times_per_day: 1)
 Prescription.create!(dog: thalys, user: ella, medication_name: "NSAID", completed: false, start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 5, 30), description: "Joint health supplement", dosage: "50mg", time_of_day: "morning", number_of_times_per_day: 1)
 puts "Prescription created successfully..."
 

@@ -1,7 +1,7 @@
 <div class="parent container d-flex flex-column h-100">
   <h1><%= @dog.name %>'s log</h1>
 
-      <%= link_to dogs_path, class:"orange-back-link" do %>
+      <%= link_to dog_path(@dog), class:"orange-back-link" do %>
       <i class="fa-solid fa-arrow-left-long"></i> Back
     <% end %>
 
