@@ -1,6 +1,10 @@
 <div class="parent container h-100">
   <h1>Chatbox</h1>
 
+  <%= link_to chats_path, class:"orange-back-link" do %>
+    <i class="fa-solid fa-arrow-left"></i> See previous questions
+  <% end %>
+
   <%= simple_form_for [@chat, @message] do |f| %>
     <%= f.error_notification %>
 
