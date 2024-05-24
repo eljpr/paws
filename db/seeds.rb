@@ -14,6 +14,7 @@ require "open-uri"
 
 puts "Cleaning database"
 
+Message.destroy_all
 Chat.destroy_all
 Log.destroy_all
 Prescription.destroy_all
@@ -117,6 +118,7 @@ puts"Vet_dog created successfully..."
 puts "Creating prescriptions"
 Prescription.create!(dog: thalys, user: ella, medication_name: "Advocate", completed: true, start_date: Date.new(2022, 3, 1), end_date: Date.new(2022, 3, 15), description: "Flea treatment", dosage: "1 pipette full spread all over your dog's coate once a month", time_of_day: "N/A", number_of_times_per_day: 0)
 Prescription.create!(dog: thalys, user: ella, medication_name: "Optimmune", completed: true, start_date: Date.new(2022, 12, 5), end_date: Date.new(2022, 12, 16), description: "Eye ointment", dosage: "3mg", time_of_day: "Before bed", number_of_times_per_day: 1)
+Prescription.create!(dog: thalys, user: ella, medication_name: "YuMove", completed: false, start_date: Date.new(2024, 5, 18), end_date: Date.new(2024, 5, 25), description: "Supplement for joints", dosage: "60mg", time_of_day: "before bed", number_of_times_per_day: 1)
 Prescription.create!(dog: thalys, user: ella, medication_name: "NSAID", completed: false, start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 5, 30), description: "Joint health supplement", dosage: "50mg", time_of_day: "morning", number_of_times_per_day: 1)
 puts "Prescription created successfully..."
 
