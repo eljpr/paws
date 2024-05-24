@@ -9,10 +9,13 @@
 }
 
 .log-item {
-  flex: 0 0 30%;
-  border: 1px solid $lorange-pawsg;
+  // flex: 0 0 30%;
+  border: none;
   border-radius: 5px;
-  margin: 2px
+  margin: 2px;
+  display: flex;
+  text-align: start;
+  justify-content: flex-start;
 }
 
 .log-selector {
@@ -21,15 +24,16 @@
 }
 
 .log-selector + label {
-  display: block;
+  display: flex;
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
   font-size: 12px;
-  text-align: center;
-  justify-content: center;
-  padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
+  text-align: start;
+  justify-content: flex-start;
+  // padding: 10px 10px 30px 10px;
+  border: none;
   border-radius: 4px;
   background-color: $gray-10;
 }
@@ -43,293 +47,294 @@
 #log_food_kibble + label {
   background-image: url("food_kibble.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
+
 }
 
 #log_food_canned + label {
   background-image: url("food_canned.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_food_raw + label {
   background-image: url("food_raw.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_food_home-made + label {
   background-image: url("food_homemade.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_medication_none + label {
   background-image: url("none_blue.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_medication_antibiotic + label {
   background-image: url("medication_antibiotic.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_medication_antiparasitic + label {
   background-image: url("medication_antiparasitic.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_medication_antifungal + label {
   background-image: url("medication_antifungal.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_medication_steroids + label {
   background-image: url("medication_steroids.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_medication_pain + label {
   background-image: url("medication_painkillers.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_medication_relief + label {
   background-image: url("medication_painkillers.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_special_treat_crunchy + label {
   background-image: url("treat_crunchy.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 #log_special_treat_soft + label {
   background-image: url("treat_chewy.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 #log_special_treat_jerky + label {
   background-image: url("treat_jerky.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 #log_special_treat_dental-chews + label {
   background-image: url("treat_dental.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 #log_special_treat_animal-based + label {
   background-image: url("treat_animalbased.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 #log_special_treat_rawhide + label {
   background-image: url("treat_rawhide.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 #log_special_treat_home-made + label {
   background-image: url("treat_homemade.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_grooming_bath + label {
   background-image: url("grooming_bath.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 130% 130%;
 }
 
 #log_grooming_brush + label {
   background-image: url("grooming_brushing.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_grooming_nail-trim + label {
   background-image: url("grooming_nailclip.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_grooming_ear-care + label {
   background-image: url("grooming_earcare.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_grooming_fur-cut + label {
   background-image: url("grooming_haircut.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_grooming_brush-teeth + label {
   background-image: url("grooming_toothbrush.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_stool_normal + label {
   background-image: url("stool_normal.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_stool_constipation + label {
   background-image: url("stool_constipation.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_stool_diarrhea + label {
   background-image: url("stool_diarrhea.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_vaccination_none + label {
   background-image: url("none_orange.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_vaccination_distemper + label {
   background-image: url("vaccine.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_vaccination_parvovirus + label {
   background-image: url("vaccine.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_vaccination_adenovirus + label {
   background-image: url("vaccine.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_vaccination_leptospira + label {
   background-image: url("vaccine.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_mood_happy + label {
   background-image: url("mood_happy.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_mood_fearful + label {
   background-image: url("mood_fearful.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 130% 130%;
 }
 
 #log_mood_anxious + label {
   background-image: url("mood_anzious.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_mood_jealous + label {
   background-image: url("mood_jealous.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_mood_aggressive + label {
   background-image: url("mood_aggressive.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_energy_energertic + label {
   background-image: url("energy_energetic.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_energy_ok + label {
   background-image: url("energy_ok.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_energy_tired + label {
   background-image: url("energy_tired.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_energy_exhausted + label {
   background-image: url("energy_exhausted.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_energy_calm + label {
   background-image: url("energy_calm.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_energy_excited + label {
   background-image: url("energy_excited.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_training_obedience + label {
   background-image: url("training_behavioural.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_training_therapy + label {
   background-image: url("training_therapy.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_training_behavioural + label {
   background-image: url("training_behavioural.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_training_agility + label {
   background-image: url("training_agility.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_training_protection + label {
   background-image: url("training_protection.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_training_service + label {
   background-image: url("training_servicetracking.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
 
 #log_training_tracking + label {
   background-image: url("training_servicetracking.PNG");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 150% 150%;
 }
