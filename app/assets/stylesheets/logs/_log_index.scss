@@ -1,13 +1,11 @@
 .card {
-  width: 360px;
-  height: 135px;
+  width: 100%;
 
   padding: 20px;
   margin-bottom: 10px;
 
   background-color: $gray-10;
   border-radius: 20px;
-  border: 1px solid $lorange-pawsg;
   box-shadow: 3px 3px 8px $lorange-pawsg;
 }
 
@@ -33,4 +31,8 @@
 
 .log-detail-key i {
   width: 16px;
+}
+
+.log-card-container {
+  margin-top: -10px;
 }
