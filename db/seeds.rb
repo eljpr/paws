@@ -14,6 +14,7 @@ require "open-uri"
 
 puts "Cleaning database"
 
+Chat.destroy_all
 Log.destroy_all
 Prescription.destroy_all
 Walk.destroy_all
